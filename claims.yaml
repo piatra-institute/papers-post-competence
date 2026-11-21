@@ -1,10 +1,10 @@
 schema: 1
-coverage: pending
-reviewed_manuscript_sha256: null
+coverage: reviewed
+reviewed_manuscript_sha256: cafb17db66dd9eccded132e1e4a3d8ffe10d8fab61ba66756adb4d2d081ea919
 claims:
 - id: abs-items
   kind: computation
-  passage: On 40 olympiad problems with 6 attempts each, a small current model was right on 88% of attempts.
+  passage: On 40 public olympiad problems a small current model was right on 88% of attempts.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -13,20 +13,9 @@ claims:
     scale: 1
     units: items
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
-- id: abs-attempts
-  kind: computation
-  passage: On 40 olympiad problems with 6 attempts each, a small current model was right on 88% of attempts.
-  evidence:
-    file: simulation/output/results.json
-    run_id: analysis
-    pointer: /config/attempts
-    reported: '6'
-    scale: 1
-    units: attempts per item
-    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: abs-p
   kind: computation
-  passage: On 40 olympiad problems with 6 attempts each, a small current model was right on 88% of attempts.
+  passage: On 40 public olympiad problems a small current model was right on 88% of attempts.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -38,7 +27,7 @@ claims:
     decimals: 0
 - id: abs-self-f
   kind: computation
-  passage: Its own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%.
+  passage: Its own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%, against 94% with a stronger model as checker and 95% with a perfect check.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -50,7 +39,7 @@ claims:
     decimals: 0
 - id: abs-self-lim
   kind: computation
-  passage: Its own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%.
+  passage: Its own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%, against 94% with a stronger model as checker and 95% with a perfect check.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -62,7 +51,7 @@ claims:
     decimals: 0
 - id: abs-strong-lim
   kind: computation
-  passage: A stronger model as checker reached 94%, and a perfect check 95%, limited by 2 items the model never solved.
+  passage: Its own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%, against 94% with a stronger model as checker and 95% with a perfect check.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -74,7 +63,7 @@ claims:
     decimals: 0
 - id: abs-oracle-lim
   kind: computation
-  passage: A stronger model as checker reached 94%, and a perfect check 95%, limited by 2 items the model never solved.
+  passage: Its own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%, against 94% with a stronger model as checker and 95% with a perfect check.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -84,43 +73,84 @@ claims:
     units: percent reliability at the limit
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
     decimals: 0
-- id: abs-never
+- id: abs-r-n
   kind: computation
-  passage: A stronger model as checker reached 94%, and a perfect check 95%, limited by 2 items the model never solved.
+  passage: On 25 harder problems (58% right), its self-check raised reliability only to 60%, while the stronger checker reached the 72% a perfect check allows.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
-    pointer: /population/n_never
-    reported: '2'
-    scale: 1
-    units: items never solved in 6 attempts
-    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
-- id: abs-pooled-gap
-  kind: computation
-  passage: Pooled precision overstated what resampling reached by up to 5 points.
-  evidence:
-    file: simulation/output/results.json
-    run_id: analysis
-    pointer: /checks/strong/pooled_minus_ceiling_abstain
-    reported: '5'
-    scale: 100
-    units: percentage points (largest gap, stronger-model check)
-    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
-    decimals: 0
-- id: abs-n-limit
-  kind: computation
-  passage: With 40 items the differences between checks are not resolved from zero, and only one generator in one domain was measured.
-  evidence:
-    file: simulation/output/results.json
-    run_id: analysis
-    pointer: /config/n_items
-    reported: '40'
+    pointer: /robust/n_items
+    reported: '25'
     scale: 1
     units: items
-    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: abs-r-p
+  kind: computation
+  passage: On 25 harder problems (58% right), its self-check raised reliability only to 60%, while the stronger checker reached the 72% a perfect check allows.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/mean_p
+    reported: 58%
+    scale: 100
+    units: percent of attempts correct
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 0
+- id: abs-r-self
+  kind: computation
+  passage: On 25 harder problems (58% right), its self-check raised reliability only to 60%, while the stronger checker reached the 72% a perfect check allows.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/self/limit
+    reported: 60%
+    scale: 100
+    units: percent reliability at the limit
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 0
+- id: abs-r-strong
+  kind: computation
+  passage: On 25 harder problems (58% right), its self-check raised reliability only to 60%, while the stronger checker reached the 72% a perfect check allows.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/strong/limit
+    reported: 72%
+    scale: 100
+    units: percent reliability at the limit (equals oracle limit)
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 0
+- id: abs-cue-main
+  kind: computation
+  passage: By hand classification, at least 30% and 67% of the stronger model's verdicts invoked a remembered answer, so its advantage partly reflects memory.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/remembered_share
+    reported: 30%
+    scale: 100
+    units: percent of stronger-model verdicts invoking a remembered answer (main set)
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+    decimals: 0
+- id: abs-cue-rob
+  kind: computation
+  passage: By hand classification, at least 30% and 67% of the stronger model's verdicts invoked a remembered answer, so its advantage partly reflects memory.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/robust/strong/remembered_share
+    reported: 67%
+    scale: 100
+    units: percent of stronger-model verdicts invoking a remembered answer (robustness set; lower bound)
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+    decimals: 0
+- id: abs-n-limit
+  kind: interpretation
+  passage: With these samples most differences between checks remain unresolved.
+  rationale: Summary of the paired bootstrap intervals in Sections 5.4 and 5.5.
 - id: abs-ceiling-known
   kind: interpretation
-  passage: Accepting the first output that passes converges to the check's precision, $sp/[sp+f(1-p)]$, a limit already known for verifier-based selection.
+  passage: Accepting the first output that passes converges to the check's precision, $sp/[sp+f(1-p)]$, a known limit for verifier-based selection.
   rationale: 'Credits prior work: the limit is Davis et al. (2024), Theorem 1 as K goes to infinity (read in full).'
 - id: intro-items
   kind: computation
@@ -168,29 +198,22 @@ claims:
     scale: 1
     units: attempts
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
-- id: intro-self6
+- id: intro-self3
   kind: computation
-  passage: When the model judged its own answers, 6 attempts reached 92%, and no larger budget improved on that.
+  passage: When the model judged its own answers, reliability reached 92% within 3 attempts, and extrapolating from the observed attempts gives no gain from larger budgets.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
-    pointer: /protocols/self/reliability/6
+    pointer: /protocols/self/reliability/3
     reported: 92%
     scale: 100
-    units: percent reliability, self-check, 6 attempts
+    units: percent reliability, self-check, 3 generations
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
     decimals: 0
-- id: intro-self6-n
-  kind: computation
-  passage: When the model judged its own answers, 6 attempts reached 92%, and no larger budget improved on that.
-  evidence:
-    file: simulation/output/results.json
-    run_id: analysis
-    pointer: /config/attempts
-    reported: '6'
-    scale: 1
-    units: attempts
-    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: intro-self3-n
+  kind: definition
+  passage: When the model judged its own answers, reliability reached 92% within 3 attempts, and extrapolating from the observed attempts gives no gain from larger budgets.
+  rationale: Budget 3 is an evaluation point in results.json /protocols/self/reliability; larger budgets are plug-in extrapolations (Section 5.2).
 - id: intro-thesis
   kind: interpretation
   passage: The claim that externalised intelligence makes everyone such a ruler, so that what a person can bring about depends on the computation they command more than on the skills they possess, can be summarised as "power equals compute".
@@ -202,8 +225,8 @@ claims:
     citation_id: anderson2023
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Crossref record and abstract read: the article proposes looking beyond Bernstein''s ''competence model'' in educational linguistics. Only the prior use of the term is claimed.'
+    verified: true
+    verification_note: 'Crossref record and abstract read: the article proposes looking beyond Bernstein''s ''competence model'' in educational linguistics. Only the prior use of the term is claimed. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected Crossref/OpenAlex abstract of Anderson (2023), Educational Linguistics 3(2):258-285 (DOI 10.1515/eduling-2023-0009); proposes a ''post-competence perspective'' moving beyond Bernstein''s ''competence model'' in educational linguistics.'
 - id: intro-ceiling-def
   kind: definition
   passage: Accepting the first output that passes the check converges, as attempts grow, to $sp/[sp + f(1-p)]$, the check's precision at the generator's base rate; call it the precision ceiling.
@@ -215,8 +238,8 @@ claims:
     citation_id: davis2024
     locator: Section 2.2, Theorems 1 and 2
     depth: fulltext
-    verified: false
-    verification_note: 'Read the arXiv v1 PDF, Section 2.2. Theorem 1 gives P(J(q)=a*) = rc(1-(1-beta)^K)/beta + (1-beta)^K/|A|; Theorem 2: gain positive iff r not in {0,1} and c > 1 - s.'
+    verified: true
+    verification_note: 'Read the arXiv v1 PDF, Section 2.2. Theorem 1 gives P(J(q)=a*) = rc(1-(1-beta)^K)/beta + (1-beta)^K/|A|; Theorem 2: gain positive iff r not in {0,1} and c > 1 - s. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected DataCite record (10.48550/arXiv.2407.16831) and v1 PDF Section 2.2 (Theorems 1 and 2); derives limit rc/beta = sp/[sp+f(1-p)] and positive gain iff r not in {0,1} and c > 1-s.'
     quote: 'When the number of generators K goes to infinity, the gain of a verifier-based judge is positive if and only if: r ≠ 0, 1 and c = P(J(a, π) = 1 | a = a∗) > P(J(a, π) = 1 | a ≠ a∗) = 1 − s.'
 - id: intro-stroebl
   kind: source
@@ -225,8 +248,8 @@ claims:
     citation_id: stroebl2024
     locator: abstract and Section 3
     depth: fulltext
-    verified: false
-    verification_note: 'Read v3 (26 March 2026) abstract and Section 3: imperfect verifiers with non-zero false-positive probability impose an upper bound on resampling accuracy; weaker models cannot match a sufficiently strong model''s single-sample accuracy (HumanEval+ and MBPP+).'
+    verified: true
+    verification_note: 'Read v3 (26 March 2026) abstract and Section 3: imperfect verifiers with non-zero false-positive probability impose an upper bound on resampling accuracy; weaker models cannot match a sufficiently strong model''s single-sample accuracy (HumanEval+ and MBPP+). Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected DataCite abstract (10.48550/arXiv.2411.17501) and v3 PDF introduction/Appendix C; shows false positives in imperfect unit-test verifiers on HumanEval and MBPP cap resampling below a sufficiently strong model''s single-sample accuracy.'
     quote: Then the weaker model cannot match the performance of a single invocation of the stronger model, no matter how big the compute budget for the weaker model.
 - id: intro-brown
   kind: source
@@ -235,8 +258,8 @@ claims:
     citation_id: brown2024
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: coverage scales with samples over four orders of magnitude; majority voting and reward models plateau beyond several hundred samples. Schaeffer et al. (abstract) relate aggregate scaling to the distribution of per-problem success; Chen et al. 2024 (abstract) report non-monotone vote scaling; Snell et al. (abstract) study compute-optimal allocation.'
+    verified: true
+    verification_note: 'Abstract read: coverage scales with samples over four orders of magnitude; majority voting and reward models plateau beyond several hundred samples. Schaeffer et al. (abstract) relate aggregate scaling to the distribution of per-problem success; Chen et al. 2024 (abstract) report non-monotone vote scaling; Snell et al. (abstract) study compute-optimal allocation. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstracts for all four co-cited works: brown2024 (10.48550/arXiv.2407.21787, log-linear sample coverage scaling), schaeffer2025 (10.48550/arXiv.2502.17578), chen2024calls (10.48550/arXiv.2403.02419, non-monotone Vote scaling), and snell2024 (10.48550/arXiv.2408.03314, adaptive test-time allocation across prompts).'
 - id: intro-cobbe
   kind: source
   passage: Verifiers trained to rank sampled solutions go back at least to work on grade-school mathematics [@cobbe2021; @lightman2023].
@@ -244,12 +267,46 @@ claims:
     citation_id: cobbe2021
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: GSM8K; train verifiers to judge completions; at test time generate many candidates and select the highest-ranked. Lightman et al. (abstract): process supervision on MATH.'
+    verified: true
+    verification_note: 'Abstract read: GSM8K; train verifiers to judge completions; at test time generate many candidates and select the highest-ranked. Lightman et al. (abstract): process supervision on MATH. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstracts for cobbe2021 (10.48550/arXiv.2110.14168, GSM8K trained verifiers ranking sampled solutions) and lightman2023 (10.48550/arXiv.2305.20050, MATH supervision).'
 - id: intro-contrib
   kind: interpretation
   passage: Beyond these results, the paper does the following.
   rationale: Statement of contribution relative to Davis et al. (2024) and Stroebl et al. (2024); each item is proved in Section 4 or measured in Section 5.
+- id: ov-bowman
+  kind: source
+  passage: People assisted by an unreliable dialogue model outperformed both the model and their own unaided performance on two question-answering tasks [@bowman2022].
+  evidence:
+    citation_id: bowman2022
+    locator: abstract
+    depth: abstract
+    verified: true
+    verification_note: 'Abstract read: human participants interacting with an unreliable LLM dialog assistant substantially outperform both the model alone and their own unaided performance on MMLU and time-limited QuALITY. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract for bowman2022 (10.48550/arXiv.2211.03540); humans assisted by an unreliable LLM dialogue model outperform both the model and unaided humans on MMLU and time-limited QuALITY.'
+    quote: we find that human participants who interact with an unreliable large-language-model dialog assistant through chat -- a trivial baseline strategy for scalable oversight -- substantially outperform both the model alone and their own unaided performance.
+- id: ov-saunders
+  kind: source
+  passage: Model-written critiques helped people find flaws they would otherwise have missed [@saunders2022].
+  evidence:
+    citation_id: saunders2022
+    locator: abstract
+    depth: abstract
+    verified: true
+    verification_note: 'Abstract read: critiques written by fine-tuned models help humans find flaws in summaries that they would have otherwise missed. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract for saunders2022 (10.48550/arXiv.2206.05802); model-written critiques help humans find flaws in summaries they would otherwise miss.'
+    quote: critiques written by our models help humans find flaws in summaries that they would have otherwise missed.
+- id: ov-burns
+  kind: source
+  passage: Strong models fine-tuned on a weak model's labels outperformed their supervisor without recovering their full capability [@burns2023].
+  evidence:
+    citation_id: burns2023
+    locator: abstract
+    depth: abstract
+    verified: true
+    verification_note: 'Abstract read: strong pretrained models fine-tuned on weak-model labels consistently perform better than their weak supervisors but do not recover their full capabilities with naive fine-tuning. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract and OpenAlex record for burns2023 (10.48550/arXiv.2312.09390); strong models fine-tuned on weak labels beat their supervisor without recovering full capabilities under naive finetuning.'
+    quote: they consistently perform better than their weak supervisors, a phenomenon we call weak-to-strong generalization. However, we are still far from recovering the full capabilities of strong models with naive finetuning alone
+- id: ov-contrast
+  kind: interpretation
+  passage: These studies ask whether weak supervision can be made better; this paper asks how far a given weak check lets compute go.
+  rationale: Positions the paper relative to the scalable-oversight literature.
 - id: def-attainable
   kind: definition
   passage: The attainable set at budget $c$ and reliability $\rho$ is $$\mathcal A_i(c,\rho)=\{x\in\mathcal X:\ \exists\,\pi\in\Pi_i,\ C(\pi)\le c,\ p_x(\pi)\ge\rho\}.$$ It plays the role of Sen's capability set, the set of functionings a person is able to achieve [@sen1985], restricted to outcomes with stated standards, budgets and reliability.
@@ -269,8 +326,8 @@ claims:
     citation_id: noy2023
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Crossref abstract read: 453 college-educated professionals; time decreased by 40% and output quality rose by 18%; inequality between workers decreased.'
+    verified: true
+    verification_note: 'Crossref abstract read: 453 college-educated professionals; time decreased by 40% and output quality rose by 18%; inequality between workers decreased. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected OpenAlex abstract for noy2023 (10.1126/science.adh2586); preregistered study of 453 college-educated professionals reporting 40% time decrease, 18% quality rise, and lower inequality.'
     quote: The average time taken decreased by 40% and output quality rose by 18%. Inequality between workers decreased
 - id: src-brynjolfsson
   kind: source
@@ -279,8 +336,8 @@ claims:
     citation_id: brynjolfsson2025
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Crossref abstract of the published QJE article read: 5,172 agents; productivity up 15% on average; less experienced and lower-skilled workers improve both speed and quality.'
+    verified: true
+    verification_note: 'Crossref abstract of the published QJE article read: 5,172 agents; productivity up 15% on average; less experienced and lower-skilled workers improve both speed and quality. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected Crossref and OpenAlex abstracts for brynjolfsson2025 (10.1093/qje/qjae044); 5,172 customer-support agents, 15% average increase in issues resolved per hour, largest speed and quality gains for less experienced/lower-skilled workers.'
     quote: Access to AI assistance increases worker productivity, as measured by issues resolved per hour, by 15% on average
 - id: src-becker-main
   kind: source
@@ -289,8 +346,8 @@ claims:
     citation_id: becker2025
     locator: abstract
     depth: fulltext
-    verified: false
-    verification_note: 'Read v2 full text: abstract states 16 developers, 246 tasks, forecast 24% reduction, post-hoc estimate 20% reduction, observed 19% increase in completion time.'
+    verified: true
+    verification_note: 'Read v2 full text: abstract states 16 developers, 246 tasks, forecast 24% reduction, post-hoc estimate 20% reduction, observed 19% increase in completion time. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected DataCite abstract and v2 PDF for becker2025 (10.48550/arXiv.2507.09089); RCT with 16 developers and 246 tasks, 24% forecast reduction, 20% post-hoc perceived reduction, 19% observed slowdown.'
     quote: Surprisingly, we find that allowing AI actually increases completion time by 19%—AI tooling slowed developers down.
 - id: src-becker-review
   kind: source
@@ -299,23 +356,43 @@ claims:
     citation_id: becker2025
     locator: Appendix C.1.4
     depth: fulltext
-    verified: false
-    verification_note: 'Read Appendix C.1.4 (Low AI reliability): developers accept <44% of generations; on 44 issues with labelled screen recordings about 9% of time with AI is spent reviewing and cleaning AI outputs.'
+    verified: true
+    verification_note: 'Read Appendix C.1.4 (Low AI reliability): developers accept <44% of generations; on 44 issues with labelled screen recordings about 9% of time with AI is spent reviewing and cleaning AI outputs. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected becker2025 v2 PDF Appendix C.1.4; confirms <44% acceptance of AI generations and approximately 9% of AI-assisted time spent reviewing and cleaning AI outputs on labelled screen recordings.'
     quote: developers spend approximately 9% of their time reviewing and cleaning AI generated outputs when working with AI.
 - id: src-dellacqua
   kind: source
-  passage: In a field experiment with 758 consultants, AI access improved work on tasks inside the frontier of the system's capability but made consultants less likely to reach a correct answer on a task selected to lie outside it [@dellacqua2023].
+  passage: In a field experiment with 758 consultants, AI access improved work on tasks inside the frontier of the system's capability but made consultants less likely to reach a correct answer on a task selected to lie outside it [@dellacqua2026].
   evidence:
-    citation_id: dellacqua2023
+    citation_id: dellacqua2026
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Crossref abstract of the SSRN working paper read: 758 knowledge workers; inside the frontier AI users completed more tasks faster with higher quality; on a task selected to be outside the frontier, AI users were less likely to produce correct solutions. The effect size is not reported in the paper because its unit is ambiguous in the abstract.'
+    verified: true
+    verification_note: 'Crossref abstract of the version of record (Organization Science 37(2), 2026) read; it matches the SSRN working-paper abstract: 758 knowledge workers; inside the frontier AI users completed more tasks faster with higher quality; on a task selected to be outside the frontier, AI users were less likely to produce correct solutions. The effect size is not reported in the paper because its unit is ambiguous in the abstract. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected Crossref and OpenAlex abstracts for dellacqua2026 (Organization Science 37(2):403-423, DOI 10.1287/orsc.2025.21838); 758 knowledge workers, improved outcomes inside the frontier and 19% lower likelihood of correct solutions outside it.'
     quote: for a complex managerial task selected to be outside the frontier, subjects using AI were 19% less likely to produce correct solutions compared with those without AI
 - id: interp-two-studies
   kind: interpretation
   passage: The first study shows verification consuming expert time; the second shows assisted people accepting wrong output.
   rationale: Interpretive summary of the two preceding source claims.
+- id: auto-bainbridge
+  kind: source
+  passage: Automating a process leaves the operator to monitor a system that was installed because it does the job better than they can [@bainbridge1983, sec. 1.1.3].
+  evidence:
+    citation_id: bainbridge1983
+    locator: Section 1.1.3, p. 776
+    depth: fulltext
+    verified: true
+    verification_note: "Read the full five-page article (scan). Section 1.1.3 Monitoring, p. 776. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected Crossref record (10.1016/0005-1098(83)90046-8) and scanned fulltext PDF of Bainbridge (1983), Automatica 19(6), Section 1.1.3 p. 776 verbatim ('the automatic control system has been put in because it can do the job better than the operator, but yet the operator is being asked to monitor that it is working effectively')."
+    quote: A more serious irony is that the automatic control system has been put in because it can do the job better than the operator, but yet the operator is being asked to monitor that it is working effectively.
+- id: auto-parasuraman
+  kind: source
+  passage: With imperfect decision aids, automation bias produces errors of omission and commission in naive and expert users alike and is not prevented by training or instructions [@parasuraman2010].
+  evidence:
+    citation_id: parasuraman2010
+    locator: abstract
+    depth: abstract
+    verified: true
+    verification_note: 'Crossref structured abstract read: automation bias results in omission and commission errors when decision aids are imperfect; occurs in naive and expert participants; cannot be prevented by training or instructions. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected Crossref and OpenAlex structured abstracts for parasuraman2010 (Human Factors 52(3):381-410, DOI 10.1177/0018720810376055); states automation bias causes omission and commission errors in naive and expert participants alike and cannot be prevented by training or instructions.'
+    quote: Automation bias results in making both omission and commission errors when decision aids are imperfect. Automation bias occurs in both naive and expert participants, cannot be prevented by training or instructions
 - id: src-kwa
   kind: source
   passage: 'Measured capability also depends on the reliability demanded: for frontier agents on software tasks, the task length completed with 80% success is 4 to 6 times shorter than the length completed with 50% success [@kwa2025, sec. 3.2.1].'
@@ -323,9 +400,33 @@ claims:
     citation_id: kwa2025
     locator: Section 3.2.1
     depth: fulltext
-    verified: false
-    verification_note: 'Read v4 Section 3.2.1: 80% time horizons are 4-6x shorter than 50% horizons; doubling times similar.'
+    verified: true
+    verification_note: 'Read v4 Section 3.2.1: 80% time horizons are 4-6x shorter than 50% horizons; doubling times similar. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected DataCite abstract and v4 PDF Section 3.2.1 for kwa2025 (10.48550/arXiv.2503.14499); confirms 80% time horizons on software tasks are 4-6x shorter than 50% time horizons.'
     quote: However, models’ 80% time horizons are 4-6x shorter, suggesting that even models that sometimes succeed on difficult and diverse tasks cannot reliably perform tasks of moderate length.
+- id: def-onetask
+  kind: definition
+  passage: Fix one task.
+  rationale: Section 3 analyses a single task; populations of tasks are treated in Section 4.2.
+- id: prop1-once
+  kind: interpretation
+  passage: The odds form shows that the invoker's evidence is applied once.
+  rationale: 'Reading of the odds form of Proposition 1: each accepted output has passed exactly one check.'
+- id: prop1-onecheck
+  kind: interpretation
+  passage: Every accepted output has passed one check, and no amount of resampling raises its odds above the generator's odds multiplied by the check's likelihood ratio.
+  rationale: Follows from the protocol definition (accept the first output that passes a single check) and Proposition 1.
+- id: vote-onewrong
+  kind: interpretation
+  passage: 'The vote therefore replaces the invoker''s verification competence with an assumption about how errors are spread: one systematic wrong answer that is more frequent than the right one defeats it (Figure 1a).'
+  rationale: 'Plurality limit for independent attempts: a single wrong answer more probable than the right one wins in the limit (checked in tests/test_theory.py and Figure 1a).'
+- id: prop3-pool-def
+  kind: definition
+  passage: '**Proposition 3.** (a) Let $P_{\text{pool}}=\mathbb E[a_x\pi_x]/\mathbb E[a_x]$ be the pooled precision, the share of correct outputs among accepted ones when each task is attempted once.'
+  rationale: 'Definition of pooled precision in Proposition 3(a): one attempt per task.'
+- id: def-compute
+  kind: definition
+  passage: Under a model check each attempt costs one generation and one verdict call, and a verdict on a candidate already judged can be reused.
+  rationale: 'Unit of compute: one generation per attempt plus one verdict call per newly judged candidate under a model check (Section 3).'
 - id: assume-iid
   kind: assumption
   passage: Given the task, attempts are independent and identically distributed, which holds exactly for independent samples from a fixed model and prompt.
@@ -349,8 +450,8 @@ claims:
     citation_id: davis2024
     locator: Section 2.2, Theorems 1 and 2
     depth: fulltext
-    verified: false
-    verification_note: Read Theorems 1-2 and proofs. Their judge returns a random answer when all candidates are rejected; the K-to-infinity limit rc/beta equals the ceiling.
+    verified: true
+    verification_note: 'Read Theorems 1-2 and proofs. Their judge returns a random answer when all candidates are rejected; the K-to-infinity limit rc/beta equals the ceiling. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected davis2024 v1 PDF Section 2.2 Theorems 1-2; confirms random-answer fallback when all candidates are rejected yields the same K->infinity precision limit rc/beta.'
 - id: prop1-meehl
   kind: source
   passage: 'Its dependence on the base rate is the point Meehl and Rosen made about psychometric signs [@meehl1955]: a check that separates well can still pass many errors when correct outputs are rare.'
@@ -358,12 +459,48 @@ claims:
     citation_id: meehl1955
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'OpenAlex abstract read: a psychometric device must yield more correct decisions than base rates alone; efficiency depends on base rates.'
+    verified: true
+    verification_note: 'OpenAlex abstract read: a psychometric device must yield more correct decisions than base rates alone; efficiency depends on base rates. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected OpenAlex abstract for meehl1955 (10.1037/h0048070); shows efficiency of psychometric signs/cutting scores depends critically on base rates relative to true-positive and false-positive performance.'
 - id: prop2
   kind: interpretation
   passage: '*Proof.* Rearrange $(\pi-p)(1-a)^{n-1}\le\pi-\rho$, dividing by $\ln(1-a)<0$.'
   rationale: Proposition 2 proved in the text; n* checked for minimality in tests/test_theory.py.
+- id: ex-p
+  kind: computation
+  passage: In the example of Figure 1a and 1d, $p=0.4$, $s=0.9$ and $f=0.15$.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/p
+    reported: '0.4'
+    scale: 1
+    units: per-attempt success probability
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 1
+- id: ex-s
+  kind: computation
+  passage: In the example of Figure 1a and 1d, $p=0.4$, $s=0.9$ and $f=0.15$.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/s
+    reported: '0.9'
+    scale: 1
+    units: sensitivity
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 1
+- id: ex-f
+  kind: computation
+  passage: In the example of Figure 1a and 1d, $p=0.4$, $s=0.9$ and $f=0.15$.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/f
+    reported: '0.15'
+    scale: 1
+    units: false-acceptance rate
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 2
 - id: ex-ceiling
   kind: computation
   passage: The ceiling is 0.8, the check's likelihood ratio is 6, and a reliability of 0.75 takes 5 attempts while 0.79 takes 8; 0.8 is never reached.
@@ -472,15 +609,15 @@ claims:
     citation_id: ladha1992
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'OpenAlex abstract/opening read: the jury theorem assumes independent votes; the article relaxes this for correlated votes. Chen et al. 2024 abstract: non-monotone vote scaling from mixed query difficulty; Wang et al. abstract: self-consistency.'
+    verified: true
+    verification_note: 'OpenAlex abstract/opening read: the jury theorem assumes independent votes; the article relaxes this for correlated votes. Chen et al. 2024 abstract: non-monotone vote scaling from mixed query difficulty; Wang et al. abstract: self-consistency. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected full OpenAlex/DataCite abstracts for ladha1992 (10.2307/2111584, generalizes Condorcet Jury Theorem to correlated votes), chen2024calls (non-monotone vote scaling under varying query difficulty), and wang2022 (10.48550/arXiv.2203.11171, self-consistency decoding via sampled reasoning paths and majority vote), plus partial OpenAlex abstract for boland1989 (10.2307/2348873).'
 - id: vote-redundancy
   kind: interpretation
   passage: Building reliable systems from unreliable parts by redundancy and majority goes back to von Neumann and to Moore and Shannon [@vonneumann1956; @moore1956], and it requires the independence that systematic errors violate.
   rationale: Attribution to von Neumann (1956) and Moore and Shannon (1956), identity checked via Crossref; not re-read.
 - id: fig1
   kind: definition
-  passage: '![Theory. (a) Reliability against attempts for one task with $p=0.4$: oracle check, a check with $s=0.9$ and $f=0.15$ (dotted line at its ceiling), plurality vote when the right answer is the most probable one and when a wrong answer is, and accepting the first output. (b) The ceiling as a function of the check''s likelihood ratio for $p\in\{0.1,0.3,0.5,0.7\}$; grey lines mark targets. (c) The population ceiling for tasks with Beta-distributed success probabilities of mean 0.6, a common check, and varying intraclass correlation, with the bounds of Proposition 3 and its second-order approximation. (d) Attempts needed for a target reliability with the check of panel (a) and with an oracle check.](figures/theory.pdf){width=100%}'
+  passage: '![Theory. (a) Reliability against attempts for one task with $p=0.4$: oracle check, a check with $s=0.9$ and $f=0.15$, plurality vote when the right answer is the most probable one and when a wrong answer is, and accepting the first output. (b) The ceiling as a function of the check''s likelihood ratio for $p\in\{0.1,0.3,0.5,0.7\}$; grey lines mark targets. (c) The population ceiling for tasks with Beta-distributed success probabilities of mean 0.6, a common check, and varying intraclass correlation, with the bounds of Proposition 3 and its second-order approximation. (d) Attempts needed for a target reliability with the check of panel (a) and with an oracle check.](figures/theory.pdf){width=100%}'
   rationale: Figure 1 is drawn by the recorded run from the closed forms (example parameters fixed in run_all.py; Beta population with mean 0.6).
 - id: prop3
   kind: interpretation
@@ -488,7 +625,7 @@ claims:
   rationale: Proposition 3 proved in the text; the covariance identity and the ICC bounds are checked numerically in tests/test_theory.py.
 - id: icc0
   kind: computation
-  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  passage: In the Beta family of Figure 1c, with $\bar p=0.6$, $s=0.9$ and $f=0.2$, the computed ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -500,7 +637,7 @@ claims:
     decimals: 3
 - id: icc3
   kind: computation
-  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  passage: In the Beta family of Figure 1c, with $\bar p=0.6$, $s=0.9$ and $f=0.2$, the computed ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -512,7 +649,7 @@ claims:
     decimals: 3
 - id: icc7
   kind: computation
-  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  passage: In the Beta family of Figure 1c, with $\bar p=0.6$, $s=0.9$ and $f=0.2$, the computed ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -524,7 +661,7 @@ claims:
     decimals: 3
 - id: icc1
   kind: computation
-  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  passage: In the Beta family of Figure 1c, with $\bar p=0.6$, $s=0.9$ and $f=0.2$, the computed ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -536,8 +673,64 @@ claims:
     decimals: 1
 - id: icc-params
   kind: definition
-  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  passage: In the Beta family of Figure 1c, with $\bar p=0.6$, $s=0.9$ and $f=0.2$, the computed ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1.
   rationale: Intraclass correlations 0, 0.3, 0.7 and 1 are illustrative parameter values (Beta-distributed task success with mean 0.6).
+- id: cx-icc-a
+  kind: computation
+  passage: With $\bar p=0.5$, $s=0.9$ and $f=0.2$, a mixture of tasks with $p=0$ and $p=0.625$ has intraclass correlation 0.25 and ceiling 0.706, while an even mixture of $p=0.2$ and $p=0.8$ has the larger correlation 0.36 and the larger ceiling 0.738.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory_icc_counterexample/mixture_a/icc
+    reported: '0.25'
+    scale: 1
+    units: intraclass correlation
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 2
+- id: cx-ceil-a
+  kind: computation
+  passage: With $\bar p=0.5$, $s=0.9$ and $f=0.2$, a mixture of tasks with $p=0$ and $p=0.625$ has intraclass correlation 0.25 and ceiling 0.706, while an even mixture of $p=0.2$ and $p=0.8$ has the larger correlation 0.36 and the larger ceiling 0.738.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory_icc_counterexample/mixture_a/ceiling
+    reported: '0.706'
+    scale: 1
+    units: reliability
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 3
+- id: cx-icc-b
+  kind: computation
+  passage: With $\bar p=0.5$, $s=0.9$ and $f=0.2$, a mixture of tasks with $p=0$ and $p=0.625$ has intraclass correlation 0.25 and ceiling 0.706, while an even mixture of $p=0.2$ and $p=0.8$ has the larger correlation 0.36 and the larger ceiling 0.738.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory_icc_counterexample/mixture_b/icc
+    reported: '0.36'
+    scale: 1
+    units: intraclass correlation
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 2
+- id: cx-ceil-b
+  kind: computation
+  passage: With $\bar p=0.5$, $s=0.9$ and $f=0.2$, a mixture of tasks with $p=0$ and $p=0.625$ has intraclass correlation 0.25 and ceiling 0.706, while an even mixture of $p=0.2$ and $p=0.8$ has the larger correlation 0.36 and the larger ceiling 0.738.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory_icc_counterexample/mixture_b/ceiling
+    reported: '0.738'
+    scale: 1
+    units: reliability
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 3
+- id: cx-params
+  kind: definition
+  passage: With $\bar p=0.5$, $s=0.9$ and $f=0.2$, a mixture of tasks with $p=0$ and $p=0.625$ has intraclass correlation 0.25 and ceiling 0.706, while an even mixture of $p=0.2$ and $p=0.8$ has the larger correlation 0.36 and the larger ceiling 0.738.
+  rationale: 'Counterexample parameters are fixed in run_all.py (theory_icc_counterexample): mixtures {(0, 0.2), (0.625, 0.8)} and {(0.2, 0.5), (0.8, 0.5)}.'
+- id: cx-mps
+  kind: interpretation
+  passage: 'What holds with a common check is an ordering by spread: if one distribution of task difficulty is a mean-preserving spread of another [@rothschild1970], its ceiling is no higher, because $\pi$ is concave and conditional Jensen''s inequality applies to the added noise.'
+  rationale: Follows from concavity of pi under a common check (conditional Jensen); the mean-preserving-spread concept is attributed to Rothschild and Stiglitz (1970), identity checked via Crossref, not re-read.
 - id: prop3-stroebl
   kind: source
   passage: Stroebl and colleagues capture the same mechanism with a mixture of easy and hard tasks and Bayesian updating after rejections [@stroebl2024, app. C], and Schaeffer and colleagues trace the aggregate scaling of the share of solved problems to the distribution of per-task success [@schaeffer2025].
@@ -545,8 +738,8 @@ claims:
     citation_id: stroebl2024
     locator: Appendix C.1
     depth: fulltext
-    verified: false
-    verification_note: 'Read Appendix C.1: tasks are easy or hard with priors p1, p2; verifier completeness and soundness; posterior over task type updated after each rejection.'
+    verified: true
+    verification_note: 'Read Appendix C.1: tasks are easy or hard with priors p1, p2; verifier completeness and soundness; posterior over task type updated after each rejection. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected stroebl2024 v3 PDF Appendix C.1; models easy/hard task mixture T_1/T_2 with priors p_1, p_2 and Bayesian posterior updating p^(k)_{T_i} after rejections, alongside schaeffer2025 DataCite abstract.'
 - id: prop3-schaeffer
   kind: source
   passage: Stroebl and colleagues capture the same mechanism with a mixture of easy and hard tasks and Bayesian updating after rejections [@stroebl2024, app. C], and Schaeffer and colleagues trace the aggregate scaling of the share of solved problems to the distribution of per-task success [@schaeffer2025].
@@ -554,11 +747,11 @@ claims:
     citation_id: schaeffer2025
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: per-problem exponential scaling yields aggregate power laws when single-attempt success probabilities are heavy-tailed.'
+    verified: true
+    verification_note: 'Abstract read: per-problem exponential scaling yields aggregate power laws when single-attempt success probabilities are heavy-tailed. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract for schaeffer2025 (10.48550/arXiv.2502.17578); explains aggregate inference scaling laws via the heavy-tailed distribution of per-problem single-attempt success probabilities.'
 - id: prop4
   kind: interpretation
-  passage: '*Proof.* A candidate passes all $k$ verdicts with probability $\alpha(y)^k$; apply Proposition 1 with candidate-level acceptance.'
+  passage: '*Proof.* Apply Proposition 1 with candidate-level acceptance $\beta_k(y)$.'
   rationale: Proposition 4 proved in the text; checked in tests/test_theory.py (test_repeated_checks_converge_to_most_accepted).
 - id: prop4-gao
   kind: source
@@ -567,8 +760,8 @@ claims:
     citation_id: gao2022overopt
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: optimizing a proxy reward model with best-of-n or RL eventually hinders gold reward.'
+    verified: true
+    verification_note: 'Abstract read: optimizing a proxy reward model with best-of-n or RL eventually hinders gold reward. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract for gao2022overopt (10.48550/arXiv.2210.10760); demonstrates optimizing an imperfect proxy reward via best-of-n sampling hinders gold reward performance.'
 - id: interp-power
   kind: interpretation
   passage: The invoker's verification competence sets the rate at which compute converts into reliability and caps the conversion.
@@ -591,8 +784,8 @@ claims:
     citation_id: gao2024omni
     locator: abstract and dataset card
     depth: abstract
-    verified: false
-    verification_note: Abstract read (4428 competition-level problems); dataset card at the pinned revision declares licence apache-2.0. Row count re-verified from the file in the recorded run.
+    verified: true
+    verification_note: 'Abstract read (4428 competition-level problems); dataset card at the pinned revision declares licence apache-2.0. Row count re-verified from the file in the recorded run. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract for gao2024omni (10.48550/arXiv.2410.07985, 4,428 competition problems) and Hugging Face dataset card at pinned commit 40ba231d8f16e29ecd40e6407e2c8640145a8f62 declaring license: apache-2.0.'
 - id: d-eligible
   kind: computation
   passage: Eligible items were the HMMT February problems with Omni-MATH difficulty of at least 5.5, an integer reference answer and no reference to a figure; there were 69.
@@ -656,6 +849,10 @@ claims:
     scale: 1
     units: stated confidence threshold
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: def-agreement
+  kind: definition
+  passage: '*Agreement* accepts a candidate if one further independent attempt gives the same answer; it costs a second generation and requires no competence.'
+  rationale: 'Protocol definition: one confirming generation per candidate, so the second generation is the agreement check''s verdict (Sections 3 and 5.2).'
 - id: d-cands
   kind: computation
   passage: The model checks were run once for each distinct pair of item and answer, using the first attempt that produced that answer; there were 56 such candidates.
@@ -669,7 +866,7 @@ claims:
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: d-calls
   kind: computation
-  passage: The analysis uses 352 calls.
+  passage: The analysis of this set uses 352 calls.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -680,7 +877,7 @@ claims:
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: d-pilot
   kind: computation
-  passage: A pilot added 18 calls, and 2 one-word calls confirmed that a model identifier was available, for 372 calls in all.
+  passage: A pilot added 18 calls, and 2 one-word calls confirmed that a model identifier was available, for 372 calls.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -691,7 +888,7 @@ claims:
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: d-probes
   kind: computation
-  passage: A pilot added 18 calls, and 2 one-word calls confirmed that a model identifier was available, for 372 calls in all.
+  passage: A pilot added 18 calls, and 2 one-word calls confirmed that a model identifier was available, for 372 calls.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -702,7 +899,7 @@ claims:
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: d-total
   kind: computation
-  passage: A pilot added 18 calls, and 2 one-word calls confirmed that a model identifier was available, for 372 calls in all.
+  passage: A pilot added 18 calls, and 2 one-word calls confirmed that a model identifier was available, for 372 calls.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -740,15 +937,78 @@ claims:
     citation_id: lightman2023
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: the model is evaluated on a representative subset of the MATH test set; PRM800K released (the openai/prm800k repository holds the 500-problem split used in the pilot). Hendrycks et al. cited for the MATH dataset (identity only).'
+    verified: true
+    verification_note: 'Abstract read: the model is evaluated on a representative subset of the MATH test set; PRM800K released (the openai/prm800k repository holds the 500-problem split used in the pilot). Hendrycks et al. cited for the MATH dataset (identity only). Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected hendrycks2021 and lightman2023 DataCite abstracts plus lightman2023 PDF Appendix C (''remaining 500 held-out problems'') and openai/prm800k GitHub repo at commit 7ecc7947...; abstract alone says ''representative subset'' without giving 500, while PDF fulltext confirms the 500-problem MATH split (author pilot performance itself is bound in d-pilot-math).'
+- id: d-key-never
+  kind: computation
+  passage: The 3 items never solved under the original key were checked by hand, and the key is wrong for 1 of them.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /original_key/n_never
+    reported: '3'
+    scale: 1
+    units: items never solved under the original key
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-key-n
+  kind: computation
+  passage: The 3 items never solved under the original key were checked by hand, and the key is wrong for 1 of them.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /original_key/n_corrected
+    reported: '1'
+    scale: 1
+    units: corrected reference answers
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: d-key
   kind: interpretation
   passage: The reference solution unwinds the recursion as $(-1)^n\,2009\binom{2008}{n}$, but the recursion gives $x_1=-2009^2$ and hence $(-1)^n\,2009\binom{2009}{n}$, so the sum is $2009(1-2)^{2009}=-2009$, the model's answer on every attempt.
   rationale: Derivation in the text; exact integer computation in simulation/tests/test_keys.py confirms the sum is -2009; the correction is listed in simulation/key_corrections.json.
+- id: d-rev-cw
+  kind: computation
+  passage: The revision added 22 verdicts on repeated wrong attempts and 248 calls for the robustness run of Section 5.5, for 642 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/revision_calls/checkwrong
+    reported: '22'
+    scale: 1
+    units: calls
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-rev-rob
+  kind: computation
+  passage: The revision added 22 verdicts on repeated wrong attempts and 248 calls for the robustness run of Section 5.5, for 642 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/revision_calls/robust
+    reported: '248'
+    scale: 1
+    units: calls
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-rev-total
+  kind: computation
+  passage: The revision added 22 verdicts on repeated wrong attempts and 248 calls for the robustness run of Section 5.5, for 642 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/total_calls_all_rounds
+    reported: '642'
+    scale: 1
+    units: calls
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-cache
+  kind: definition
+  passage: 'This models an invoker who caches a verdict by final answer: a later attempt with the same answer but a different argument inherits the verdict given to the first.'
+  rationale: Modelling choice made explicit in revision round 1 (referee finding F9).
+- id: d-memory
+  kind: interpretation
+  passage: HMMT problems and their answers are public, so the models may have seen them.
+  rationale: Motivates the recall-cue count (Section 5.4) and the robustness run (Section 5.5).
 - id: e-n6
   kind: computation
-  passage: For budgets of up to 6 attempts, each protocol's reliability on an item is estimated by averaging its outcome over all orderings or subsets of the 6 observed attempts.
+  passage: For budgets of up to 6 generations, each protocol's reliability on an item is estimated by averaging its outcome over all orderings or subsets of the 6 observed attempts.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -764,12 +1024,12 @@ claims:
     citation_id: chen2021
     locator: Section 2.1 and Figure 3
     depth: fulltext
-    verified: false
-    verification_note: 'Read Section 2.1 and Figure 3: unbiased pass@k from n >= k samples, 1 - C(n-c,k)/C(n,k); the plug-in 1-(1-p)^k is biased.'
+    verified: true
+    verification_note: 'Read Section 2.1 and Figure 3: unbiased pass@k from n >= k samples, 1 - C(n-c,k)/C(n,k); the plug-in 1-(1-p)^k is biased. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, fulltext): Inspected chen2021 PDF Section 2.1 (10.48550/arXiv.2107.03374); defines the without-replacement unbiased pass@k estimator 1 - C(n-c,k)/C(n,k) from n >= k samples.'
     quote: we generate n ≥ k samples per task (in this paper, we use n = 200 and k ≤ 100), count the number of correct samples c ≤ n which pass unit tests, and calculate the unbiased estimator
 - id: e-beyond
   kind: computation
-  passage: Beyond 6 attempts the curves are plug-in values from each item's observed answer frequencies, with the vote computed by seeded simulation.
+  passage: Beyond 6 generations the curves are plug-in values from each item's observed answer frequencies, with the vote computed by seeded simulation.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -788,6 +1048,28 @@ claims:
     reported: '6'
     scale: 1
     units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: e-agr6
+  kind: computation
+  passage: Up to 6 generations its reliability is averaged over all orderings of the observed attempts, with the first attempt returned when no pair agrees.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: generations
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: e-agr6b
+  kind: computation
+  passage: Beyond 6 it is the closed form of Proposition 1 with $\lfloor n/2\rfloor$ pairs, evaluated at unbiased estimates, from pairs of distinct attempts, of the probabilities that a candidate is correct and confirmed or wrong and confirmed.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: generations
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: e-boot
   kind: computation
@@ -816,14 +1098,9 @@ claims:
     units: items
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: e-ridout
-  kind: source
+  kind: interpretation
   passage: The intraclass correlation uses the one-way analysis-of-variance estimator for binary outcomes [@ridout1999].
-  evidence:
-    citation_id: ridout1999
-    locator: abstract
-    depth: abstract
-    verified: false
-    verification_note: 'Abstract read: review and simulation comparison of ICC estimators for binary data. The ANOVA estimator is the standard one; no numerical finding of the article is used.'
+  rationale: 'Attribution only (revision round 2): Ridout, Demetrio and Firth (1999) review intraclass-correlation estimators for binary data; the full text is paywalled and was not read, so no claim about its content is bound. The estimator used is the standard one-way ANOVA estimator, implemented in simulation/pc/estimators.py (icc_anova) and tested in tests/test_theory.py (test_icc_anova_extremes).'
 - id: g-p
   kind: computation
   passage: Single-attempt accuracy was 0.879 (95% interval 0.800 to 0.954).
@@ -1165,7 +1442,7 @@ claims:
     decimals: 3
 - id: t-agr-s
   kind: computation
-  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 4 | none |'
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -1177,7 +1454,7 @@ claims:
     decimals: 2
 - id: t-agr-f
   kind: computation
-  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 4 | none |'
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -1189,7 +1466,7 @@ claims:
     decimals: 2
 - id: t-agr-lr
   kind: computation
-  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 4 | none |'
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -1201,7 +1478,7 @@ claims:
     decimals: 1
 - id: t-agr-pool
   kind: computation
-  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 4 | none |'
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -1213,7 +1490,7 @@ claims:
     decimals: 3
 - id: t-agr-lim
   kind: computation
-  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 4 | none |'
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -1225,12 +1502,12 @@ claims:
     decimals: 3
 - id: t-agr-n
   kind: computation
-  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 4 | none |'
   evidence:
     file: simulation/output/results.json
     run_id: analysis
     pointer: /protocols/agreement/n_star/0.90
-    reported: '2'
+    reported: '4'
     scale: 1
     units: attempts
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
@@ -1703,8 +1980,8 @@ claims:
     citation_id: kadavath2022
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: larger models are well calibrated on multiple-choice and true/false questions; self-evaluation P(True) of proposed answers shows encouraging performance and calibration. Huang et al. (abstract): LLMs struggle to self-correct reasoning without external feedback and performance can degrade. Stechly et al. (abstract): GPT-4 self-critique shows performance collapse on Game of 24, graph colouring and STRIPS planning, with gains from sound external verification. Panickssery et al. (abstract): LLM evaluators recognise and favour their own generations.'
+    verified: true
+    verification_note: 'Abstract read: larger models are well calibrated on multiple-choice and true/false questions; self-evaluation P(True) of proposed answers shows encouraging performance and calibration. Huang et al. (abstract): LLMs struggle to self-correct reasoning without external feedback and performance can degrade. Stechly et al. (abstract): GPT-4 self-critique shows performance collapse on Game of 24, graph colouring and STRIPS planning, with gains from sound external verification. Panickssery et al. (abstract): LLM evaluators recognise and favour their own generations. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract for kadavath2022 (10.48550/arXiv.2207.05221) plus abstract-level checks for co-mentioned huang2023, stechly2024, panickssery2024; confirms larger models show encouraging P(True) self-evaluation calibration on diverse tasks.'
     quote: We find encouraging performance, calibration, and scaling for P(True) on a diverse array of tasks.
 - id: selfeval-huang
   kind: source
@@ -1713,8 +1990,8 @@ claims:
     citation_id: huang2023
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: LLMs struggle to self-correct their responses without external feedback, and at times performance degrades after self-correction.'
+    verified: true
+    verification_note: 'Abstract read: LLMs struggle to self-correct their responses without external feedback, and at times performance degrades after self-correction. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract for huang2023 (10.48550/arXiv.2310.01798); confirms LLMs struggle to self-correct reasoning without external feedback and sometimes degrade.'
     quote: our research indicates that LLMs struggle to self-correct their responses without external feedback, and at times, their performance even degrades after self-correction.
 - id: selfeval-stechly
   kind: source
@@ -1723,8 +2000,8 @@ claims:
     citation_id: stechly2024
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: significant performance collapse with self-critique and significant gains with sound external verification, in Game of 24, Graph Coloring and STRIPS planning.'
+    verified: true
+    verification_note: 'Abstract read: significant performance collapse with self-critique and significant gains with sound external verification, in Game of 24, Graph Coloring and STRIPS planning. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract for stechly2024 (10.48550/arXiv.2402.08115); confirms self-critique collapses on reasoning/planning tasks while sound external verification improves performance.'
     quote: We observe significant performance collapse with self-critique and significant performance gains with sound external verification.
 - id: selfeval-panickssery
   kind: source
@@ -1733,8 +2010,8 @@ claims:
     citation_id: panickssery2024
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: self-preference bias; LLM evaluators score their own outputs higher; self-recognition correlates with self-preference.'
+    verified: true
+    verification_note: 'Abstract read: self-preference bias; LLM evaluators score their own outputs higher; self-recognition correlates with self-preference. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected Crossref metadata for NeurIPS 37 (10.52202/079017-2197) and OpenAlex/DataCite arXiv abstract (2404.13076); confirms LLM evaluators recognize and favor their own generations.'
 - id: selfeval-pattern
   kind: interpretation
   passage: 'The pattern here is narrower: the self-check rejected most one-off errors and accepted most repeated ones, which are the errors that resampling keeps producing.'
@@ -1809,9 +2086,283 @@ claims:
     units: s/f
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
     decimals: 1
+- id: pa-n
+  kind: computation
+  passage: When each of the 11 wrong attempts that repeated an already judged answer was judged on its own solution, the self-check agreed with its cached verdict on 9 and the stronger model on 10.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /per_attempt_wrong_verdicts/self/repeated_wrong_attempts_rejudged
+    reported: '11'
+    scale: 1
+    units: repeated wrong attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: pa-self-agree
+  kind: computation
+  passage: When each of the 11 wrong attempts that repeated an already judged answer was judged on its own solution, the self-check agreed with its cached verdict on 9 and the stronger model on 10.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /per_attempt_wrong_verdicts/self/rejudged_agree_with_cached
+    reported: '9'
+    scale: 1
+    units: verdicts agreeing with the cached verdict
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: pa-str-agree
+  kind: computation
+  passage: When each of the 11 wrong attempts that repeated an already judged answer was judged on its own solution, the self-check agreed with its cached verdict on 9 and the stronger model on 10.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /per_attempt_wrong_verdicts/strong/rejudged_agree_with_cached
+    reported: '10'
+    scale: 1
+    units: verdicts agreeing with the cached verdict
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: pa-self-f
+  kind: computation
+  passage: With every wrong attempt judged on its own solution, the self-check's false-acceptance rate over attempts is 0.34 and its limit 0.920, and the stronger model's are 0.03 and 0.942.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /per_attempt_wrong_verdicts/self/false_acceptance
+    reported: '0.34'
+    scale: 1
+    units: false-acceptance rate over attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: pa-self-lim
+  kind: computation
+  passage: With every wrong attempt judged on its own solution, the self-check's false-acceptance rate over attempts is 0.34 and its limit 0.920, and the stronger model's are 0.03 and 0.942.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /per_attempt_wrong_verdicts/self/limit_fallback
+    reported: '0.920'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: pa-str-f
+  kind: computation
+  passage: With every wrong attempt judged on its own solution, the self-check's false-acceptance rate over attempts is 0.34 and its limit 0.920, and the stronger model's are 0.03 and 0.942.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /per_attempt_wrong_verdicts/strong/false_acceptance
+    reported: '0.03'
+    scale: 1
+    units: false-acceptance rate over attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: pa-str-lim
+  kind: computation
+  passage: With every wrong attempt judged on its own solution, the self-check's false-acceptance rate over attempts is 0.34 and its limit 0.920, and the stronger model's are 0.03 and 0.942.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /per_attempt_wrong_verdicts/strong/limit_fallback
+    reported: '0.942'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: pa-summary
+  kind: interpretation
+  passage: Caching verdicts by answer moves the attempt-level rates more than the limits.
+  rationale: Summary of the per-attempt comparison bound in the following sentences.
+- id: cu-str
+  kind: computation
+  passage: A fixed pattern for explicit appeals to memory (recall, recollection, known answer, official answer, the competition's name, OEIS and similar terms) matches 19 of the 56 stronger-model verdicts, 7 of the 56 self-check verdicts and 12 of the 240 attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_cues/strong_with_cue
+    reported: '19'
+    scale: 1
+    units: verdicts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: cu-str-n
+  kind: computation
+  passage: A fixed pattern for explicit appeals to memory (recall, recollection, known answer, official answer, the competition's name, OEIS and similar terms) matches 19 of the 56 stronger-model verdicts, 7 of the 56 self-check verdicts and 12 of the 240 attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_cues/strong_calls
+    reported: '56'
+    scale: 1
+    units: verdicts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: cu-self
+  kind: computation
+  passage: A fixed pattern for explicit appeals to memory (recall, recollection, known answer, official answer, the competition's name, OEIS and similar terms) matches 19 of the 56 stronger-model verdicts, 7 of the 56 self-check verdicts and 12 of the 240 attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_cues/self_with_cue
+    reported: '7'
+    scale: 1
+    units: verdicts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: cu-gen
+  kind: computation
+  passage: A fixed pattern for explicit appeals to memory (recall, recollection, known answer, official answer, the competition's name, OEIS and similar terms) matches 19 of the 56 stronger-model verdicts, 7 of the 56 self-check verdicts and 12 of the 240 attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_cues/gen_with_cue
+    reported: '12'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: cu-gen-n
+  kind: computation
+  passage: A fixed pattern for explicit appeals to memory (recall, recollection, known answer, official answer, the competition's name, OEIS and similar terms) matches 19 of the 56 stronger-model verdicts, 7 of the 56 self-check verdicts and 12 of the 240 attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_cues/gen_calls
+    reported: '240'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: cu-pattern
+  kind: definition
+  passage: A fixed pattern for explicit appeals to memory (recall, recollection, known answer, official answer, the competition's name, OEIS and similar terms) matches 19 of the 56 stronger-model verdicts, 7 of the 56 self-check verdicts and 12 of the 240 attempts.
+  rationale: Pattern CUE in run_all.py, recorded in results.json /recall_cues/pattern.
+- id: cu-labels
+  kind: definition
+  passage: Because the pattern counts mentions, every matched verdict was read and classified, and the labels are frozen in the repository.
+  rationale: Hand classification frozen in simulation/recall_labels.json with the rule stated in its note; summarised in results.json /recall_labels.
+- id: hl-str-hits
+  kind: computation
+  passage: Of the 19 stronger-model matches, 17 invoke a remembered answer to the problem, 1 recalls only a related bound and 1 says the model did not recall the answer; of the 7 self-check matches, 6 invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/pattern_hits
+    reported: '19'
+    scale: 1
+    units: matched verdicts
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-str-rem
+  kind: computation
+  passage: Of the 19 stronger-model matches, 17 invoke a remembered answer to the problem, 1 recalls only a related bound and 1 says the model did not recall the answer; of the 7 self-check matches, 6 invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/remembered_answer
+    reported: '17'
+    scale: 1
+    units: verdicts invoking a remembered answer
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-str-rel
+  kind: computation
+  passage: Of the 19 stronger-model matches, 17 invoke a remembered answer to the problem, 1 recalls only a related bound and 1 says the model did not recall the answer; of the 7 self-check matches, 6 invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/related
+    reported: '1'
+    scale: 1
+    units: verdicts recalling only a related fact
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-str-no
+  kind: computation
+  passage: Of the 19 stronger-model matches, 17 invoke a remembered answer to the problem, 1 recalls only a related bound and 1 says the model did not recall the answer; of the 7 self-check matches, 6 invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/no_recall
+    reported: '1'
+    scale: 1
+    units: verdicts stating no recall
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-self-hits
+  kind: computation
+  passage: Of the 19 stronger-model matches, 17 invoke a remembered answer to the problem, 1 recalls only a related bound and 1 says the model did not recall the answer; of the 7 self-check matches, 6 invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/self/pattern_hits
+    reported: '7'
+    scale: 1
+    units: matched verdicts
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-self-rem
+  kind: computation
+  passage: Of the 19 stronger-model matches, 17 invoke a remembered answer to the problem, 1 recalls only a related bound and 1 says the model did not recall the answer; of the 7 self-check matches, 6 invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/self/remembered_answer
+    reported: '6'
+    scale: 1
+    units: verdicts invoking a remembered answer
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-wrong-n
+  kind: computation
+  passage: On the 18 wrong candidates, the stronger model invoked a remembered answer on 8 and rejected all of them, and it accepted 1 of the other 10.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/wrong_candidates
+    reported: '18'
+    scale: 1
+    units: wrong candidates
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-wrong-rem
+  kind: computation
+  passage: On the 18 wrong candidates, the stronger model invoked a remembered answer on 8 and rejected all of them, and it accepted 1 of the other 10.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/wrong_remembered
+    reported: '8'
+    scale: 1
+    units: wrong candidates with a remembered answer
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-wrong-other
+  kind: computation
+  passage: On the 18 wrong candidates, the stronger model invoked a remembered answer on 8 and rejected all of them, and it accepted 1 of the other 10.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/wrong_other
+    reported: '10'
+    scale: 1
+    units: other wrong candidates
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-wrong-other-acc
+  kind: computation
+  passage: On the 18 wrong candidates, the stronger model invoked a remembered answer on 8 and rejected all of them, and it accepted 1 of the other 10.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/wrong_other_accepted
+    reported: '1'
+    scale: 1
+    units: accepted
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: hl-lower-bound
+  kind: assumption
+  passage: These counts are lower bounds on reliance on memory, because the pattern misses some phrasings, such as appeals to a known result, and only matched verdicts were read.
+  rationale: The CUE pattern misses phrasings such as 'known result' or 'known problem' (identified by the closure reviewer), and only matched verdicts were hand-classified.
+- id: hl-wrong-rem-acc
+  kind: interpretation
+  passage: On the 18 wrong candidates, the stronger model invoked a remembered answer on 8 and rejected all of them, and it accepted 1 of the other 10.
+  rationale: results.json /recall_labels/main/strong/wrong_remembered_accepted = 0 ('rejected all of them').
+- id: cu-interp
+  kind: interpretation
+  passage: A check that recognises a problem and recalls its answer is not available on a new problem, so its false-acceptance rate on these public items probably understates its rate on unfamiliar tasks.
+  rationale: Interpretation of the recall-cue counts; probable, not measured.
+- id: cu-rejections
+  kind: interpretation
+  passage: Several of its rejections compare the proposed answer with a remembered published one.
+  rationale: From reading the frozen verdict texts (e.g. h07, h19, h22, h26, h27 in check__claude-sonnet-5-5__low__on__gen__claude-haiku-5-5__low.jsonl).
 - id: fig2
   kind: definition
-  passage: '![Measurement on 40 Omni-MATH items with 6 attempts each. (a) Number of items by correct attempts. (b) Sensitivity and false-acceptance rate of each check against the key, with 95% bootstrap intervals; the curve traces stated confidence across all thresholds. (c) Population reliability against the attempt budget; solid lines are unbiased estimates from the observed attempts (the agreement curve is a plug-in throughout), dashed lines plug-in extrapolations beyond 6. (d) Pooled precision of each check, as a validation on these outputs would report it, against the limit that resampling with the check reaches; horizontal lines mark the oracle limit and single-attempt accuracy.](figures/measurement.pdf){width=100%}'
+  passage: '![Measurement on 40 Omni-MATH items with 6 attempts each. (a) Number of items by correct attempts. (b) Sensitivity and false-acceptance rate of each check against the key, with 95% bootstrap intervals; the curve traces stated confidence across all thresholds. (c) Population reliability against the number of generations; solid lines are unbiased estimates from the observed attempts, dashed lines plug-in extrapolations beyond 6. (d) Pooled precision of each check, as a validation on these outputs would report it, against the limits that resampling with the check reaches with fallback (with 95% bootstrap intervals) and when abstaining; horizontal lines mark the oracle limit and single-attempt accuracy.](figures/measurement.pdf){width=100%}'
   rationale: Figure 2 is drawn by the recorded run from results.json; 40 items, 6 attempts, 95% bootstrap intervals.
 - id: r-start
   kind: computation
@@ -1991,7 +2542,7 @@ claims:
     decimals: 0
 - id: b-90
   kind: computation
-  passage: At a target of 0.90, the self-check, the stronger-model check, agreement and the oracle check all reach it with 2 attempts and the vote with 3; stated confidence and accepting the first output never do.
+  passage: At a target of 0.90, the self-check, the stronger-model check and the oracle check reach it with 2 generations, the vote with 3 and agreement with 4; stated confidence and accepting the first output never do.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -2003,7 +2554,7 @@ claims:
     decimals: 2
 - id: b-90-n
   kind: computation
-  passage: At a target of 0.90, the self-check, the stronger-model check, agreement and the oracle check all reach it with 2 attempts and the vote with 3; stated confidence and accepting the first output never do.
+  passage: At a target of 0.90, the self-check, the stronger-model check and the oracle check reach it with 2 generations, the vote with 3 and agreement with 4; stated confidence and accepting the first output never do.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -2014,18 +2565,29 @@ claims:
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: b-90-vote
   kind: computation
-  passage: At a target of 0.90, the self-check, the stronger-model check, agreement and the oracle check all reach it with 2 attempts and the vote with 3; stated confidence and accepting the first output never do.
+  passage: At a target of 0.90, the self-check, the stronger-model check and the oracle check reach it with 2 generations, the vote with 3 and agreement with 4; stated confidence and accepting the first output never do.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
     pointer: /protocols/vote/n_star/0.90
     reported: '3'
     scale: 1
-    units: attempts
+    units: generations
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: b-90-agr
+  kind: computation
+  passage: At a target of 0.90, the self-check, the stronger-model check and the oracle check reach it with 2 generations, the vote with 3 and agreement with 4; stated confidence and accepting the first output never do.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/agreement/n_star/0.90
+    reported: '4'
+    scale: 1
+    units: generations
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: b-95
   kind: computation
-  passage: At 0.95 only the oracle check reaches the target, with 5 attempts, because every other limit lies below it.
+  passage: At 0.95 only the oracle check reaches the target, with 5 generations, because every other limit lies below it.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -2037,7 +2599,7 @@ claims:
     decimals: 2
 - id: b-95-n
   kind: computation
-  passage: At 0.95 only the oracle check reaches the target, with 5 attempts, because every other limit lies below it.
+  passage: At 0.95 only the oracle check reaches the target, with 5 generations, because every other limit lies below it.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -2336,6 +2898,56 @@ claims:
     units: percentage points (upper end of interval)
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
     decimals: 0
+- id: f8-noacc
+  kind: computation
+  passage: 'For stated confidence they differ: 13 items have no attempt with confidence of 90 or more, so the abstaining limit is 0.629, while fallback, which returns the first attempt on those items, reaches 0.892.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/confidence/items_with_no_accepted_attempt
+    reported: '13'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: f8-tau
+  kind: computation
+  passage: 'For stated confidence they differ: 13 items have no attempt with confidence of 90 or more, so the abstaining limit is 0.629, while fallback, which returns the first attempt on those items, reaches 0.892.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/tau
+    reported: '90'
+    scale: 1
+    units: threshold
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: f8-abst
+  kind: computation
+  passage: 'For stated confidence they differ: 13 items have no attempt with confidence of 90 or more, so the abstaining limit is 0.629, while fallback, which returns the first attempt on those items, reaches 0.892.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/confidence/ceiling_abstain
+    reported: '0.629'
+    scale: 1
+    units: reliability (abstaining limit)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: f8-fb
+  kind: computation
+  passage: 'For stated confidence they differ: 13 items have no attempt with confidence of 90 or more, so the abstaining limit is 0.629, while fallback, which returns the first attempt on those items, reaches 0.892.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/confidence/limit
+    reported: '0.892'
+    scale: 1
+    units: reliability (fallback limit)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: f8-coincide
+  kind: interpretation
+  passage: For the self-check, the stronger model and agreement the two coincide, because the only items on which these checks accept nothing are never solved.
+  rationale: results.json /checks/{self,strong,agreement}/ceiling_abstain equals ceiling_fallback.
 - id: pp-self
   kind: computation
   passage: Validated on these outputs, the self-check has pooled precision 0.946, but resampling with it reaches 0.920.
@@ -2589,9 +3201,850 @@ claims:
     units: US dollars
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
     decimals: 2
+- id: rb-elig
+  kind: computation
+  passage: There were 115 such items; the run used the first 25 in a seeded random order, with 6 attempts each and one verdict per distinct candidate from each model check, 248 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/items_meta/n_eligible
+    reported: '115'
+    scale: 1
+    units: eligible items
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-n
+  kind: computation
+  passage: There were 115 such items; the run used the first 25 in a seeded random order, with 6 attempts each and one verdict per distinct candidate from each model check, 248 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/n_items
+    reported: '25'
+    scale: 1
+    units: items
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-att
+  kind: computation
+  passage: There were 115 such items; the run used the first 25 in a seeded random order, with 6 attempts each and one verdict per distinct candidate from each model check, 248 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts per item
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-calls
+  kind: computation
+  passage: There were 115 such items; the run used the first 25 in a seeded random order, with 6 attempts each and one verdict per distinct candidate from each model check, 248 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/revision_calls/robust
+    reported: '248'
+    scale: 1
+    units: calls
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-one-verdict
+  kind: definition
+  passage: There were 115 such items; the run used the first 25 in a seeded random order, with 6 attempts each and one verdict per distinct candidate from each model check, 248 calls in all.
+  rationale: 'Design: one verdict per distinct candidate from each model check, as in the main set.'
+- id: rb-design
+  kind: definition
+  passage: The robustness run repeats the measurement with the same model, prompts and protocols on Omni-MATH items from sources other than HMMT, with difficulty of at least 7, an integer reference answer and no reference to a figure.
+  rationale: Selection rule in fetch_data.py --robust (difficulty >= 7, non-HMMT, integer answer, no figure).
+- id: rb-keys
+  kind: assumption
+  passage: Their reference answers were not checked by hand.
+  rationale: Stated limitation of the robustness set.
+- id: rb-p
+  kind: computation
+  passage: Single-attempt accuracy was 0.580 (0.407 to 0.747) and the intraclass correlation 0.68 (0.46 to 0.84); 9 items were always solved and 7 never (Figure 3a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/mean_p
+    reported: '0.580'
+    scale: 1
+    units: proportion
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb-p-lo
+  kind: computation
+  passage: Single-attempt accuracy was 0.580 (0.407 to 0.747) and the intraclass correlation 0.68 (0.46 to 0.84); 9 items were always solved and 7 never (Figure 3a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/mean_p_ci95/0
+    reported: '0.407'
+    scale: 1
+    units: proportion
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb-p-hi
+  kind: computation
+  passage: Single-attempt accuracy was 0.580 (0.407 to 0.747) and the intraclass correlation 0.68 (0.46 to 0.84); 9 items were always solved and 7 never (Figure 3a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/mean_p_ci95/1
+    reported: '0.747'
+    scale: 1
+    units: proportion
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb-icc
+  kind: computation
+  passage: Single-attempt accuracy was 0.580 (0.407 to 0.747) and the intraclass correlation 0.68 (0.46 to 0.84); 9 items were always solved and 7 never (Figure 3a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/icc
+    reported: '0.68'
+    scale: 1
+    units: intraclass correlation
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-icc-lo
+  kind: computation
+  passage: Single-attempt accuracy was 0.580 (0.407 to 0.747) and the intraclass correlation 0.68 (0.46 to 0.84); 9 items were always solved and 7 never (Figure 3a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/icc_ci95/0
+    reported: '0.46'
+    scale: 1
+    units: intraclass correlation
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-icc-hi
+  kind: computation
+  passage: Single-attempt accuracy was 0.580 (0.407 to 0.747) and the intraclass correlation 0.68 (0.46 to 0.84); 9 items were always solved and 7 never (Figure 3a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/icc_ci95/1
+    reported: '0.84'
+    scale: 1
+    units: intraclass correlation
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-always
+  kind: computation
+  passage: Single-attempt accuracy was 0.580 (0.407 to 0.747) and the intraclass correlation 0.68 (0.46 to 0.84); 9 items were always solved and 7 never (Figure 3a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/n_always
+    reported: '9'
+    scale: 1
+    units: items
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-never
+  kind: computation
+  passage: Single-attempt accuracy was 0.580 (0.407 to 0.747) and the intraclass correlation 0.68 (0.46 to 0.84); 9 items were always solved and 7 never (Figure 3a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/n_never
+    reported: '7'
+    scale: 1
+    units: items
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-self-s
+  kind: computation
+  passage: The self-check had sensitivity 0.98 and false-acceptance rate 0.44 (0.23 to 0.67); the stronger model 1.00 and 0.24 (0.00 to 0.48).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/self/sensitivity
+    reported: '0.98'
+    scale: 1
+    units: sensitivity
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-self-f
+  kind: computation
+  passage: The self-check had sensitivity 0.98 and false-acceptance rate 0.44 (0.23 to 0.67); the stronger model 1.00 and 0.24 (0.00 to 0.48).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/self/false_acceptance
+    reported: '0.44'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-self-f-lo
+  kind: computation
+  passage: The self-check had sensitivity 0.98 and false-acceptance rate 0.44 (0.23 to 0.67); the stronger model 1.00 and 0.24 (0.00 to 0.48).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/self/false_acceptance_ci95/0
+    reported: '0.23'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-self-f-hi
+  kind: computation
+  passage: The self-check had sensitivity 0.98 and false-acceptance rate 0.44 (0.23 to 0.67); the stronger model 1.00 and 0.24 (0.00 to 0.48).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/self/false_acceptance_ci95/1
+    reported: '0.67'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-str-s
+  kind: computation
+  passage: The self-check had sensitivity 0.98 and false-acceptance rate 0.44 (0.23 to 0.67); the stronger model 1.00 and 0.24 (0.00 to 0.48).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/strong/sensitivity
+    reported: '1.00'
+    scale: 1
+    units: sensitivity
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-str-f
+  kind: computation
+  passage: The self-check had sensitivity 0.98 and false-acceptance rate 0.44 (0.23 to 0.67); the stronger model 1.00 and 0.24 (0.00 to 0.48).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/strong/false_acceptance
+    reported: '0.24'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-str-f-lo
+  kind: computation
+  passage: The self-check had sensitivity 0.98 and false-acceptance rate 0.44 (0.23 to 0.67); the stronger model 1.00 and 0.24 (0.00 to 0.48).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/strong/false_acceptance_ci95/0
+    reported: '0.00'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-str-f-hi
+  kind: computation
+  passage: The self-check had sensitivity 0.98 and false-acceptance rate 0.44 (0.23 to 0.67); the stronger model 1.00 and 0.24 (0.00 to 0.48).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/strong/false_acceptance_ci95/1
+    reported: '0.48'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb-cue-str
+  kind: computation
+  passage: Appeals to memory matched 33 of the 49 stronger-model verdicts, 25 of the 49 self-check verdicts and 36 of the 150 attempts; read one by one, 33 of the stronger-model verdicts and 21 of the self-check verdicts invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/recall_cues/strong_with_cue
+    reported: '33'
+    scale: 1
+    units: verdicts
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-cue-str-n
+  kind: computation
+  passage: Appeals to memory matched 33 of the 49 stronger-model verdicts, 25 of the 49 self-check verdicts and 36 of the 150 attempts; read one by one, 33 of the stronger-model verdicts and 21 of the self-check verdicts invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/recall_cues/strong_calls
+    reported: '49'
+    scale: 1
+    units: verdicts
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-cue-self
+  kind: computation
+  passage: Appeals to memory matched 33 of the 49 stronger-model verdicts, 25 of the 49 self-check verdicts and 36 of the 150 attempts; read one by one, 33 of the stronger-model verdicts and 21 of the self-check verdicts invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/recall_cues/self_with_cue
+    reported: '25'
+    scale: 1
+    units: verdicts
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-cue-gen
+  kind: computation
+  passage: Appeals to memory matched 33 of the 49 stronger-model verdicts, 25 of the 49 self-check verdicts and 36 of the 150 attempts; read one by one, 33 of the stronger-model verdicts and 21 of the self-check verdicts invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/recall_cues/gen_with_cue
+    reported: '36'
+    scale: 1
+    units: attempts
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-cue-gen-n
+  kind: computation
+  passage: Appeals to memory matched 33 of the 49 stronger-model verdicts, 25 of the 49 self-check verdicts and 36 of the 150 attempts; read one by one, 33 of the stronger-model verdicts and 21 of the self-check verdicts invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/recall_cues/gen_calls
+    reported: '150'
+    scale: 1
+    units: attempts
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-hl-str
+  kind: computation
+  passage: Appeals to memory matched 33 of the 49 stronger-model verdicts, 25 of the 49 self-check verdicts and 36 of the 150 attempts; read one by one, 33 of the stronger-model verdicts and 21 of the self-check verdicts invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/robust/strong/remembered_answer
+    reported: '33'
+    scale: 1
+    units: verdicts invoking a remembered answer
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: rb-hl-self
+  kind: computation
+  passage: Appeals to memory matched 33 of the 49 stronger-model verdicts, 25 of the 49 self-check verdicts and 36 of the 150 attempts; read one by one, 33 of the stronger-model verdicts and 21 of the self-check verdicts invoke a remembered answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/robust/self/remembered_answer
+    reported: '21'
+    scale: 1
+    units: verdicts invoking a remembered answer
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: rbt-first-limit
+  kind: computation
+  passage: '| Accept first output | | | | 0.580 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/first/limit
+    reported: '0.580'
+    scale: 1
+    units: limit
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-confidence-s
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.20 | 0.00 | 1.000 | 0.613 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/confidence/sensitivity
+    reported: '0.20'
+    scale: 1
+    units: s
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rbt-confidence-f
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.20 | 0.00 | 1.000 | 0.613 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/confidence/false_acceptance
+    reported: '0.00'
+    scale: 1
+    units: f
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rbt-confidence-pool
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.20 | 0.00 | 1.000 | 0.613 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/confidence/pooled_precision
+    reported: '1.000'
+    scale: 1
+    units: pool
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-confidence-limit
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.20 | 0.00 | 1.000 | 0.613 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/confidence/limit
+    reported: '0.613'
+    scale: 1
+    units: limit
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-agreement-s
+  kind: computation
+  passage: '| Agreement | 0.86 | 0.34 | 0.779 | 0.674 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/agreement/sensitivity
+    reported: '0.86'
+    scale: 1
+    units: s
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rbt-agreement-f
+  kind: computation
+  passage: '| Agreement | 0.86 | 0.34 | 0.779 | 0.674 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/agreement/false_acceptance
+    reported: '0.34'
+    scale: 1
+    units: f
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rbt-agreement-pool
+  kind: computation
+  passage: '| Agreement | 0.86 | 0.34 | 0.779 | 0.674 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/agreement/pooled_precision
+    reported: '0.779'
+    scale: 1
+    units: pool
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-agreement-limit
+  kind: computation
+  passage: '| Agreement | 0.86 | 0.34 | 0.779 | 0.674 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/agreement/limit
+    reported: '0.674'
+    scale: 1
+    units: limit
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-self-s
+  kind: computation
+  passage: '| Self-check | 0.98 | 0.44 | 0.752 | 0.602 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/self/sensitivity
+    reported: '0.98'
+    scale: 1
+    units: s
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rbt-self-f
+  kind: computation
+  passage: '| Self-check | 0.98 | 0.44 | 0.752 | 0.602 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/self/false_acceptance
+    reported: '0.44'
+    scale: 1
+    units: f
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rbt-self-pool
+  kind: computation
+  passage: '| Self-check | 0.98 | 0.44 | 0.752 | 0.602 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/self/pooled_precision
+    reported: '0.752'
+    scale: 1
+    units: pool
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-self-limit
+  kind: computation
+  passage: '| Self-check | 0.98 | 0.44 | 0.752 | 0.602 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/self/limit
+    reported: '0.602'
+    scale: 1
+    units: limit
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-strong-s
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.24 | 0.853 | 0.720 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/strong/sensitivity
+    reported: '1.00'
+    scale: 1
+    units: s
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rbt-strong-f
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.24 | 0.853 | 0.720 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/strong/false_acceptance
+    reported: '0.24'
+    scale: 1
+    units: f
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rbt-strong-pool
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.24 | 0.853 | 0.720 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/strong/pooled_precision
+    reported: '0.853'
+    scale: 1
+    units: pool
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-strong-limit
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.24 | 0.853 | 0.720 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/strong/limit
+    reported: '0.720'
+    scale: 1
+    units: limit
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-vote-limit
+  kind: computation
+  passage: '| Plurality vote | | | | 0.680 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/vote/limit
+    reported: '0.680'
+    scale: 1
+    units: limit
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-oracle-limit
+  kind: computation
+  passage: '| Oracle check | | | | 0.720 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/oracle/limit
+    reported: '0.720'
+    scale: 1
+    units: limit
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rbt-conf-tau
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.20 | 0.00 | 1.000 | 0.613 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/tau
+    reported: '90'
+    scale: 1
+    units: threshold
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rbt-target
+  kind: computation
+  passage: '| Protocol | $s$ | $f$ | Pooled precision | Limit | $n^*$ at 0.90 |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/targets/1
+    reported: '0.90'
+    scale: 1
+    units: target
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rbt-none
+  kind: interpretation
+  passage: '| Accept first output | | | | 0.580 | none |'
+  rationale: No protocol's population limit reaches 0.90 on the robustness set (/robust/protocols/*/n_star null).
+- id: rbt-cap-n
+  kind: computation
+  passage: 'Table: The robustness run on 25 non-HMMT items of difficulty 7 or more.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/n_items
+    reported: '25'
+    scale: 1
+    units: items
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rbt-cap-def
+  kind: definition
+  passage: 'Table: The robustness run on 25 non-HMMT items of difficulty 7 or more.'
+  rationale: Difficulty threshold 7 is the selection rule.
+- id: fig3
+  kind: definition
+  passage: '![Robustness run on 25 non-HMMT Omni-MATH items of difficulty 7 or more, with 6 attempts each. (a) Number of items by correct attempts. (b) Population reliability against the number of generations; solid lines are estimates from the observed attempts, dashed lines plug-in extrapolations beyond 6. The stronger-model curve coincides with the oracle curve.](figures/robustness.pdf){width=100%}'
+  rationale: Figure 3 is drawn by the recorded run (make_robust_figure) from the robustness data; 25 items, 6 attempts, difficulty >= 7.
+- id: rb-os
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.118 (0.032 to 0.227), carried by 6 items, and equals the stronger-model limit on every item; the self-check limit exceeds single-attempt accuracy by 0.022 ($-0.020$ to 0.064).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/paired_limit_differences/oracle_minus_self/diff
+    reported: '0.118'
+    scale: 1
+    units: difference
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb-os-lo
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.118 (0.032 to 0.227), carried by 6 items, and equals the stronger-model limit on every item; the self-check limit exceeds single-attempt accuracy by 0.022 ($-0.020$ to 0.064).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/paired_limit_differences/oracle_minus_self/ci95/0
+    reported: '0.032'
+    scale: 1
+    units: difference
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb-os-hi
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.118 (0.032 to 0.227), carried by 6 items, and equals the stronger-model limit on every item; the self-check limit exceeds single-attempt accuracy by 0.022 ($-0.020$ to 0.064).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/paired_limit_differences/oracle_minus_self/ci95/1
+    reported: '0.227'
+    scale: 1
+    units: difference
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb-os-items
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.118 (0.032 to 0.227), carried by 6 items, and equals the stronger-model limit on every item; the self-check limit exceeds single-attempt accuracy by 0.022 ($-0.020$ to 0.064).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/paired_limit_differences/oracle_minus_self/items_differing
+    reported: '6'
+    scale: 1
+    units: items
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb-sf
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.118 (0.032 to 0.227), carried by 6 items, and equals the stronger-model limit on every item; the self-check limit exceeds single-attempt accuracy by 0.022 ($-0.020$ to 0.064).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/paired_limit_differences/self_minus_first/diff
+    reported: '0.022'
+    scale: 1
+    units: difference
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb-sf-lo
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.118 (0.032 to 0.227), carried by 6 items, and equals the stronger-model limit on every item; the self-check limit exceeds single-attempt accuracy by 0.022 ($-0.020$ to 0.064).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/paired_limit_differences/self_minus_first/ci95/0
+    reported: '-0.020'
+    scale: 1
+    units: difference
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb-sf-hi
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.118 (0.032 to 0.227), carried by 6 items, and equals the stronger-model limit on every item; the self-check limit exceeds single-attempt accuracy by 0.022 ($-0.020$ to 0.064).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/paired_limit_differences/self_minus_first/ci95/1
+    reported: '0.064'
+    scale: 1
+    units: difference
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb-ost
+  kind: interpretation
+  passage: The oracle limit exceeds the self-check limit by 0.118 (0.032 to 0.227), carried by 6 items, and equals the stronger-model limit on every item; the self-check limit exceeds single-attempt accuracy by 0.022 ($-0.020$ to 0.064).
+  rationale: 'results.json /robust/paired_limit_differences/oracle_minus_strong: diff 0, items_differing 0.'
+- id: rb2-p
+  kind: computation
+  passage: With single-attempt accuracy of 0.58, the self-check's likelihood ratio of 2.2 gives a pooled precision of 0.752, but resampling with it reaches only 0.602, because errors concentrate on items that are rarely or never solved (Proposition 3(a)), and its gain over a single attempt is not resolved from zero.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/mean_p
+    reported: '0.58'
+    scale: 1
+    units: proportion
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 2
+- id: rb2-lr
+  kind: computation
+  passage: With single-attempt accuracy of 0.58, the self-check's likelihood ratio of 2.2 gives a pooled precision of 0.752, but resampling with it reaches only 0.602, because errors concentrate on items that are rarely or never solved (Proposition 3(a)), and its gain over a single attempt is not resolved from zero.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/self/likelihood_ratio
+    reported: '2.2'
+    scale: 1
+    units: s/f
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 1
+- id: rb2-pool
+  kind: computation
+  passage: With single-attempt accuracy of 0.58, the self-check's likelihood ratio of 2.2 gives a pooled precision of 0.752, but resampling with it reaches only 0.602, because errors concentrate on items that are rarely or never solved (Proposition 3(a)), and its gain over a single attempt is not resolved from zero.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/checks/self/pooled_precision
+    reported: '0.752'
+    scale: 1
+    units: pooled precision
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb2-lim
+  kind: computation
+  passage: With single-attempt accuracy of 0.58, the self-check's likelihood ratio of 2.2 gives a pooled precision of 0.752, but resampling with it reaches only 0.602, because errors concentrate on items that are rarely or never solved (Proposition 3(a)), and its gain over a single attempt is not resolved from zero.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/self/limit
+    reported: '0.602'
+    scale: 1
+    units: reliability
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb2-or
+  kind: computation
+  passage: The stronger model reached the oracle limit of 0.720, and the vote 0.680.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/oracle/limit
+    reported: '0.720'
+    scale: 1
+    units: reliability
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb2-vote
+  kind: computation
+  passage: The stronger model reached the oracle limit of 0.720, and the vote 0.680.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/protocols/vote/limit
+    reported: '0.680'
+    scale: 1
+    units: reliability
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+    decimals: 3
+- id: rb2-cue-acc
+  kind: computation
+  passage: The self-check accepted 13 of the 15 wrong candidates on which it invoked a remembered answer, and the stronger model 4 of its 24, although some of these verdicts may reflect errors in the unaudited key.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/robust/self/wrong_remembered_accepted
+    reported: '13'
+    scale: 1
+    units: accepted
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: rb2-cue-n
+  kind: computation
+  passage: The self-check accepted 13 of the 15 wrong candidates on which it invoked a remembered answer, and the stronger model 4 of its 24, although some of these verdicts may reflect errors in the unaudited key.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/robust/self/wrong_remembered
+    reported: '15'
+    scale: 1
+    units: wrong candidates with a remembered answer
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: rb2-cue-str-acc
+  kind: computation
+  passage: The self-check accepted 13 of the 15 wrong candidates on which it invoked a remembered answer, and the stronger model 4 of its 24, although some of these verdicts may reflect errors in the unaudited key.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/robust/strong/wrong_remembered_accepted
+    reported: '4'
+    scale: 1
+    units: accepted
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: rb2-cue-str-n
+  kind: computation
+  passage: The self-check accepted 13 of the 15 wrong candidates on which it invoked a remembered answer, and the stronger model 4 of its 24, although some of these verdicts may reflect errors in the unaudited key.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/robust/strong/wrong_remembered
+    reported: '24'
+    scale: 1
+    units: wrong candidates with a remembered answer
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+- id: rb2-never
+  kind: computation
+  passage: Of the 7 never-solved items, the stronger model accepted an answer that the key marks wrong on 3, so some keys in this set may be wrong; an error of that kind would raise the oracle limit and the measured limits of the checks that accepted the true answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/n_never
+    reported: '7'
+    scale: 1
+    units: items
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb2-never-acc
+  kind: computation
+  passage: Of the 7 never-solved items, the stronger model accepted an answer that the key marks wrong on 3, so some keys in this set may be wrong; an error of that kind would raise the oracle limit and the measured limits of the checks that accepted the true answer.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/never_items_with_strong_acceptance
+    reported: '3'
+    scale: 1
+    units: items
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb2-below
+  kind: computation
+  passage: On 1 item it rejected the correct answer and accepted a wrong answer, so its precision there lies below the item's success rate, and by Proposition 1 resampling moves reliability down towards that precision.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/items_self_precision_below_p
+    reported: '1'
+    scale: 1
+    units: items with self-check precision below p
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: rb2-regime
+  kind: interpretation
+  passage: The harder set moves the measurement into the regime in which the propositions predict a weak check to fail.
+  rationale: Reading of Propositions 2 and 3 against the robustness results.
+- id: rb2-mem
+  kind: interpretation
+  passage: The set did not remove memory.
+  rationale: 'Compares recall-cue shares between sets: /recall_cues vs /robust/recall_cues.'
 - id: lim-n40
   kind: computation
-  passage: It uses 40 items, so population intervals are wide.
+  passage: It uses 40 items in the main set and 25 in the robustness set, so population intervals are wide, and only the main set's keys were checked by hand.
   evidence:
     file: simulation/output/results.json
     run_id: analysis
@@ -2600,33 +4053,99 @@ claims:
     scale: 1
     units: items
     conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: lim-n25
+  kind: computation
+  passage: It uses 40 items in the main set and 25 in the robustness set, so population intervals are wide, and only the main set's keys were checked by hand.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /robust/n_items
+    reported: '25'
+    scale: 1
+    units: items
+    conditions: 'robustness set: first 25 non-HMMT Omni-MATH items with difficulty >= 7 (seed 20261122), same model and protocols; keys not audited; recorded run ''analysis'''
+- id: lim-scope
+  kind: assumption
+  passage: The measurement uses one generator at one effort setting, in a domain where answers are integers.
+  rationale: 'Scope: a single generator (claude-haiku-5-5) at a single effort setting (low).'
+- id: lim-verdicts
+  kind: assumption
+  passage: Apart from the re-judged repeated wrong attempts, which carried different solutions, each candidate received one verdict from each model check, so Proposition 4 is not tested and the repeatability of verdicts on the same candidate is unknown.
+  rationale: 'Design: one verdict per distinct candidate from each model check; repeated wrong attempts were re-judged once on their own solutions.'
+- id: lim-prop3
+  kind: interpretation
+  passage: On the robustness set, where errors concentrate on items that are rarely or never solved, the same novice check bought almost nothing, as Proposition 3(a) predicts.
+  rationale: 'Proposition 3(a): the robustness ICC is 0.68 and never-solved items carry most wrong attempts (Section 5.5).'
 - id: lim-family
   kind: assumption
   passage: The stronger model comes from the same family as the generator, which may make shared errors more likely than for a check from another source.
   rationale: Both checks and the generator are Anthropic models; shared errors across families were not measured.
 - id: sastry
   kind: source
-  passage: Compute is detectable, excludable and quantifiable, and it is produced by an extremely concentrated supply chain [@sastry2024].
+  passage: A stronger model used as a checker is frontier inference, and the compute behind it is detectable, excludable and quantifiable and is produced by an extremely concentrated supply chain [@sastry2024]; access to it and its price are set by its providers.
   evidence:
     citation_id: sastry2024
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: AI-relevant compute is detectable, excludable and quantifiable and is produced via an extremely concentrated supply chain.'
+    verified: true
+    verification_note: 'Abstract read: AI-relevant compute is detectable, excludable and quantifiable and is produced via an extremely concentrated supply chain. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected DataCite abstract for sastry2024 (10.48550/arXiv.2402.08797); confirms AI compute is described verbatim as ''detectable, excludable, and quantifiable, and is produced via an extremely concentrated supply chain''.'
     quote: it is detectable, excludable, and quantifiable, and is produced via an extremely concentrated supply chain
+- id: sec6-tools
+  kind: interpretation
+  passage: 'A test suite, an execution sandbox or a proof checker instead runs on ordinary hardware, but it verifies only what someone has specified: the tests to run, the property to prove.'
+  rationale: Distinguishes local verification tools from frontier inference; the claim that such tools verify only what is specified is a property of tests and proof checkers, not an empirical result of this paper.
+- id: sec6-mem-main
+  kind: computation
+  passage: In the measurement, the stronger model recovered most of the gap that a perfect check would close on the main set and all of it on the harder set, where the self-check gained almost nothing, but on these public problems it invoked a remembered answer in at least 30% of its verdicts on the main set and 67% on the harder set (Sections 5.4 and 5.5).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/main/strong/remembered_share
+    reported: 30%
+    scale: 100
+    units: percent of verdicts
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+    decimals: 0
+- id: sec6-mem-rob
+  kind: computation
+  passage: In the measurement, the stronger model recovered most of the gap that a perfect check would close on the main set and all of it on the harder set, where the self-check gained almost nothing, but on these public problems it invoked a remembered answer in at least 30% of its verdicts on the main set and 67% on the harder set (Sections 5.4 and 5.5).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /recall_labels/robust/strong/remembered_share
+    reported: 67%
+    scale: 100
+    units: percent of verdicts
+    conditions: hand classification of verdicts matching the CUE pattern (simulation/recall_labels.json), summarised in the recorded run
+    decimals: 0
+- id: sec6-memory
+  kind: interpretation
+  passage: Part of its advantage is therefore memory, which a new problem would not offer.
+  rationale: Interpretation of the hand-classified recall counts in Sections 5.4 and 5.5.
+- id: code-corr
+  kind: computation
+  passage: The analysis corrects 1 reference answer, as described in Section 5.1; the correction and its exact check are in the repository, together with the hand classification of verdicts that appeal to memory.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /original_key/n_corrected
+    reported: '1'
+    scale: 1
+    units: corrected reference answers
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
 - id: final-reading
   kind: normative
-  passage: The conditional version of "power equals compute" that survives says that compute converts into reliable outcomes at a rate set by verification and only up to the verification's precision, and that verification can be bought only as compute under someone else's control, whose errors can coincide with the generator's.
+  passage: The conditional version of "power equals compute" that survives says that compute converts into reliable outcomes at a rate set by verification and only up to the verification's precision.
   rationale: Interpretive conclusion conditional on Propositions 1-4 and on the measurement's scope; not a measured fact.
 - id: final-dellacqua
   kind: source
   passage: The measurement leaves open how the ceilings behave in domains without exact answers, where the key itself is a fallible check; how repeatable model verdicts are, which decides whether re-verification can raise a ceiling; and what sensitivity and false-acceptance rates human novices achieve when they judge model outputs, which no study here could measure and which the consulting experiment suggests is well above zero for tasks outside a system's capability.
   evidence:
-    citation_id: dellacqua2023
+    citation_id: dellacqua2026
     locator: abstract
     depth: abstract
-    verified: false
-    verification_note: 'Abstract read: assisted consultants were less likely to produce correct solutions on a task outside the frontier, which implies acceptance of incorrect AI output; no rate is claimed.'
+    verified: true
+    verification_note: 'Abstract read: assisted consultants were less likely to produce correct solutions on a task outside the frontier, which implies acceptance of incorrect AI output; no rate is claimed. Independent check (gemini-4-hydrogen-xhigh, 2026-11-21, abstract): Inspected Crossref/OpenAlex abstract for dellacqua2026 (10.1287/orsc.2025.21838); confirms consultants using AI on an outside-frontier task were less likely to reach a correct answer, implying non-zero false acceptance.'
 runs:
 - id: analysis
   required: true

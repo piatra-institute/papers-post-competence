@@ -1253,8 +1253,8 @@ references:
     },
     {
       "id": "panickssery2024",
-      "type": "article",
-      "title": "LLM Evaluators Recognize and Favor Their Own Generations",
+      "type": "paper-conference",
+      "title": "LLM evaluators recognize and favor their own generations",
       "author": [
         {
           "family": "Panickssery",
@@ -1262,20 +1262,408 @@ references:
         },
         {
           "family": "Bowman",
-          "given": "Samuel R."
+          "given": "Samuel"
         },
         {
           "family": "Feng",
           "given": "Shi"
         }
       ],
-      "publisher": "arXiv",
-      "number": "2404.13076",
-      "DOI": "10.48550/arXiv.2404.13076",
+      "container-title": "Advances in Neural Information Processing Systems 37",
+      "page": "68772-68802",
+      "DOI": "10.52202/079017-2197",
       "issued": {
         "date-parts": [
           [
             2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "bowman2022",
+      "type": "article",
+      "title": "Measuring Progress on Scalable Oversight for Large Language Models",
+      "author": [
+        {
+          "family": "Bowman",
+          "given": "Samuel R."
+        },
+        {
+          "family": "Hyun",
+          "given": "Jeeyoon"
+        },
+        {
+          "family": "Perez",
+          "given": "Ethan"
+        },
+        {
+          "family": "Chen",
+          "given": "Edwin"
+        },
+        {
+          "family": "Pettit",
+          "given": "Craig"
+        },
+        {
+          "family": "Heiner",
+          "given": "Scott"
+        },
+        {
+          "family": "Lukošiūtė",
+          "given": "Kamilė"
+        },
+        {
+          "family": "Askell",
+          "given": "Amanda"
+        },
+        {
+          "family": "Jones",
+          "given": "Andy"
+        },
+        {
+          "family": "Chen",
+          "given": "Anna"
+        },
+        {
+          "family": "Goldie",
+          "given": "Anna"
+        },
+        {
+          "family": "Mirhoseini",
+          "given": "Azalia"
+        },
+        {
+          "family": "McKinnon",
+          "given": "Cameron"
+        },
+        {
+          "family": "Olah",
+          "given": "Christopher"
+        },
+        {
+          "family": "Amodei",
+          "given": "Daniela"
+        },
+        {
+          "family": "Amodei",
+          "given": "Dario"
+        },
+        {
+          "family": "Drain",
+          "given": "Dawn"
+        },
+        {
+          "family": "Li",
+          "given": "Dustin"
+        },
+        {
+          "family": "Tran-Johnson",
+          "given": "Eli"
+        },
+        {
+          "family": "Kernion",
+          "given": "Jackson"
+        },
+        {
+          "family": "Kerr",
+          "given": "Jamie"
+        },
+        {
+          "family": "Mueller",
+          "given": "Jared"
+        },
+        {
+          "family": "Ladish",
+          "given": "Jeffrey"
+        },
+        {
+          "family": "Landau",
+          "given": "Joshua"
+        },
+        {
+          "family": "Ndousse",
+          "given": "Kamal"
+        },
+        {
+          "family": "Lovitt",
+          "given": "Liane"
+        },
+        {
+          "family": "Elhage",
+          "given": "Nelson"
+        },
+        {
+          "family": "Schiefer",
+          "given": "Nicholas"
+        },
+        {
+          "family": "Joseph",
+          "given": "Nicholas"
+        },
+        {
+          "family": "Mercado",
+          "given": "Noemí"
+        },
+        {
+          "family": "DasSarma",
+          "given": "Nova"
+        },
+        {
+          "family": "Larson",
+          "given": "Robin"
+        },
+        {
+          "family": "McCandlish",
+          "given": "Sam"
+        },
+        {
+          "family": "Kundu",
+          "given": "Sandipan"
+        },
+        {
+          "family": "Johnston",
+          "given": "Scott"
+        },
+        {
+          "family": "Kravec",
+          "given": "Shauna"
+        },
+        {
+          "family": "Showk",
+          "given": "Sheer El"
+        },
+        {
+          "family": "Fort",
+          "given": "Stanislav"
+        },
+        {
+          "family": "Telleen-Lawton",
+          "given": "Timothy"
+        },
+        {
+          "family": "Brown",
+          "given": "Tom"
+        },
+        {
+          "family": "Henighan",
+          "given": "Tom"
+        },
+        {
+          "family": "Hume",
+          "given": "Tristan"
+        },
+        {
+          "family": "Bai",
+          "given": "Yuntao"
+        },
+        {
+          "family": "Hatfield-Dodds",
+          "given": "Zac"
+        },
+        {
+          "family": "Mann",
+          "given": "Ben"
+        },
+        {
+          "family": "Kaplan",
+          "given": "Jared"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2211.03540",
+      "DOI": "10.48550/arXiv.2211.03540",
+      "issued": {
+        "date-parts": [
+          [
+            2022
+          ]
+        ]
+      }
+    },
+    {
+      "id": "saunders2022",
+      "type": "article",
+      "title": "Self-critiquing models for assisting human evaluators",
+      "author": [
+        {
+          "family": "Saunders",
+          "given": "William"
+        },
+        {
+          "family": "Yeh",
+          "given": "Catherine"
+        },
+        {
+          "family": "Wu",
+          "given": "Jeff"
+        },
+        {
+          "family": "Bills",
+          "given": "Steven"
+        },
+        {
+          "family": "Ouyang",
+          "given": "Long"
+        },
+        {
+          "family": "Ward",
+          "given": "Jonathan"
+        },
+        {
+          "family": "Leike",
+          "given": "Jan"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2206.05802",
+      "DOI": "10.48550/arXiv.2206.05802",
+      "issued": {
+        "date-parts": [
+          [
+            2022
+          ]
+        ]
+      }
+    },
+    {
+      "id": "burns2023",
+      "type": "article",
+      "title": "Weak-to-Strong Generalization: Eliciting Strong Capabilities With Weak Supervision",
+      "author": [
+        {
+          "family": "Burns",
+          "given": "Collin"
+        },
+        {
+          "family": "Izmailov",
+          "given": "Pavel"
+        },
+        {
+          "family": "Kirchner",
+          "given": "Jan Hendrik"
+        },
+        {
+          "family": "Baker",
+          "given": "Bowen"
+        },
+        {
+          "family": "Gao",
+          "given": "Leo"
+        },
+        {
+          "family": "Aschenbrenner",
+          "given": "Leopold"
+        },
+        {
+          "family": "Chen",
+          "given": "Yining"
+        },
+        {
+          "family": "Ecoffet",
+          "given": "Adrien"
+        },
+        {
+          "family": "Joglekar",
+          "given": "Manas"
+        },
+        {
+          "family": "Leike",
+          "given": "Jan"
+        },
+        {
+          "family": "Sutskever",
+          "given": "Ilya"
+        },
+        {
+          "family": "Wu",
+          "given": "Jeff"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2312.09390",
+      "DOI": "10.48550/arXiv.2312.09390",
+      "issued": {
+        "date-parts": [
+          [
+            2023
+          ]
+        ]
+      }
+    },
+    {
+      "id": "bainbridge1983",
+      "type": "article-journal",
+      "title": "Ironies of automation",
+      "author": [
+        {
+          "family": "Bainbridge",
+          "given": "Lisanne"
+        }
+      ],
+      "container-title": "Automatica",
+      "volume": "19",
+      "issue": "6",
+      "page": "775-779",
+      "DOI": "10.1016/0005-1098(83)90046-8",
+      "issued": {
+        "date-parts": [
+          [
+            1983
+          ]
+        ]
+      }
+    },
+    {
+      "id": "parasuraman2010",
+      "type": "article-journal",
+      "title": "Complacency and bias in human use of automation: An attentional integration",
+      "author": [
+        {
+          "family": "Parasuraman",
+          "given": "Raja"
+        },
+        {
+          "family": "Manzey",
+          "given": "Dietrich H."
+        }
+      ],
+      "container-title": "Human Factors",
+      "volume": "52",
+      "issue": "3",
+      "page": "381-410",
+      "DOI": "10.1177/0018720810376055",
+      "issued": {
+        "date-parts": [
+          [
+            2010
+          ]
+        ]
+      }
+    },
+    {
+      "id": "rothschild1970",
+      "type": "article-journal",
+      "title": "Increasing risk: I. A definition",
+      "author": [
+        {
+          "family": "Rothschild",
+          "given": "Michael"
+        },
+        {
+          "family": "Stiglitz",
+          "given": "Joseph E."
+        }
+      ],
+      "container-title": "Journal of Economic Theory",
+      "volume": "2",
+      "issue": "3",
+      "page": "225-243",
+      "DOI": "10.1016/0022-0531(70)90038-4",
+      "issued": {
+        "date-parts": [
+          [
+            1970
           ]
         ]
       }
@@ -1677,8 +2065,8 @@ references:
       }
     },
     {
-      "id": "dellacqua2023",
-      "type": "report",
+      "id": "dellacqua2026",
+      "type": "article-journal",
       "title": "Navigating the jagged technological frontier: Field experimental evidence of the effects of artificial intelligence on knowledge worker productivity and quality",
       "author": [
         {
@@ -1687,20 +2075,19 @@ references:
         },
         {
           "family": "McFowland",
-          "given": "Edward",
-          "suffix": "III"
+          "given": "Edward"
         },
         {
           "family": "Mollick",
-          "given": "Ethan R."
+          "given": "Ethan"
         },
         {
-          "family": "Lifshitz-Assaf",
+          "family": "Lifshitz",
           "given": "Hila"
         },
         {
           "family": "Kellogg",
-          "given": "Katherine"
+          "given": "Katherine C."
         },
         {
           "family": "Rajendran",
@@ -1719,13 +2106,15 @@ references:
           "given": "Karim R."
         }
       ],
-      "publisher": "SSRN",
-      "genre": "Working paper",
-      "DOI": "10.2139/ssrn.4573321",
+      "container-title": "Organization Science",
+      "volume": "37",
+      "issue": "2",
+      "page": "403-423",
+      "DOI": "10.1287/orsc.2025.21838",
       "issued": {
         "date-parts": [
           [
-            2023
+            2026
           ]
         ]
       }

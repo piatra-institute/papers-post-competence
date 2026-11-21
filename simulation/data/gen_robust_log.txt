@@ -1,0 +1,16 @@
+10/150 r01__a3.json rc=0 295s
+20/150 r03__a1.json rc=0 295s
+30/150 r04__a5.json rc=0 295s
+40/150 r06__a3.json rc=0 295s
+50/150 r08__a1.json rc=0 295s
+60/150 r09__a5.json rc=0 295s
+70/150 r11__a3.json rc=0 295s
+80/150 r13__a1.json rc=0 308s
+90/150 r14__a5.json rc=0 312s
+100/150 r16__a3.json rc=0 351s
+110/150 r18__a1.json rc=0 376s
+120/150 r19__a5.json rc=0 380s
+130/150 r21__a3.json rc=0 401s
+140/150 r23__a1.json rc=0 420s
+150/150 r24__a5.json rc=0 693s
+wrote /Users/ly3xqhl8g9/Data/i/theings/piatra/content/piatra-papers/2026/11/post-competence/simulation/data/llm/gen__claude-haiku-5-5__low__robust

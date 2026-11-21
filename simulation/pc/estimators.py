@@ -101,6 +101,33 @@ def agreement_components(item: Item) -> tuple[float, float]:
     return tp, fp
 
 
+def reliability_agreement_generations(item: Item, n: int) -> float:
+    """Agreement protocol indexed by generations (revision): a budget of n generations allows floor(n/2)
+    candidate-confirmation pairs; a candidate is accepted when its confirmation gives the same answer;
+    if no pair agrees, the first attempt is returned. Exact average over all orderings of the observed
+    attempts for n <= m; plug-in closed form with floor(n/2) pairs beyond."""
+    k = n // 2
+    m = item.m
+    answers = [a for a, _ in item.attempts]
+    if k == 0:
+        return item.p_hat()
+    if n <= m:
+        vals = []
+        for perm in itertools.permutations(range(m)):
+            out = None
+            for j in range(k):
+                c, v = answers[perm[2 * j]], answers[perm[2 * j + 1]]
+                if c is not None and c == v:
+                    out = c == item.answer
+                    break
+            if out is None:
+                a0 = answers[perm[0]]
+                out = a0 is not None and a0 == item.answer
+            vals.append(out)
+        return float(np.mean(vals))
+    return reliability_agreement_item(item, k, fallback=True)
+
+
 def reliability_agreement_item(item: Item, n: int, fallback: bool) -> float:
     """n candidate-confirmation pairs (2n generations); plug-in in the acceptance components."""
     tp, fp = agreement_components(item)

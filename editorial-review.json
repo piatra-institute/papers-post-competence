@@ -1,0 +1,51 @@
+{
+  "manuscript_sha256": "cafb17db66dd9eccded132e1e4a3d8ffe10d8fab61ba66756adb4d2d081ea919",
+  "reviewed": "2026-11-21",
+  "reviewer": {
+    "tool": "agy",
+    "model": "gemini-4-hydrogen-xhigh",
+    "family": "google"
+  },
+  "authors": [
+    {
+      "tool": "claude-code",
+      "model": "claude-opus-5-5",
+      "family": "anthropic"
+    }
+  ],
+  "full_read": true,
+  "argument_review": true,
+  "structure_review": true,
+  "voice_review": true,
+  "source_review": true,
+  "final_read": true,
+  "open_findings": {
+    "blocker": 0,
+    "major": 0,
+    "minor": 2
+  },
+  "notes": "Closed all 11 findings from hydrogen (F1-F11) via direct edits, theorem refinements, estimator corrections, recall classification, and a 25-item harder robustness run; verified all 412 claims, 31 source claims, and 21 rendered PDF pages with two minor remaining items (n=6->7 estimator step in plotted curves and omitted 'suffix: III' on dellacqua2026).",
+  "contribution": {
+    "assessment": "Building on Davis et al. (2024) and Stroebl et al. (2024), the paper frames verifier-limited resampling through attainable sets, finite-compute odds-ratio thresholds (Proposition 2), a covariance identity separating pooled precision from the abstaining ceiling plus a mean-preserving spread ordering (Proposition 3 and Rothschild & Stiglitz 1970), and candidate re-verification under correlated verdicts (Proposition 4, untested). The expanded empirical study covers 40 main HMMT problems and 25 harder Omni-MATH problems on frozen outputs, but remains small, leaves most main-set check differences unresolved from zero and the harder-set self-check gain (+0.022) non-significant, and documents substantial benchmark memorization (>=30% and >=67% explicit recall in the stronger model's verdicts), leaving the overall contribution as a useful synthesis.",
+    "verdict": "useful synthesis"
+  },
+  "reports": [
+    {
+      "path": "reviews/2026-11-referee-hydrogen.json",
+      "sha256": "c5fca490bd20f8d92cea6326945b9e72ea0cc310e1c3ca1cff7488296d02bb67"
+    },
+    {
+      "path": "reviews/2026-11-closure-round1.json",
+      "sha256": "9c76f6a913a33d9a49d2ba73c15da48d56d4f89bf0b7b2b8ad9b784d3a3ec29e"
+    },
+    {
+      "path": "reviews/2026-11-closure-round2.json",
+      "sha256": "cbff6d622786201ff9689e74f88a3aadb2f4a299ac0461d541fb00a8b4bc5d17"
+    },
+    {
+      "path": "reviews/2026-11-closure-round3.json",
+      "sha256": "57ddf29d7d6b8aee83169505209a58e42669fba2e13f1fb486c3cf0f7c41f126"
+    }
+  ],
+  "remaining": "2 minor items open; see reviews/."
+}

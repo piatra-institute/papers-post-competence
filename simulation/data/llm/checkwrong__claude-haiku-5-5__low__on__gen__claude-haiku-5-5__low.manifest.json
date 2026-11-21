@@ -1,0 +1,35 @@
+{
+ "kind": "check-wrong-attempts",
+ "model": "claude-haiku-5-5",
+ "cli": "2.1.329 (Claude Code)",
+ "effort": "low",
+ "system_prompt": "You check proposed solutions to competition mathematics problems. Decide whether the proposed final answer is correct. End your reply with exactly one line, either\nVERDICT: CORRECT\nor\nVERDICT: INCORRECT",
+ "flags": [
+  "--tools",
+  "",
+  "--output-format",
+  "json",
+  "--no-session-persistence",
+  "--setting-sources",
+  "",
+  "--strict-mcp-config",
+  "--effort",
+  "low"
+ ],
+ "n_prompts": 11,
+ "finished_utc": "2026-11-21T05:10:10.162362+00:00",
+ "prompt_sha256": {
+  "h07__a1": "18647b8db4c8a6dabd0d5779a00803257eb5e9127d7a71b75a20d4dd34eeb2de",
+  "h07__a2": "ba9022247d2b710835de1131f0658e8c63bf552620b5625f7ec2eab233e2e8aa",
+  "h07__a3": "d96452ff7794aca1c5f7fff0bb5c234aaea9e29c1010ed3629c6b672ef8583b5",
+  "h07__a4": "4851157131bfce53b7813ecfc3d64dc0fb32a10f0a93f269aeda4f53b4e9255e",
+  "h07__a5": "6ea6a9b14be069e2c7b7b809f66dd042263f3469981b245f5d18b20798c69e0f",
+  "h18__a3": "712774b80e033e9c975bedc421ed0c1af9b36f6088790b7a624cb5b52428ae9c",
+  "h18__a4": "43a5a9ab342ed44328481a7f0add606e46e85c87e4a1a92b94bddbe2abb92d9c",
+  "h22__a3": "0736fb8a8647ccdd3fc616474e5a843ec224e30a02e9349eb32e4a131dc661b6",
+  "h22__a4": "c46de2066b07b934e8892ac4dab7aa2a3b26fe17ec82f36d3e1dfe0ba0e12658",
+  "h22__a5": "563e8f0b82d4c22e14f1d18a8edb89d994ac98e1528fa5e9f190c3a1964027d5",
+  "h27__a4": "68566b0f2cb0656b3f1c55cb8035fe645c101dbc03ed9f761c3808c1b4626657"
+ },
+ "source": "gen__claude-haiku-5-5__low"
+}

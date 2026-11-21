@@ -10,7 +10,7 @@ genre: formal result with proofs and a measurement on frozen language-model outp
 claims_target: claims.yaml
 repo: git@github.com:piatra-institute/papers-post-competence.git
 github: https://github.com/piatra-institute/papers-post-competence
-status: built
+status: published
 coined_terms:
 - post-competence
 - precision ceiling
@@ -19,16 +19,20 @@ abstract: A person who cannot do a task can still invoke a machine system many t
   power therefore equals compute holds only if they can tell good outputs from bad. This paper models
   an invoker who resamples a system with per-attempt success probability $p$ and accepts outputs with
   a check of sensitivity $s$ and false-acceptance rate $f$. Accepting the first output that passes converges
-  to the check's precision, $sp/[sp+f(1-p)]$, a limit already known for verifier-based selection. The
-  paper shows that a target reliability is reachable with finite compute exactly when $s/f$ exceeds the
-  target's odds divided by the generator's odds, and gives the attempts required. Across tasks, resampling
-  falls short of a check's pooled precision by the covariance between per-task acceptance and precision,
-  divided by mean acceptance. With a common check, the population ceiling lies between single-attempt
-  accuracy and the pooled formula and falls as attempt outcomes correlate within tasks. Re-checking a
-  candidate helps only if verdicts are independent. On 40 olympiad problems with 6 attempts each, a small
-  current model was right on 88% of attempts. Its own verdicts accepted 41% of wrong attempts, mostly
-  its repeated errors, and capped resampling at 92%. A stronger model as checker reached 94%, and a perfect
-  check 95%, limited by 2 items the model never solved. Pooled precision overstated what resampling reached
-  by up to 5 points. With 40 items the differences between checks are not resolved from zero, and only
-  one generator in one domain was measured.
+  to the check's precision, $sp/[sp+f(1-p)]$, a known limit for verifier-based selection. A target reliability
+  is reachable with finite compute exactly when $s/f$ exceeds the target's odds divided by the generator's
+  odds. Across tasks, resampling falls short of a check's pooled precision by the covariance between per-task
+  acceptance and precision, divided by mean acceptance; with a common check the ceiling lies between single-attempt
+  accuracy and the pooled formula. Re-checking a candidate changes nothing when verdicts are fixed by
+  the candidate. On 40 public olympiad problems a small current model was right on 88% of attempts. Its
+  own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%,
+  against 94% with a stronger model as checker and 95% with a perfect check. On 25 harder problems (58%
+  right), its self-check raised reliability only to 60%, while the stronger checker reached the 72% a
+  perfect check allows. By hand classification, at least 30% and 67% of the stronger model's verdicts
+  invoked a remembered answer, so its advantage partly reflects memory. With these samples most differences
+  between checks remain unresolved.
 checks: 2026-11
+web_blurb: Someone who cannot do a task can ask a model again and again, but must still recognise a good
+  answer. A model of resampling shows that compute buys reliability only up to the precision of the invoker's
+  check, and measures it on olympiad problems, where a small model's self-check, fooled by its own repeated
+  errors, capped resampling below a stronger checker and a perfect key.

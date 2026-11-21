@@ -75,8 +75,8 @@ def call(model: str, system: str, prompt: str, effort: str, workdir: str, timeou
             "wall_seconds": round(time.time() - t0, 2)}
 
 
-def load_items() -> list[dict]:
-    return json.loads((DATA / "items.json").read_text())["items"]
+def load_items(items_file: str = "items.json") -> list[dict]:
+    return json.loads((DATA / items_file).read_text())["items"]
 
 
 def load_records(tag: str) -> list[dict]:
@@ -135,7 +135,7 @@ def write_manifest(out: Path, kind: str, model: str, effort: str, system: str, j
 
 
 def cmd_gen(args) -> None:
-    items = load_items()
+    items = load_items(args.items_file)
     if args.items:
         items = items[: args.items]
     jobs = [{"key": f"{it['item_id']}__a{k}", "system": SOLVER_SYSTEM, "prompt": gen_prompt(it["problem"]),
@@ -143,7 +143,7 @@ def cmd_gen(args) -> None:
             for it in items for k in range(args.attempts)]
     if args.pilot:
         jobs = jobs[: args.pilot]
-    tag = f"gen__{args.model}__{args.effort}"
+    tag = f"gen__{args.model}__{args.effort}{args.tag_suffix}"
     out = DATA / ("pilot" if args.pilot else "llm") / tag
     run_jobs(jobs, out, args.model, args.effort, args.workers)
     write_manifest(out, "gen", args.model, args.effort, SOLVER_SYSTEM, jobs,
@@ -152,8 +152,10 @@ def cmd_gen(args) -> None:
 
 
 def cmd_check(args) -> None:
-    items = {it["item_id"]: it for it in load_items()}
+    items = {it["item_id"]: it for it in load_items(args.items_file)}
     recs = sorted(load_records(args.source), key=lambda r: (r["item_id"], r["attempt_index"]))
+    if args.per_attempt_wrong:
+        return cmd_check_wrong_attempts(args, items, recs)
     first = {}
     for r in recs:
         text = result_text(r)
@@ -174,6 +176,39 @@ def cmd_check(args) -> None:
     print("wrote", out, len(jobs), "checks")
 
 
+def cmd_check_wrong_attempts(args, items, recs) -> None:
+    """Verdicts on every wrong attempt not already judged as the first attempt with its answer.
+
+    Added in revision: the main check judges one attempt per distinct (item, answer); this collects a
+    verdict on each remaining wrong attempt, shown with its own solution text, so the false-acceptance
+    rate can also be computed with one verdict per attempt. Correctness is used only to select attempts.
+    """
+    corrections = {c["item_id"]: c["corrected_answer"] for c in
+                   json.loads((HERE / "key_corrections.json").read_text())["corrections"]}
+    seen = set()
+    jobs = []
+    for r in recs:
+        text = result_text(r)
+        ans = parse_answer(text)
+        key = (r["item_id"], ans)
+        if ans is None:
+            continue
+        first_time = key not in seen
+        seen.add(key)
+        truth = corrections.get(r["item_id"], items[r["item_id"]]["answer"])
+        if first_time or ans == truth:
+            continue
+        prompt = check_prompt(items[r["item_id"]]["problem"], text, str(ans))
+        jobs.append({"key": f"{r['item_id']}__a{r['attempt_index']}", "system": CHECK_SYSTEM, "prompt": prompt,
+                     "meta": {"kind": "check", "item_id": r["item_id"], "candidate_answer": ans,
+                              "attempt_index": r["attempt_index"], "source": args.source}})
+    tag = f"checkwrong__{args.model}__{args.effort}__on__{args.source}"
+    out = DATA / "llm" / tag
+    run_jobs(jobs, out, args.model, args.effort, args.workers)
+    write_manifest(out, "check-wrong-attempts", args.model, args.effort, CHECK_SYSTEM, jobs, {"source": args.source})
+    print("wrote", out, len(jobs), "checks")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -184,11 +219,15 @@ def main() -> None:
     g.add_argument("--items", type=int, default=0)
     g.add_argument("--pilot", type=int, default=0)
     g.add_argument("--workers", type=int, default=6)
+    g.add_argument("--items-file", default="items.json")
+    g.add_argument("--tag-suffix", default="")
     c = sub.add_parser("check")
     c.add_argument("--model", required=True)
     c.add_argument("--effort", default="low")
     c.add_argument("--source", required=True)
     c.add_argument("--workers", type=int, default=6)
+    c.add_argument("--items-file", default="items.json")
+    c.add_argument("--per-attempt-wrong", action="store_true")
     args = ap.parse_args()
     {"gen": cmd_gen, "check": cmd_check}[args.cmd](args)
 

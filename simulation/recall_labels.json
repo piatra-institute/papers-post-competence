@@ -1,0 +1,341 @@
+{
+ "note": "Hand classification (revision round 2) of every checker verdict that matches the CUE pattern in run_all.py. Keys are set|checker|item_id|candidate_answer. Labels: remembered_answer = the verdict invokes a remembered answer or result for this specific problem, however hedged; related = it recalls only a related fact or names the source; no_recall = it says no answer was recalled, or the matched cue refers to the proposed solution's own recall. Classified by reading each matched passage in the frozen outputs. Revision round 3 corrected two labels. The CUE pattern misses some phrasings (for example 'known result', 'known problem'), and only matched verdicts were read, so counts of remembered answers are lower bounds.",
+ "labels": {
+  "main|self|h05|146": {
+   "label": "no_recall",
+   "reason": "cue refers to the proposed solution's recall"
+  },
+  "main|self|h16|184320": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|self|h26|7": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|self|h27|126": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|self|h27|196": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|self|h29|288": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|self|h34|67950": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h03|4030": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h07|67": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h11|49140": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h16|172800": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h17|1430": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h19|180": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h19|2448": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h19|3500": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h22|4020000": {
+   "label": "related",
+   "reason": "recalls only that the answer exceeds the all-east value, not the answer"
+  },
+  "main|strong|h22|7999801": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h26|20": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h26|7": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h27|126": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h27|196": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h27|7": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h27|81": {
+   "label": "no_recall",
+   "reason": "states it did not recall the official answer with confidence"
+  },
+  "main|strong|h32|14": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h35|12066": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "main|strong|h39|45360": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r00|1984": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r00|576": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r01|211": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r01|61": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r01|77": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r04|93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r05|6": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r05|8": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r06|1": {
+   "label": "remembered_answer",
+   "reason": "states 'This is a known olympiad result' for this configuration (corrected in revision round 3)"
+  },
+  "robust|self|r08|3024": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r11|3750": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r11|3950": {
+   "label": "no_recall",
+   "reason": "cue refers to the proposed solution's recalled value"
+  },
+  "robust|self|r13|2": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r13|2023": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r14|45": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r14|59": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r15|16": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r15|25": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r15|49": {
+   "label": "no_recall",
+   "reason": "cue refers to the proposed solution's recalled value"
+  },
+  "robust|self|r17|69": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r19|673": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r21|121": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r22|2": {
+   "label": "no_recall",
+   "reason": "states it does not reliably recall the official answer"
+  },
+  "robust|self|r22|2025": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|self|r23|22": {
+   "label": "related",
+   "reason": "recalls a related result on Sidon-set constructions, not the answer"
+  },
+  "robust|strong|r00|576": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r01|60": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r01|61": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r01|77": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r04|100": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r04|2": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r04|896519947090131496687170070074100632420837521538745909320": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r04|93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r05|8": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r08|3024": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r10|500": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r11|197": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r11|3750": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r11|3950": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r12|7": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r13|2": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r13|2023": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r14|59": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r15|16": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r15|25": {
+   "label": "remembered_answer",
+   "reason": "later states 'From memory, the known answer to this problem is 15' (corrected in revision round 3)"
+  },
+  "robust|strong|r16|2500": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r17|69": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r19|21": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r19|24": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r19|25": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r19|26": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r19|673": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r21|121": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r22|2": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r22|2023": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r22|2025": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r23|22": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  },
+  "robust|strong|r24|425": {
+   "label": "remembered_answer",
+   "reason": "invokes a remembered answer or result for this problem"
+  }
+ }
+}

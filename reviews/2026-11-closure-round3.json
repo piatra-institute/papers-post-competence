@@ -1,0 +1,312 @@
+{
+ "claims_coverage": {
+  "complete": true,
+  "note": "Checked all 412 claims in claims.yaml against paper/PAPER.md, references.yaml, simulation/output/results.json, and raw data in simulation/data/. All 412 passages appear verbatim in paper/PAPER.md (0 missing passages), all 306 computation claims reconcile with results.json under standard rounding, all 40 references cited in paper/PAPER.md match the 40 entries in references.yaml (0 missing, 0 unused), and newly introduced or changed numbers in the revision (e.g. 30%, 67%, 0.580, 0.602, 0.720, 0.680, 0.706, 0.738, 0.25, 0.36, 0.629, 0.34, 0.920, 0.03, 0.942, 248, 642, 22, 19, 17, 33, 49) are bound in claims.yaml. Prompt-exempt tokens (section/table/figure numbers, mathematical expression constants/bounds such as s=1, f=0, 0<p<1, 1-p, dates, commit hashes, CLI/model identifiers, and citation locators) are excluded.",
+  "unbound_numbers": []
+ },
+ "contribution_after": {
+  "assessment": "Building on Davis et al. (2024) and Stroebl et al. (2024), the paper frames verifier-limited resampling through attainable sets, finite-compute odds-ratio thresholds (Proposition 2), a covariance identity separating pooled precision from the abstaining ceiling plus a mean-preserving spread ordering (Proposition 3 and Rothschild & Stiglitz 1970), and candidate re-verification under correlated verdicts (Proposition 4, untested). The expanded empirical study covers 40 main HMMT problems and 25 harder Omni-MATH problems on frozen outputs, but remains small, leaves most main-set check differences unresolved from zero and the harder-set self-check gain (+0.022) non-significant, and documents substantial benchmark memorization (>=30% and >=67% explicit recall in the stronger model's verdicts), leaving the overall contribution as a useful synthesis.",
+  "verdict": "useful synthesis"
+ },
+ "new_problems": [
+  {
+   "evidence": "In simulation/pc/estimators.py lines 104-164 and simulation/run_all.py lines 124-135, protocol curves switch from without-replacement permutations/U-statistics over the m=6 observed attempts (n <= 6) to i.i.d. with-replacement plug-in curves from the 6-attempt empirical distribution (n >= 7). Recomputing across n=1..8 gives a downward step at n=6 -> n=7 on the newly added robustness run (Oracle and Stronger model drop from 0.720000 to 0.706128, Plurality vote from 0.680000 to 0.638562, Agreement from 0.652444 to 0.629274) and on the main set (Vote drops from 0.925000 to 0.915219, and Agreement—newly changed to permutations up to n=6—drops from 0.922222 to 0.913093). Although paper/PAPER.md line 106 and figure captions disclose switching to plug-in beyond 6, Section 5.5 line 164 comments only on the self-check curve turning down (due to item r04) without noting why Oracle and other monotone protocols dip visually at n=7 in Figure 3b.",
+   "id": "R3-1",
+   "location": "paper/PAPER.md:106, 118, 162, 164; simulation/pc/estimators.py:104-164; paper/figures/robustness.pdf; paper/figures/measurement.pdf",
+   "problem": "Estimator switch between n=6 and n=7 produces a visible downward step even for Oracle and Stronger-model curves in Figure 3b (robustness.pdf) and Agreement/Vote in Figure 2c (measurement.pdf), left unexplained beside the discussion of the self-check downturn.",
+   "severity": "minor"
+  },
+  {
+   "evidence": "In REVIEW/diff.patch lines 2900-2904 and references.yaml lines 2076-2079, updating dellacqua2023 to dellacqua2026 removed \"suffix\": \"III\" from second author Edward McFowland ({\"family\": \"McFowland\", \"given\": \"Edward\"}). Direct query to Crossref for DOI 10.1287/orsc.2025.21838 returns {\"given\": \"Edward\", \"family\": \"McFowland\", \"suffix\": \"III\"}.",
+   "id": "R3-2",
+   "location": "references.yaml:2076-2079; REVIEW/diff.patch:2900-2904",
+   "problem": "The updated bibliography entry dellacqua2026 omits the author name suffix \"III\" for Edward McFowland III that is present in the Crossref version-of-record metadata and was present in the prior entry.",
+   "severity": "minor"
+  }
+ ],
+ "source_claims": [
+  {
+   "claim_id": "intro-anderson",
+   "depth": "abstract",
+   "note": "Inspected Crossref/OpenAlex abstract of Anderson (2023), Educational Linguistics 3(2):258-285 (DOI 10.1515/eduling-2023-0009); proposes a 'post-competence perspective' moving beyond Bernstein's 'competence model' in educational linguistics.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "intro-davis",
+   "depth": "fulltext",
+   "note": "Inspected DataCite record (10.48550/arXiv.2407.16831) and v1 PDF Section 2.2 (Theorems 1 and 2); derives limit rc/beta = sp/[sp+f(1-p)] and positive gain iff r not in {0,1} and c > 1-s.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "intro-stroebl",
+   "depth": "fulltext",
+   "note": "Inspected DataCite abstract (10.48550/arXiv.2411.17501) and v3 PDF introduction/Appendix C; shows false positives in imperfect unit-test verifiers on HumanEval and MBPP cap resampling below a sufficiently strong model's single-sample accuracy.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "intro-brown",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstracts for all four co-cited works: brown2024 (10.48550/arXiv.2407.21787, log-linear sample coverage scaling), schaeffer2025 (10.48550/arXiv.2502.17578), chen2024calls (10.48550/arXiv.2403.02419, non-monotone Vote scaling), and snell2024 (10.48550/arXiv.2408.03314, adaptive test-time allocation across prompts).",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "intro-cobbe",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstracts for cobbe2021 (10.48550/arXiv.2110.14168, GSM8K trained verifiers ranking sampled solutions) and lightman2023 (10.48550/arXiv.2305.20050, MATH supervision).",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "ov-bowman",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract for bowman2022 (10.48550/arXiv.2211.03540); humans assisted by an unreliable LLM dialogue model outperform both the model and unaided humans on MMLU and time-limited QuALITY.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "ov-saunders",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract for saunders2022 (10.48550/arXiv.2206.05802); model-written critiques help humans find flaws in summaries they would otherwise miss.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "ov-burns",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract and OpenAlex record for burns2023 (10.48550/arXiv.2312.09390); strong models fine-tuned on weak labels beat their supervisor without recovering full capabilities under naive finetuning.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "src-noy",
+   "depth": "abstract",
+   "note": "Inspected OpenAlex abstract for noy2023 (10.1126/science.adh2586); preregistered study of 453 college-educated professionals reporting 40% time decrease, 18% quality rise, and lower inequality.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "src-brynjolfsson",
+   "depth": "abstract",
+   "note": "Inspected Crossref and OpenAlex abstracts for brynjolfsson2025 (10.1093/qje/qjae044); 5,172 customer-support agents, 15% average increase in issues resolved per hour, largest speed and quality gains for less experienced/lower-skilled workers.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "src-becker-main",
+   "depth": "fulltext",
+   "note": "Inspected DataCite abstract and v2 PDF for becker2025 (10.48550/arXiv.2507.09089); RCT with 16 developers and 246 tasks, 24% forecast reduction, 20% post-hoc perceived reduction, 19% observed slowdown.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "src-becker-review",
+   "depth": "fulltext",
+   "note": "Inspected becker2025 v2 PDF Appendix C.1.4; confirms <44% acceptance of AI generations and approximately 9% of AI-assisted time spent reviewing and cleaning AI outputs on labelled screen recordings.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "src-dellacqua",
+   "depth": "abstract",
+   "note": "Inspected Crossref and OpenAlex abstracts for dellacqua2026 (Organization Science 37(2):403-423, DOI 10.1287/orsc.2025.21838); 758 knowledge workers, improved outcomes inside the frontier and 19% lower likelihood of correct solutions outside it.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "auto-bainbridge",
+   "depth": "fulltext",
+   "note": "Inspected Crossref record (10.1016/0005-1098(83)90046-8) and scanned fulltext PDF of Bainbridge (1983), Automatica 19(6), Section 1.1.3 p. 776 verbatim ('the automatic control system has been put in because it can do the job better than the operator, but yet the operator is being asked to monitor that it is working effectively').",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "auto-parasuraman",
+   "depth": "abstract",
+   "note": "Inspected Crossref and OpenAlex structured abstracts for parasuraman2010 (Human Factors 52(3):381-410, DOI 10.1177/0018720810376055); states automation bias causes omission and commission errors in naive and expert participants alike and cannot be prevented by training or instructions.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "src-kwa",
+   "depth": "fulltext",
+   "note": "Inspected DataCite abstract and v4 PDF Section 3.2.1 for kwa2025 (10.48550/arXiv.2503.14499); confirms 80% time horizons on software tasks are 4-6x shorter than 50% time horizons.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "prop1-davis",
+   "depth": "fulltext",
+   "note": "Inspected davis2024 v1 PDF Section 2.2 Theorems 1-2; confirms random-answer fallback when all candidates are rejected yields the same K->infinity precision limit rc/beta.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "prop1-meehl",
+   "depth": "abstract",
+   "note": "Inspected OpenAlex abstract for meehl1955 (10.1037/h0048070); shows efficiency of psychometric signs/cutting scores depends critically on base rates relative to true-positive and false-positive performance.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "vote-ladha",
+   "depth": "abstract",
+   "note": "Inspected full OpenAlex/DataCite abstracts for ladha1992 (10.2307/2111584, generalizes Condorcet Jury Theorem to correlated votes), chen2024calls (non-monotone vote scaling under varying query difficulty), and wang2022 (10.48550/arXiv.2203.11171, self-consistency decoding via sampled reasoning paths and majority vote), plus partial OpenAlex abstract for boland1989 (10.2307/2348873).",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "prop3-stroebl",
+   "depth": "fulltext",
+   "note": "Inspected stroebl2024 v3 PDF Appendix C.1; models easy/hard task mixture T_1/T_2 with priors p_1, p_2 and Bayesian posterior updating p^(k)_{T_i} after rejections, alongside schaeffer2025 DataCite abstract.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "prop3-schaeffer",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract for schaeffer2025 (10.48550/arXiv.2502.17578); explains aggregate inference scaling laws via the heavy-tailed distribution of per-problem single-attempt success probabilities.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "prop4-gao",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract for gao2022overopt (10.48550/arXiv.2210.10760); demonstrates optimizing an imperfect proxy reward via best-of-n sampling hinders gold reward performance.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "d-omni",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract for gao2024omni (10.48550/arXiv.2410.07985, 4,428 competition problems) and Hugging Face dataset card at pinned commit 40ba231d8f16e29ecd40e6407e2c8640145a8f62 declaring license: apache-2.0.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "d-math500",
+   "depth": "fulltext",
+   "note": "Inspected hendrycks2021 and lightman2023 DataCite abstracts plus lightman2023 PDF Appendix C ('remaining 500 held-out problems') and openai/prm800k GitHub repo at commit 7ecc7947...; abstract alone says 'representative subset' without giving 500, while PDF fulltext confirms the 500-problem MATH split (author pilot performance itself is bound in d-pilot-math).",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "e-chen",
+   "depth": "fulltext",
+   "note": "Inspected chen2021 PDF Section 2.1 (10.48550/arXiv.2107.03374); defines the without-replacement unbiased pass@k estimator 1 - C(n-c,k)/C(n,k) from n >= k samples.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "selfeval-kadavath",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract for kadavath2022 (10.48550/arXiv.2207.05221) plus abstract-level checks for co-mentioned huang2023, stechly2024, panickssery2024; confirms larger models show encouraging P(True) self-evaluation calibration on diverse tasks.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "selfeval-huang",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract for huang2023 (10.48550/arXiv.2310.01798); confirms LLMs struggle to self-correct reasoning without external feedback and sometimes degrade.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "selfeval-stechly",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract for stechly2024 (10.48550/arXiv.2402.08115); confirms self-critique collapses on reasoning/planning tasks while sound external verification improves performance.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "selfeval-panickssery",
+   "depth": "abstract",
+   "note": "Inspected Crossref metadata for NeurIPS 37 (10.52202/079017-2197) and OpenAlex/DataCite arXiv abstract (2404.13076); confirms LLM evaluators recognize and favor their own generations.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "sastry",
+   "depth": "abstract",
+   "note": "Inspected DataCite abstract for sastry2024 (10.48550/arXiv.2402.08797); confirms AI compute is described verbatim as 'detectable, excludable, and quantifiable, and is produced via an extremely concentrated supply chain'.",
+   "verdict": "supported"
+  },
+  {
+   "claim_id": "final-dellacqua",
+   "depth": "abstract",
+   "note": "Inspected Crossref/OpenAlex abstract for dellacqua2026 (10.1287/orsc.2025.21838); confirms consultants using AI on an outside-frontier task were less likely to reach a correct answer, implying non-zero false acceptance.",
+   "verdict": "supported"
+  }
+ ],
+ "summary": "Closed all 11 findings from hydrogen (F1-F11) via direct edits, theorem refinements, estimator corrections, recall classification, and a 25-item harder robustness run; verified all 412 claims, 31 source claims, and 21 rendered PDF pages with two minor remaining items (n=6->7 estimator step in plotted curves and omitted 'suffix: III' on dellacqua2026).",
+ "verdicts": [
+  {
+   "evidence": "REVIEW/diff.patch lines 2268-2269, 2283-2284, 2316-2317, 2332-2338 and paper/PAPER.md lines 9, 21, 58, 72, 76 remove the false general ICC-monotonicity claim, state endpoint bounds plus the second-order term, include the explicit counterexample (mean 0.5, s=0.9, f=0.2: ICC 0.25 -> ceiling 0.706 vs ICC 0.36 -> ceiling 0.738, matching simulation/output/results.json theory_icc_counterexample: 0.705882 and 0.738390), prove the mean-preserving spread ordering via concavity and conditional Jensen's inequality citing @rothschild1970, qualify Figure 1c as the Beta family, and add missing boundary conditions (0 < p < 1, f > 0, a < 1, rho in (p,1) in Prop 2; s > f > 0 in Prop 3(b)).",
+   "finding_id": "hydrogen:F1",
+   "severity": "major",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2301-2302, 2368-2369, 2383, 2389-2390, 2401-2402, 3146-3179, 3210-3218, 3579-3599 and paper/PAPER.md lines 46, 106, 118, 124, 134 count compute in generations across all protocols. simulation/pc/estimators.py lines 104-129 add reliability_agreement_generations(item, n) using exact permutation averages over floor(n/2) candidate-confirmation pairs up to n=6 and Proposition 1 with floor(n/2) pairs beyond 6 (verified by test_agreement_by_generations in simulation/tests/test_theory.py lines 176-191, passing in memory). Recomputed agreement reliability yields 0.879167 at n=1,2,3 and 0.915000 at n=4, updating Table 1 and Section 5.4 n*(0.90) from 2 to 4 generations.",
+   "finding_id": "hydrogen:F2",
+   "severity": "major",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2268-2269, 2283-2284, 2357-2358, 2381, 2414-2439, 2443-2447, 6550-6897 and paper/PAPER.md lines 9, 98, 116, 144-168, 172 quantify recall cues with a fixed regex pattern and hand-classify all 84 matched verdicts in simulation/recall_labels.json (main strong: 17/56 = 30.4% remembered answer, 8/18 wrong candidates with 0/8 accepted vs 1/10; main self: 6/56; robust strong: 33/49 = 67.3%; robust self: 21/49), explicitly framing them as lower bounds. A 25-item non-HMMT robustness run (difficulty >= 7, mean_p 0.580, ICC 0.676, self limit 0.602 vs single-attempt 0.580 [CI -0.020 to 0.064], strong/oracle 0.720, vote 0.680) shows memorization persists on other public competitions (and self/strong checks accept 13/15 and 4/24 wrong remembered candidates; 3 never-solved items show stronger acceptance), and Abstract, Section 5.6, and Section 6 are narrowed accordingly.",
+   "finding_id": "hydrogen:F3",
+   "severity": "major",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2268-2269, 2283-2284, 2342-2350 and paper/PAPER.md lines 9, 21, 80-84 replace the false Abstract statement with 'Re-checking a candidate changes nothing when verdicts are fixed by the candidate', restate Proposition 4 via beta_k(y) (probability of passing all k verdicts) with deterministic and conditionally independent cases as (i) and (ii), and clarify in Section 4.3 that independent re-checking hurts when a wrong candidate has highest acceptance and need not be monotone between extremes (converging in case (ii) to the q-weighted share among candidates maximizing alpha).",
+   "finding_id": "hydrogen:F4",
+   "severity": "major",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2443-2447 and paper/PAPER.md lines 172, 174 separate frontier-model verification ('frontier inference, and the compute behind it is detectable, excludable and quantifiable and is produced by an extremely concentrated supply chain [@sastry2024]') from local tools ('A test suite, an execution sandbox or a proof checker instead runs on ordinary hardware, but it verifies only what someone has specified... With such tools the competence the invoker lacks moves into writing the specification').",
+   "finding_id": "hydrogen:F5",
+   "severity": "major",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2280-2281, 2292-2293, 2495-2855 and paper/PAPER.md lines 19, 31 integrate @bowman2022, @saunders2022, and @burns2023 in Section 1 (contrasting improving weak supervision with bounding how far a fixed weak check lets compute go) and @bainbridge1983 (sec. 1.1.3) and @parasuraman2010 in Section 2 (automation monitoring and automation bias), with all five entries added to references.yaml and matched against DataCite/Crossref.",
+   "finding_id": "hydrogen:F6",
+   "severity": "major",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2308-2312 and paper/PAPER.md lines 52, 54 add boundary assumptions ('Let a>0', 'when s>f, 0<p<1 and a<1') to Proposition 1 and fix the proof sign error to 'Because s-a=(1-p)(s-f) is positive when s>f and p<1, the term (pi-p)(1-a)^{n-1} is positive and shrinks with n'.",
+   "finding_id": "hydrogen:F7",
+   "severity": "minor",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2383, 2406-2407, 3523-3547, simulation/run_all.py lines 797-799, and paper/PAPER.md lines 118, 138 add the abstaining limit markers to Figure 2d beside the fallback limit and state explicitly that Proposition 3(a) concerns the abstaining limit, matching fallback for self/strong/agreement while diverging for Confidence (0.629 abstaining vs 0.892 fallback due to 13 items with zero accepted attempts).",
+   "finding_id": "hydrogen:F8",
+   "severity": "minor",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2357-2361, 2377-2378, 6250-6367 and paper/PAPER.md lines 98, 100, 114 clarify that per-candidate verdict reuse models answer-level caching and re-judge all 11 repeated wrong attempts on their own solutions (22 checkwrong calls). Direct comparison of simulation/data/llm/checkwrong__*.jsonl against cached verdicts confirms 9/11 agreement for self (disagreements on h07 attempts 1 and 3, ans 67; attempt FAR 0.3448 -> 0.34, limit 0.920) and 10/11 for strong (disagreement on h27 attempt 4, ans 81; attempt FAR 0.0345 -> 0.03, limit 0.9417 -> 0.942).",
+   "finding_id": "hydrogen:F9",
+   "severity": "minor",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2273-2274 and paper/PAPER.md line 13 revise 'no larger budget improved on that' to 'reliability reached 92% within 3 attempts, and extrapolating from the observed attempts gives no gain from larger budgets'.",
+   "finding_id": "hydrogen:F10",
+   "severity": "minor",
+   "verdict": "closed"
+  },
+  {
+   "evidence": "REVIEW/diff.patch lines 2459-2494, 2890-2941, 3605-3658, references.yaml lines 1253-1280 and 2068-2121, and sources.md lines 3, 15, 41, 47 upgrade panickssery2024 to NeurIPS 37 (DOI 10.52202/079017-2197, pp. 68772-68802) and dellacqua2026 to Organization Science 37(2):403-423 (DOI 10.1287/orsc.2025.21838), both confirmed via Crossref, and update sources.md to list all 40 references including anderson2023. (A minor missing author suffix 'III' on dellacqua2026 is logged separately under R3-2.)",
+   "finding_id": "hydrogen:F11",
+   "severity": "minor",
+   "verdict": "closed"
+  }
+ ],
+ "visual": {
+  "all_pages_inspected": true,
+  "page_count": 21,
+  "pages_inspected": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21
+  ],
+  "problems": []
+ }
+}

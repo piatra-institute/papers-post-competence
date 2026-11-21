@@ -1,0 +1,171 @@
+{
+ "central_claims": [
+  "Resampling an AI system with per-attempt success probability p under an acceptance check with sensitivity s and false-acceptance rate f (falling back to the first attempt if none passes) converges to the check's precision ceiling pi = sp/[sp+f(1-p)] (credited to Davis et al. 2024); reaching a target reliability rho in (p, pi) with finite compute is possible iff s/f > [rho/(1-rho)]/[p/(1-p)] (Propositions 1-2).",
+  "Across heterogeneous tasks, the abstaining resampling ceiling falls short of the check's pooled single-attempt precision by Cov(a_x, pi_x)/E[a_x]; with a common check (s_x=s, f_x=f), the ceiling lies between single-attempt accuracy p_bar and pi(p_bar) = P_pool and is claimed to fall toward p_bar as intraclass correlation rises (Proposition 3).",
+  "Requiring a candidate to pass k conditionally independent checks shifts the ceiling to the q-weighted correct share among candidates maximizing acceptance alpha(y), while deterministic checks gain nothing from re-checking; the abstract claims re-checking helps only if verdicts are independent (Proposition 4).",
+  "On 40 Omni-MATH HMMT February problems (difficulty >= 5.5, integer answers, 1 key corrected) with 6 attempts each from claude-haiku-5-5 at low effort, single-attempt accuracy is 0.879 (ICC = 0.51) and oracle limit is 0.950; novice checks have low likelihood ratios (2.4-2.7) and cap resampling below 0.95 (confidence 0.892, self-check 0.920, agreement and plurality vote 0.925), with self-check accepting 3/4 repeated modal wrong candidates vs 1/14 others (Fisher p = 0.019).",
+  "A stronger-model check (claude-sonnet-5-5, costing 6.7x an attempt) lowers false acceptance to 0.07 (s/f = 14.5) and reaches a ceiling of 0.938 (5 points below its pooled precision of 0.991), though with 40 items differences among self-check, strong-check, and oracle are not separated from zero; the paper concludes that compute buys reliability only up to verification precision and that purchased verification remains compute under institutional control."
+ ],
+ "checks_not_done": [
+  "Did not execute simulation/run_all.py or pytest directly because the session is strictly read-only and running them writes output/ and .pytest_cache/; instead recomputed key numbers, theory curves, Fisher tests, and claims.yaml bindings via read-only Python scripts in memory.",
+  "Did not visually inspect all 17 rendered pages of paper/PAPER.pdf (verified pdfinfo, pdftotext output, and visually inspected figures/theory.pdf and figures/measurement.pdf).",
+  "Did not independently re-solve the 28 always-solved Omni-MATH problems (h00..h39) to check for additional benchmark key errors beyond h07, h09, h18, h22, h27, and h32.",
+  "Did not read full bodies of paywalled or book references lacking open full-text PDFs in the session (condorcet1785, green1966, sen1985, vonneumann1956, moore1956, boland1989, ladha1992, list2001, meehl1955, ridout1999, noy2023, brynjolfsson2025, dellacqua2023 Organization Science body) or arXiv papers checked via abstracts only (brown2024, snell2024, cobbe2021, lightman2023, schaeffer2025, wang2022, chen2021, kadavath2022, huang2023, stechly2024, panickssery2024, gao2022overopt, sastry2024, gao2024omni, hendrycks2021); read relevant sections of davis2024, stroebl2024, chen2024calls, becker2025, and kwa2025.",
+  "Did not run live claude CLI model calls to test uncontaminated problems or measure verdict repeatability (Proposition 4)."
+ ],
+ "contribution": {
+  "closest_prior_work": [
+   {
+    "how_verified": "Verified via DataCite API (10.48550/arXiv.2407.16831) and read v1 PDF Section 2.2 (Theorems 1-2, pp. 3-4).",
+    "identifier": "10.48550/arXiv.2407.16831",
+    "relation": "Derives the finite-K formula, K->infinity precision ceiling rc/beta = sp/[sp+f(1-p)], and gain iff condition c > 1 - s (s > f) for a verifier-based judge with random fallback.",
+    "work": "Davis et al. (2024), Networks of Networks: Complexity Class Principles Applied to Compound AI Systems Design"
+   },
+   {
+    "how_verified": "Verified via DataCite API (10.48550/arXiv.2411.17501) and read v3 PDF Sections 1, 3, and Appendix C.1.",
+    "identifier": "10.48550/arXiv.2411.17501",
+    "relation": "Shows imperfect verifiers impose a false-positive ceiling on resampling so weaker models cannot match stronger ones, and models easy/hard task heterogeneity with Bayesian updating after rejections.",
+    "work": "Stroebl, Kapoor, and Narayanan (2024), The Limits of Inference Scaling Through Resampling"
+   },
+   {
+    "how_verified": "Verified via DataCite API (10.48550/arXiv.2403.02419) and read v2 PDF Sections 1, 3, and 4.",
+    "identifier": "10.48550/arXiv.2403.02419",
+    "relation": "Analyzes Vote and Filter-Vote scaling under heterogeneous query difficulty, showing non-monotonicity and optimal call budgets.",
+    "work": "Chen et al. (2024), Are More LLM Calls All You Need? Towards Scaling Laws of Compound Inference Systems"
+   },
+   {
+    "how_verified": "Verified via DataCite API (10.48550/arXiv.2502.17578) and read v1 PDF abstract and Section 1.",
+    "identifier": "10.48550/arXiv.2502.17578",
+    "relation": "Explains aggregate pass@k scaling from the distribution of per-problem single-attempt success probabilities.",
+    "work": "Schaeffer et al. (2025), How Do Large Language Monkeys Get Their Power (Laws)?"
+   }
+  ],
+  "strongest_feasible_extension": "Using the existing simulation/ pipeline and public Omni-MATH dataset, expand from 40 high-accuracy HMMT items (p = 0.88) to ~150-200 harder, less-memorized Omni-MATH items (difficulty >= 7.0, excluding or perturbing classic HMMT problems where 34% of stronger-model checks cited recall) with baseline accuracy in the 0.3-0.6 regime, and elicit independent per-attempt verdicts (plus k = 3 repeated verdicts on a subset) instead of caching one verdict per distinct integer answer. This resolves check-vs-oracle differences from zero, eliminates the memorization and answer-caching confounds, and tests Proposition 4 directly.",
+  "verdict": "useful synthesis",
+  "what_is_new": "Building on Davis et al. (2024) and Stroebl et al. (2024), the paper frames verification ceilings via attainable sets and odds-ratio thresholds (Proposition 2), provides a distribution-free covariance identity separating pooled validation precision from the abstaining resampling ceiling plus Jensen bounds and a second-order ICC approximation (Proposition 3), formalizes re-verification under repeated checks (Proposition 4, untested), and measures novice checks vs a stronger model on 40 Omni-MATH items, observing that self-checks disproportionately pass repeated modal wrong answers (3/4 vs 1/14)."
+ },
+ "findings": [
+  {
+   "category": "correctness",
+   "confidence": "high",
+   "evidence": "Counterexample computed via simulation/pc/theory.py at mean p=0.5, s=0.9, f=0.2: a two-point distribution (p=0 with prob 0.2, p=0.625 with prob 0.8) has ICC=0.2500 and E[pi]=0.7059, whereas (p=0.2 with prob 0.5, p=0.8 with prob 0.5) has higher ICC=0.3600 and higher E[pi]=0.7384. Paper's own data shows the same sensitivity: strong check observed ceiling is 0.9375 at ICC=0.513 vs Beta model 0.9705 (results.json lines 223, 249). Also at f=0, s>0 and p_x in {0.3, 0.7}, pi(p)=1 on (0,1] so E[pi]=pi(p_bar)=1 for non-constant p_x, contradicting Prop 3(b)'s equality condition.",
+   "id": "F1",
+   "location": "paper/PAPER.md:9, 21, 72, 76",
+   "passage": "With a common check, the population ceiling lies between single-attempt accuracy and the pooled formula and falls as attempt outcomes correlate within tasks.",
+   "problem": "Abstract (line 9), Introduction (line 21), and Section 4.2 (line 76) claim Proposition 3(b) proves the population ceiling falls toward p_bar as intraclass correlation (ICC) rises. Proposition 3(b) actually proves only the endpoints/bounds and a second-order Taylor term; across arbitrary task distributions with fixed mean p_bar, E[pi(p_x)] is not monotonically decreasing in ICC. Additionally, Prop 3(b)'s right-equality condition ('iff p_x is constant') and Prop 2's odds-ratio equivalence omit boundary exclusions (f=0 for Prop 3(b); p=0, f=0, rho=1 for Prop 2).",
+   "repair": "Restrict the ICC monotonicity claim to the second-order approximation and convex-order families (e.g., Beta with fixed mean), state explicitly that two task distributions with identical mean and ICC can have different ceilings (as seen in the empirical Beta-vs-observed gap), and add f > 0 to Proposition 3(b) and 0 < p < 1, rho < 1, f > 0 to Proposition 2.",
+   "severity": "major"
+  },
+  {
+   "category": "correctness",
+   "confidence": "high",
+   "evidence": "simulation/pc/estimators.py lines 104-105 docstring: 'n candidate-confirmation pairs (2n generations); plug-in in the acceptance components.' Recomputing est.reliability_agreement_item(it, 1, fallback=True) across the 40 items yields mean 0.879167 (max diff from p_hat = 0.0), matching results.json /protocols/agreement/reliability/1; the reported 0.903056 at n=2 (results.json line 590) uses n=2 pairs = 4 generations, exceeding plurality vote's 3 generations (0.915 at n=3).",
+   "id": "F2",
+   "location": "paper/PAPER.md:98, 116, 122, 132; simulation/pc/estimators.py:104-115",
+   "passage": "At a target of 0.90, the self-check, the stronger-model check, agreement and the oracle check all reach it with 2 attempts and the vote with 3; stated confidence and accepting the first output never do.",
+   "problem": "Section 3 (line 46) defines compute in attempts ('one generation and, under a check, one verdict') and Section 5.1 (line 98) notes Agreement 'costs a second generation', yet estimators.py evaluates Agreement at n candidate-confirmation pairs (2n generations). Thus Table 1 (n*=2 at 0.90), Figure 2c (x-axis 'Attempt budget n'), and line 132 compare 2n generations for Agreement against n generations for all other protocols. At an actual budget of 2 generations (1 pair), Agreement with fallback always returns Y_1 and achieves 0.879 (equal to single-attempt accuracy), not 0.903; reaching 0.903 requires 4 generations (more than Plurality vote's 3).",
+   "repair": "Index Agreement by total generations consumed (2n for n independent pairs, or specify a sequential reuse rule and evaluate its exact U-statistic) in Figure 2c, Table 1, and Section 5.4, updating n* at 0.90 for Agreement from 2 to 4 generations.",
+   "severity": "major"
+  },
+  {
+   "category": "statistics",
+   "confidence": "high",
+   "evidence": "Inspecting simulation/data/llm/*.jsonl shows 19/56 (33.9%) strong-check calls explicitly cite recalling the HMMT problem or known answer (e.g., h27 ans=7: 'I recall the known answer to this problem as 126, though I did not re-derive it here'; h22 ans=7999801: 'I did not derive an exact value. My recollection is that the known answer for this problem is about 6,014,950'; h19 ans=3500: 'matches the known answer to this HMMT problem'). In gen__claude-haiku-5-5__low.jsonl, 12/240 calls cite recall, including 5/6 attempts on h32 (whose prompt has an undefined variable '1 <= i < j <= n' typo) and 4/6 on h34 (recalling OEIS A001499). On h27 ans=81, where Sonnet explicitly noted it 'did not recall the official answer with confidence', it failed verification and accepted the wrong proof.",
+   "id": "F3",
+   "location": "paper/PAPER.md:114, 130, 144; simulation/data/llm/check__claude-sonnet-5-5__low__on__gen__claude-haiku-5-5__low.jsonl",
+   "passage": "The stronger model accepted 1 of the 18 wrong candidates, for a false-acceptance rate over attempts of 0.07 (0.00 to 0.22) and a likelihood ratio of 14.5.",
+   "problem": "The measurement uses public HMMT February problems from Omni-MATH, introducing a severe benchmark-memorization confound that is never mentioned in Section 5.5 ('What the measurement does not show'). In over a third of stronger-model checks (and on items h32/h34 for the generator), models explicitly invoke memory of the published HMMT answer or OEIS sequence rather than verifying the solution from scratch, inflating the stronger checker's measured likelihood ratio (14.5) and base accuracy (0.88).",
+   "repair": "Quantify and report the prevalence of explicit recall/memorization cues in Section 5.4/5.5, clarify that Sonnet's low false-acceptance rate on HMMT problems conflates mathematical verification with answer-key memorization, and ideally replicate on uncontaminated or perturbed problems.",
+   "severity": "major"
+  },
+  {
+   "category": "correctness",
+   "confidence": "high",
+   "evidence": "Proposition 4 (paper/PAPER.md line 80) shows deterministic checks give pi^(k) = pi, not that independence is required for re-checking to help; positively correlated non-deterministic checks can also change pi^(k). Conversely, simulation/tests/test_theory.py lines 95-100 ('test_repeated_checks_converge_to_most_accepted') explicitly shows an example where independent re-checking lowers the ceiling from >0.5 to <0.05 because a wrong candidate has higher acceptance alpha(w1)=0.9 than the right candidate alpha(right)=0.8.",
+   "id": "F4",
+   "location": "paper/PAPER.md:9, 21, 80, 84",
+   "passage": "Re-checking a candidate helps only if verdicts are independent.",
+   "problem": "The Abstract summarizes Proposition 4 as 'Re-checking a candidate helps only if verdicts are independent.' This is false in both directions: non-deterministic correlated checks can still alter the ceiling (only deterministic checks are invariant), and even when verdicts are independent, re-checking hurts whenever an incorrect candidate has higher acceptance probability than correct candidates. Also line 84 writes 'converges to the candidate the check most reliably endorses' whereas Proposition 4 converges to the q-weighted share among all candidates tied at max alpha(y).",
+   "repair": "Rewrite the Abstract and Section 4.3 summary to state that re-checking alters the ceiling only when verdicts are non-deterministic (not constant per candidate) and drives acceptance toward whichever candidates maximize acceptance probability, helping only when those candidates are predominantly correct.",
+   "severity": "major"
+  },
+  {
+   "category": "reality-check",
+   "confidence": "high",
+   "evidence": "Line 148 groups 'a stronger model, a test suite, an execution environment, a proof checker' under purchased compute and applies Sastry et al. (2024) ('Computing Power and the Governance of Artificial Intelligence', arXiv:2402.08797), whose abstract concerns frontier AI compute governance ('hardware/clusters'), not running deterministic compilers, unit-test suites, or proof checkers on commodity personal hardware.",
+   "id": "F5",
+   "location": "paper/PAPER.md:148, 150",
+   "passage": "Purchased verification is compute supplied by someone else: a stronger model, a test suite, an execution environment, a proof checker. Compute is detectable, excludable and quantifiable, and it is produced by an extremely concentrated supply chain [@sastry2024].",
+   "problem": "Section 6 overstates institutional compute control by bundling deterministic local tools ('a test suite, an execution environment, a proof checker') with frontier model inference, attributing Sastry et al.'s (2024) concentrated-supply-chain argument to all of them, and concluding on line 150 that 'verification can be bought only as compute under someone else's control'. While frontier-model verifiers depend on concentrated GPU infrastructure, unit-test runners, execution sandboxes, and formal proof checkers run locally on commodity hardware.",
+   "repair": "Separate frontier-model verification (which relies on concentrated AI compute supply chains) from local software verification tools (test suites, execution environments, proof checkers), which require technical/specification skill to write or interpret rather than institutional compute access.",
+   "severity": "major"
+  },
+  {
+   "category": "missing-literature",
+   "confidence": "high",
+   "evidence": "Verified DOIs via DataCite and Crossref: Bowman et al. (2022), 'Measuring Progress on Scalable Oversight for Large Language Models', 10.48550/arXiv.2211.03540; Saunders et al. (2022), 'Self-critiquing models for assisting human evaluators', 10.48550/arXiv.2206.05802; Burns et al. (2023), 'Weak-to-Strong Generalization: Eliciting Strong Capabilities With Weak Supervision', 10.48550/arXiv.2312.09390; Bainbridge (1983), 'Ironies of automation', Automatica, 10.1016/0005-1098(83)90046-8; Parasuraman & Manzey (2010), 'Complacency and Bias in Human Use of Automation: An Attentional Integration', Human Factors, 10.1177/0018720810376055. None appear in references.yaml or paper/PAPER.md.",
+   "id": "F6",
+   "location": "paper/PAPER.md:15, 31-33, 148-150",
+   "passage": "Repetition helps, however, only if the invoker can tell good outputs from bad ones, and telling them apart is itself a competence.",
+   "problem": "The central question—when a non-expert or weaker principal can reliably verify and oversee a more capable AI system's outputs—directly engages two foundational literatures that are neither cited nor discussed: AI scalable oversight / weak-to-strong supervision (Bowman et al. 2022; Saunders et al. 2022; Burns et al. 2023) and human-factors automation bias / ironies of automation (Bainbridge 1983; Parasuraman & Manzey 2010).",
+   "repair": "Cite and engage the scalable oversight and automation-bias literatures in Sections 1-2 and Section 6 to situate verification competence and human false-acceptance rates in existing work.",
+   "severity": "major"
+  },
+  {
+   "category": "correctness",
+   "confidence": "high",
+   "evidence": "Algebraic check of line 54: a = sp + f(1-p), so s - a = s - sp - f(1-p) = (1-p)(s-f). When s > f and p < 1, (1-p)(s-f) > 0 (positive), giving pi - p = p(s-a)/a > 0 so R(n) = pi - (pi - p)(1-a)^(n-1) increases with n. Also R(n) is only constant (not strictly increasing) at p in {0,1} and pi=sp/a requires a>0.",
+   "id": "F7",
+   "location": "paper/PAPER.md:52-54",
+   "passage": "Since $\\pi(1-a)-(1-s)p=\\pi-p=p(s-a)/a$, this equals the stated form, and $s-a=(1-p)(s-f)$ is negative when $s>f$.",
+   "problem": "Sign error in the proof of Proposition 1: when s > f (and p < 1), s - a = (1-p)(s-f) is positive, not negative. Calling it negative contradicts both the algebra and the proposition's monotonicity claim (pi - p > 0 requires s - a > 0). The proposition statement also omits p in (0,1) for strict increase and a > 0 for pi = sp/a.",
+   "repair": "Change 'is negative when s>f' to 'is positive when s>f and p<1', and note the boundary cases a=0 and p in {0,1}.",
+   "severity": "minor"
+  },
+  {
+   "category": "statistics",
+   "confidence": "high",
+   "evidence": "simulation/run_all.py line 543 plots results['protocols'][c]['limit'] (ceiling_fallback) in Figure 2d. In simulation/output/results.json lines 123-126, confidence has pooled_precision=0.9453, ceiling_abstain=0.6292, and ceiling_fallback=0.8917, with 13 items having zero accepted attempts; only self and strong satisfy ceiling_abstain == ceiling_fallback because their unaccepted items (h22, h07) had p_hat=0.",
+   "id": "F8",
+   "location": "paper/PAPER.md:116, 136; simulation/run_all.py:543",
+   "passage": "Proposition 3(a) is visible in the data (Figure 2d). Validated on these outputs, the self-check has pooled precision 0.946, but resampling with it reaches 0.920.",
+   "problem": "Figure 2d is cited as displaying Proposition 3(a) ('Pooled precision against the limit'), yet Proposition 3(a) is an identity for the abstaining limit whereas Figure 2d plots the fallback limit. For Confidence (where 13 of 40 items have no accepted attempt), the plotted fallback limit is 0.892 (visual gap 0.053) while the abstaining limit in Proposition 3(a) is 0.629 (gap 0.316).",
+   "repair": "Either plot the abstaining ceiling alongside (or instead of) the fallback ceiling in Figure 2d, or explicitly note in the caption and text that Proposition 3(a) matches the plotted limit only when unaccepted items have zero success probability (self and strong) and diverges sharply for Confidence under fallback.",
+   "severity": "minor"
+  },
+  {
+   "category": "statistics",
+   "confidence": "high",
+   "evidence": "simulation/collect_llm.py lines 157-166 sends check_prompt(problem, first_text, ans) once per distinct (item_id, ans) (56 calls across 240 attempts). In simulation/pc/estimators.py lines 48-50 and 69-80, accept_vector assigns that verdict to all attempts with the same integer ans and permutes attempts via U-statistics. In gen__claude-haiku-5-5__low.jsonl, h18 attempts a1, a3, a4 all give ans=5 using three distinct flawed expansions, yet self-check only judged a1 (commenting on a1's specific omitted h^2/2! factor). Moreover, 6/12 (h07) and 3/12 (h18) of self-check's attempt-level false acceptances (12/29 = 0.41) come from two single check calls.",
+   "id": "F9",
+   "location": "paper/PAPER.md:98, 114, 144; simulation/collect_llm.py:157-166; simulation/pc/estimators.py:48-80",
+   "passage": "The model checks were run once for each distinct pair of item and answer, using the first attempt that produced that answer; there were 56 such candidates.",
+   "problem": "Both model checks receive the full proposed solution text of only the first attempt producing each distinct integer answer, yet the analysis applies that single verdict to all attempts sharing the integer answer (even when later attempts have different reasoning traces) and computes permutation U-statistics assuming attempt-level verdict invariance. Under permutation, a different attempt with the same answer could be encountered first and receive a different verdict from a solution-reading checker.",
+   "repair": "Either evaluate the checker independently on every distinct attempt (solution + answer) or clarify in Section 5.1/5.2 that the U-statistic models an invoker who caches verdicts strictly by final answer regardless of the solution shown on first occurrence.",
+   "severity": "minor"
+  },
+  {
+   "category": "prose",
+   "confidence": "high",
+   "evidence": "Section 5.2 (line 106) and simulation/output/results.json line 637-640 confirm that budgets beyond 6 attempts (e.g. n=16..1024) were not observed runs, only plug-in extrapolations from the 6 observed attempts per item.",
+   "id": "F10",
+   "location": "paper/PAPER.md:13, 106",
+   "passage": "When the model judged its own answers, 6 attempts reached 92%, and no larger budget improved on that.",
+   "problem": "Line 13 overstates the empirical result by stating as an observed fact that 'no larger budget improved on that' beyond 6 attempts, whereas budgets > 6 were plug-in extrapolations from the 6 observed attempts (treating the 2 items unsolved in 6 tries as having p_x = 0) rather than measured runs.",
+   "repair": "Qualify line 13 to state that 6 attempts reached 92% and plug-in extrapolation from the observed attempts gives the same limit (or state 'reached its 92% ceiling within 3 attempts').",
+   "severity": "minor"
+  },
+  {
+   "category": "citation",
+   "confidence": "high",
+   "evidence": "Crossref and OpenAlex show dellacqua2023 (SSRN 10.2139/ssrn.4573321) was published in Organization Science 37(2):403-423, March 2026 (DOI 10.1287/orsc.2025.21838), and panickssery2024 (arXiv:2404.13076) was published in Advances in Neural Information Processing Systems 37, 2024 (DOI 10.52202/079017-2197). references.yaml has 34 entries, while sources.md line 3 says '33 entries' and omits anderson2023.",
+   "id": "F11",
+   "location": "references.yaml:1255-1282, 1680-1732; sources.md:3, 31; paper/PAPER.md:31, 114",
+   "passage": "In a field experiment with 758 consultants, AI access improved work on tasks inside the frontier of the system's capability but made consultants less likely to reach a correct answer on a task selected to lie outside it [@dellacqua2023].",
+   "problem": "Two citations use working-paper or arXiv entries despite published versions of record with Crossref DOIs (Organization Science 2026 for dellacqua2023; NeurIPS 2024 for panickssery2024), contrary to standards.md ('prefer the version of record'). Additionally, sources.md misstates the bibliography length as 33 entries (it has 34) and omits anderson2023, while claiming the published version of dellacqua2023 could not be located in Crossref.",
+   "repair": "Update dellacqua2023 to 10.1287/orsc.2025.21838 (Organization Science 37(2):403-423, 2026) and panickssery2024 to 10.52202/079017-2197 (NeurIPS 2024), and align sources.md with the 34 entries in references.yaml.",
+   "severity": "minor"
+  }
+ ],
+ "paper": "Post-Competence: Verification Precision Caps the Reliability Compute Buys"
+}

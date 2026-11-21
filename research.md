@@ -54,3 +54,14 @@ Findings, tiered by source proximity. T1 primary · T2 authoritative secondary �
 
 - The single-item ceiling is Davis et al.'s Theorem 1 limit; the paper's novelty is restricted to the compute-threshold reading, the population identity and bounds, the re-verification limit and the measurement.
 - Verdicts are elicited once per distinct candidate, so the measurement treats each check as a deterministic function of the candidate. Proposition 4 says re-checking such a check cannot raise its ceiling; the repeatability of model verdicts was not measured.
+
+## Revision round 1 (2026-11-21)
+
+- [T1] Bowman et al. (2022), arXiv:2211.03540, abstract: scalable oversight; sandwiching experiments on MMLU and time-limited QuALITY. Assisted participants beat the model alone and themselves unaided.
+- [T1] Saunders et al. (2022), arXiv:2206.05802, abstract: self-critiquing models assist human evaluators.
+- [T1] Burns et al. (2023), arXiv:2312.09390, abstract: weak-to-strong generalization.
+- [T1] Bainbridge (1983), Automatica 19(6), 775–779, full text, §1.1.3 (p. 776): an automatic system installed because it does the job better than the operator is monitored by that operator; "Another problem arises when one asks whether monitoring can be done by an unskilled operator."
+- [T1] Parasuraman and Manzey (2010), Human Factors 52(3), 381–410, abstract: automation bias yields omission and commission errors, in naive and expert users, not prevented by training or instructions.
+- [T1] Rothschild and Stiglitz (1970), JET 2(3), 225–243, identity only: mean-preserving spread.
+- [T1] Versions of record: Dell'Acqua et al. (2026), Organization Science 37(2), 403–423, abstract; Panickssery et al. (2024), NeurIPS 37, pp. 68772–68802.
+- Memorization: explicit recall cues in the frozen outputs, counted by a fixed pattern in run_all.py (19 of 56 stronger-model verdicts in the main set). This motivated the robustness run on non-HMMT items of difficulty 7 or more.

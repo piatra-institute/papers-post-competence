@@ -171,3 +171,21 @@ def test_fallback_closed_form_and_threshold():
             assert th.reliability_check_fallback(p, s, f, n) >= rho - 1e-12
             assert n == 1 or th.reliability_check_fallback(p, s, f, n - 1) < rho
         assert math.isinf(th.n_star_fallback(pi, p, s, f))
+
+
+def test_agreement_by_generations():
+    it = make_item([7, 3, 7, 5, 3, 7])
+    assert abs(est.reliability_agreement_generations(it, 1) - 0.5) < 1e-12
+    assert abs(est.reliability_agreement_generations(it, 2) - 0.5) < 1e-12  # one pair: Y1 is returned either way
+    # brute force for 4 generations: two pairs, fallback to the first attempt
+    ans = [a for a, _ in it.attempts]
+    vals = []
+    for perm in itertools.permutations(range(6)):
+        if ans[perm[0]] == ans[perm[1]]:
+            vals.append(ans[perm[0]] == 7)
+        elif ans[perm[2]] == ans[perm[3]]:
+            vals.append(ans[perm[2]] == 7)
+        else:
+            vals.append(ans[perm[0]] == 7)
+    assert abs(est.reliability_agreement_generations(it, 4) - np.mean(vals)) < 1e-12
+    assert est.reliability_agreement_generations(it, 4) > 0.5

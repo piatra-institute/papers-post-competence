@@ -9,7 +9,12 @@ the problems that satisfy all of:
 The eligible problems are put in a seeded random order; the study uses a prefix of that order.
 Writes data/omni_math_test.jsonl (the unmodified file) and data/items.json.
 
-Usage: uv run python fetch_data.py
+A second item set for the robustness run (added in revision) is drawn from the same frozen file by
+`--robust`: non-HMMT sources, Omni-MATH difficulty >= 7, integer answer, no figure reference, in a seeded
+random order (seed 20261122); the run uses a prefix. It is written to data/items_robust.json.
+
+Usage: uv run python fetch_data.py            (download, verify and freeze the main items)
+       uv run python fetch_data.py --robust   (robustness items from the frozen file)
 """
 from __future__ import annotations
 
@@ -29,7 +34,36 @@ INT = re.compile(r"\s*\$?\s*(-?\d+)\s*\$?\s*")
 FIGURE = re.compile(r"figure|diagram|pictured|\[asy\]|shown (below|above|at right|at left|here)", re.IGNORECASE)
 
 
+ROBUST_SEED = 20261122
+
+
+def robust() -> None:
+    data = HERE / "data"
+    raw = (data / "omni_math_test.jsonl").read_bytes()
+    if hashlib.sha256(raw).hexdigest() != SHA256:
+        raise SystemExit("frozen benchmark file does not match its checksum")
+    rows = [json.loads(line) for line in raw.decode().splitlines() if line.strip()]
+    eligible = []
+    for idx, r in enumerate(rows):
+        m = INT.fullmatch(str(r["answer"]))
+        if (not r["source"].startswith("HMMT")) and float(r["difficulty"]) >= 7 and m and not FIGURE.search(r["problem"]):
+            eligible.append({"row": idx, "domain": r["domain"], "difficulty": float(r["difficulty"]),
+                             "source": r["source"], "problem": r["problem"], "answer": int(m.group(1))})
+    random.Random(ROBUST_SEED).shuffle(eligible)
+    items = [{"item_id": f"r{k:02d}", **it} for k, it in enumerate(eligible)]
+    meta = {"dataset": "KbsdJames/Omni-MATH", "revision": REVISION, "sha256": SHA256, "licence": "Apache-2.0",
+            "n_rows": len(rows), "order_seed": ROBUST_SEED,
+            "selection": "source not HMMT, difficulty >= 7, integer answer, no figure reference",
+            "n_eligible": len(items)}
+    (data / "items_robust.json").write_text(json.dumps({"meta": meta, "items": items}, indent=1, ensure_ascii=False))
+    print(f"{len(items)} eligible robustness items")
+
+
 def main() -> None:
+    import sys
+    if "--robust" in sys.argv:
+        robust()
+        return
     raw = urllib.request.urlopen(URL, timeout=120).read()
     digest = hashlib.sha256(raw).hexdigest()
     if digest != SHA256:

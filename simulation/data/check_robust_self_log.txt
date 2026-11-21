@@ -1,0 +1,6 @@
+10/49 r04__ans100.json rc=0 53s
+20/49 r09__ans11.json rc=0 53s
+30/49 r14__ans45.json rc=0 59s
+40/49 r19__ans673.json rc=0 75s
+49/49 r24__ans425.json rc=0 93s
+wrote /Users/ly3xqhl8g9/Data/i/theings/piatra/content/piatra-papers/2026/11/post-competence/simulation/data/llm/check__claude-haiku-5-5__low__on__gen__claude-haiku-5-5__low__robust 49 checks

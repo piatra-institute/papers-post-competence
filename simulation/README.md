@@ -46,4 +46,20 @@ uv run python freeze_llm.py
 
 Calls: 240 generations, 56 self-check verdicts and 56 stronger-model verdicts (352 analysed). The pilot used 18 calls: 4 attempts by `claude-haiku-5-5` and 6 by `claude-haiku-4-5-20251001` on MATH-500 Level-5 problems (all correct), then 8 by `claude-haiku-5-5` on the first 8 study items (excluded from the analysis). Two one-word calls checked that the `claude-haiku-4-5` identifiers were available; they were not stored. Total: 372 calls.
 
+Revision round 1 (same CLI and flags, 21 November 2026) added:
+
+```bash
+uv run python collect_llm.py check --per-attempt-wrong --model claude-haiku-5-5 --effort low --source gen__claude-haiku-5-5__low
+uv run python collect_llm.py check --per-attempt-wrong --model claude-sonnet-5-5 --effort low --source gen__claude-haiku-5-5__low
+uv run python fetch_data.py --robust
+uv run python collect_llm.py gen --model claude-haiku-5-5 --effort low --attempts 6 --items 25 --items-file items_robust.json --tag-suffix __robust
+uv run python collect_llm.py check --model claude-haiku-5-5 --effort low --items-file items_robust.json --source gen__claude-haiku-5-5__low__robust
+uv run python collect_llm.py check --model claude-sonnet-5-5 --effort low --items-file items_robust.json --source gen__claude-haiku-5-5__low__robust
+uv run python freeze_llm.py
+```
+
+- The `--per-attempt-wrong` runs judge each wrong attempt that repeated an answer already judged, shown with its own solution (11 per checker).
+- The robustness set (`data/items_robust.json`) holds non-HMMT Omni-MATH items with difficulty 7 or more, integer answers and no figure reference, in seeded order (seed 20261122). The run uses the first 25 and the same protocols. Its keys were not audited by hand.
+- Call counts for every run are recorded in `output/results.json` under `/compute`.
+
 The stated-confidence threshold of 90 was fixed after the pilot and before the study data were analysed. Item h09's reference answer in Omni-MATH (2009) is wrong; the analysis uses −2009 (see `key_corrections.json` and `tests/test_keys.py`) and also reports results under the original key.

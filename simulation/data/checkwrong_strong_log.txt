@@ -1,0 +1,3 @@
+10/11 h22__a5.json rc=0 24s
+11/11 h27__a4.json rc=0 36s
+wrote /Users/ly3xqhl8g9/Data/i/theings/piatra/content/piatra-papers/2026/11/post-competence/simulation/data/llm/checkwrong__claude-sonnet-5-5__low__on__gen__claude-haiku-5-5__low 11 checks

@@ -1,6 +1,6 @@
 # Editorial record
 
-Status: authored and read in full by the authoring agent; independent editorial and visual review pending.
+Status: authored and read in full by the authoring agent; revised after referee round 1 (Gemini 4 Hydrogen, verdict "useful synthesis"); independent editorial and visual review pending.
 
 ## Contribution and reader
 
@@ -44,4 +44,25 @@ Verification is not a separate competence: it can be bought with the same comput
 - Model checks give one verdict per distinct candidate. This models an invoker who does not re-judge, and leaves Proposition 4 untested.
 - One key error (h09) was corrected after hand inspection with an exact check; results under the original key are reported.
 - The draft's long literature-review sections were not carried over; only the attainable-set definition, the improvement/sufficiency distinction and a short treatment of who controls verification remain.
-- Remaining: independent review of all 27 source claims (all `verified: false`), coverage stamp, editorial and visual review records by a reviewer from another model family.
+- Remaining: independent review of all 32 source claims (all `verified: false`), coverage stamp, editorial and visual review records by a reviewer from another model family.
+
+## Revision round 1 (2026-11-21)
+
+Responses to the referee (details in revision/2026-11/ledger/post-competence/fix-round1.json):
+- F1: Proposition 3(b) is now stated as bounds attained at the two extremes of within-task correlation, plus the second-order term. The paper gives an explicit counterexample showing that the intraclass correlation does not fix the ceiling, and a correct monotonicity statement under mean-preserving spreads (Rothschild and Stiglitz 1970), with a common check. Boundary conditions were added to Propositions 1–3.
+- F2: compute is counted in generations for every protocol. Agreement is re-estimated by generations (exact up to 6, plug-in beyond), which changes its attempts-to-target.
+- F3: memorisation is quantified by a fixed recall-cue pattern and the conclusions are qualified. A robustness run on 25 non-HMMT Omni-MATH items of difficulty 7 or more, with the same protocols, is reported as it came out.
+- F4: Proposition 4 is restated exactly, through the probability $\beta_k$ of passing all $k$ verdicts, with the deterministic and independent cases as corollaries.
+- F5: Section 6 separates frontier-model verification (concentrated compute) from local tools, which move the competence into specification.
+- F6: scalable oversight (Bowman et al., Saunders et al., Burns et al.) and automation bias (Bainbridge, Parasuraman and Manzey) were added and engaged.
+- F7: the sign error in the proof of Proposition 1 is corrected.
+- F8: Figure 2d now shows the abstaining limit beside the fallback limit, and the text says where they differ.
+- F9: the per-answer caching is stated as a modelling choice. Each repeated wrong attempt was re-judged with its own solution, and per-attempt false-acceptance rates are reported.
+- F10: the "no larger budget" claim now says that larger budgets are extrapolated.
+- F11: versions of record are used for Dell'Acqua et al. (2026) and Panickssery et al. (2024), and sources.md is corrected.
+
+## Revision round 2 (2026-11-21)
+
+- Memorisation (closure F3): pattern hits were hand-classified. The abstract now reports that 30% and 65% of the stronger model's verdicts invoked a remembered answer. Sections 5.5 and 6 add that remembered answers also misled both checks on the robustness set, which qualifies the stronger checker's advantage.
+- Ridout et al. is now an attribution only; unbound quantities are bound; the Figure 2 caption and the Figure 1 overlaps are fixed.
+- Remaining: independent review of the 31 source claims, the coverage stamp, and the editorial and visual records.

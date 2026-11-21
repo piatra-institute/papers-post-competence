@@ -8,7 +8,9 @@ Usage: uv run python run_all.py
 from __future__ import annotations
 
 import hashlib
+import itertools
 import json
+import re
 import math
 import platform
 import sys
@@ -42,6 +44,15 @@ GEN_TAG = "gen__claude-haiku-5-5__low"
 CHECKS = {"self": f"check__claude-haiku-5-5__low__on__{GEN_TAG}",
           "strong": f"check__claude-sonnet-5-5__low__on__{GEN_TAG}"}
 PROTOCOLS = ("first", "vote", "confidence", "agreement", "self", "strong", "oracle")
+# revision round 1: per-attempt verdicts on repeated wrong attempts, robustness set, recall cues
+CHECKWRONG = {"self": f"checkwrong__claude-haiku-5-5__low__on__{GEN_TAG}",
+              "strong": f"checkwrong__claude-sonnet-5-5__low__on__{GEN_TAG}"}
+ROBUST_GEN = "gen__claude-haiku-5-5__low__robust"
+ROBUST_CHECKS = {"self": f"check__claude-haiku-5-5__low__on__{ROBUST_GEN}",
+                 "strong": f"check__claude-sonnet-5-5__low__on__{ROBUST_GEN}"}
+N_ROBUST = 25
+CUE = re.compile(r"\b(recall|recalled|remember|remembered|recollection|known answer|well[- ]known|official answer|"
+                 r"official solution|answer key|HMMT|OEIS|memori[sz]ed|IMO|Putnam|shortlist)\b", re.IGNORECASE)
 LABELS = {"first": "Accept first output", "vote": "Plurality vote", "confidence": "Stated confidence $\\geq$ 90",
           "agreement": "Agreement of two samples", "self": "Self-check (same model)",
           "strong": "Stronger-model check", "oracle": "Oracle check"}
@@ -119,7 +130,7 @@ def item_curve(it: est.Item, proto: str, ns) -> np.ndarray:
         seed = SEED + int(it.item_id[1:])
         return np.array([est.reliability_vote_item(it, n, seed=seed) for n in ns])
     if proto == "agreement":
-        return np.array([est.reliability_agreement_item(it, n, fallback=True) for n in ns])
+        return np.array([est.reliability_agreement_generations(it, n) for n in ns])
     return np.array([est.reliability_check_item(it, proto, n, fallback=True, tau=TAU) for n in ns])
 
 
@@ -183,6 +194,202 @@ def n_star_from_curve(curve, ns, rho):
         if v >= rho - 1e-12:
             return int(n)
     return None
+
+
+def text_of(rec: dict) -> str:
+    return result_of(rec).get("result", "") or ""
+
+
+def has_cue(text: str) -> bool:
+    return bool(CUE.search(text))
+
+
+def load_set(items_file, n_items, gen_tag, check_tags):
+    """Load a generation set and its candidate-level checks (used for the robustness set)."""
+    raw_items = json.loads((DATA / items_file).read_text())
+    items_raw = raw_items["items"][:n_items]
+    gens = read_jsonl(DATA / "llm" / f"{gen_tag}.jsonl")
+    by_item = {it["item_id"]: [] for it in items_raw}
+    usage = {"gen": [usage_of(r) for r in gens]}
+    for r in sorted(gens, key=lambda r: (r["item_id"], r["attempt_index"])):
+        t = text_of(r)
+        by_item[r["item_id"]].append((parse_answer(t), parse_confidence(t)))
+    verdicts = {k: {} for k in check_tags}
+    checks = {}
+    for k, tag in check_tags.items():
+        checks[k] = read_jsonl(DATA / "llm" / f"{tag}.jsonl")
+        usage[k] = [usage_of(r) for r in checks[k]]
+        for r in checks[k]:
+            verdicts[k].setdefault(r["item_id"], {})[r["candidate_answer"]] = bool(parse_verdict(text_of(r)))
+    items = [est.Item(it["item_id"], it["answer"], by_item[it["item_id"]],
+                      {k: verdicts[k].get(it["item_id"], {}) for k in check_tags}) for it in items_raw]
+    return items, raw_items["meta"], gens, checks, usage
+
+
+def cue_summary(gens, checks, items):
+    """Counts of explicit recall cues (CUE pattern) in generations and verdicts, and stronger-check outcomes
+    on wrong candidates split by whether the verdict text contains a cue."""
+    keyed = {it.item_id: it.answer for it in items}
+    out = {"pattern": CUE.pattern, "gen_calls": len(gens), "gen_with_cue": sum(has_cue(text_of(r)) for r in gens)}
+    for k, recs in checks.items():
+        out[f"{k}_calls"] = len(recs)
+        out[f"{k}_with_cue"] = sum(has_cue(text_of(r)) for r in recs)
+        wrong = [r for r in recs if r["candidate_answer"] != keyed[r["item_id"]]]
+        wc = [r for r in wrong if has_cue(text_of(r))]
+        wn = [r for r in wrong if not has_cue(text_of(r))]
+        out[f"{k}_wrong_candidates"] = len(wrong)
+        out[f"{k}_wrong_with_cue"] = len(wc)
+        out[f"{k}_wrong_with_cue_accepted"] = sum(bool(parse_verdict(text_of(r))) for r in wc)
+        out[f"{k}_wrong_without_cue"] = len(wn)
+        out[f"{k}_wrong_without_cue_accepted"] = sum(bool(parse_verdict(text_of(r))) for r in wn)
+        right = [r for r in recs if r["candidate_answer"] == keyed[r["item_id"]]]
+        out[f"{k}_correct_with_cue"] = sum(has_cue(text_of(r)) for r in right)
+    out["gen_share_with_cue"] = out["gen_with_cue"] / max(1, out["gen_calls"])
+    for k in checks:
+        out[f"{k}_share_with_cue"] = out[f"{k}_with_cue"] / max(1, out[f"{k}_calls"])
+    return out
+
+
+def recall_label_summary(set_name, checks, items, labels):
+    """Summaries of the hand classification (recall_labels.json) of verdicts matching the CUE pattern."""
+    keyed = {it.item_id: it.answer for it in items}
+    out = {}
+    for k, recs in checks.items():
+        rows = []
+        for r in recs:
+            key = f"{set_name}|{k}|{r['item_id']}|{r['candidate_answer']}"
+            t = text_of(r)
+            hit = has_cue(t)
+            lab = labels.get(key, {}).get("label") if hit else None
+            if hit and lab is None:
+                raise SystemExit(f"unlabelled cue hit {key}")
+            rows.append({"hit": hit, "label": lab, "correct": r["candidate_answer"] == keyed[r["item_id"]],
+                         "accepted": bool(parse_verdict(t))})
+        rem = [x for x in rows if x["label"] == "remembered_answer"]
+        wrong = [x for x in rows if not x["correct"]]
+        out[k] = {"calls": len(rows), "pattern_hits": sum(x["hit"] for x in rows),
+                  "remembered_answer": len(rem), "related": sum(x["label"] == "related" for x in rows),
+                  "no_recall": sum(x["label"] == "no_recall" for x in rows),
+                  "remembered_share": len(rem) / len(rows),
+                  "wrong_candidates": len(wrong),
+                  "wrong_remembered": sum(x["label"] == "remembered_answer" for x in wrong),
+                  "wrong_remembered_accepted": sum(x["label"] == "remembered_answer" and x["accepted"] for x in wrong),
+                  "wrong_other": sum(x["label"] != "remembered_answer" for x in wrong),
+                  "wrong_other_accepted": sum(x["label"] != "remembered_answer" and x["accepted"] for x in wrong),
+                  "remembered_verdicts_against_key": sum(x["accepted"] != x["correct"] for x in rem)}
+    return out
+
+
+def per_attempt_check(items, gens, checks, checkwrong):
+    """False acceptance and limits when every wrong attempt is judged with its own solution text.
+
+    Wrong attempts that were the first with their answer were judged in the main check; the others were
+    judged in the revision collection (checkwrong). Correct attempts keep the cached candidate verdict."""
+    out = {}
+    for k in checks:
+        first_seen = {}
+        for r in sorted(gens, key=lambda r: (r["item_id"], r["attempt_index"])):
+            a = parse_answer(text_of(r))
+            if a is not None and (r["item_id"], a) not in first_seen:
+                first_seen[(r["item_id"], a)] = r["attempt_index"]
+        own = {}
+        for r in checks[k]:
+            own[(r["item_id"], first_seen[(r["item_id"], r["candidate_answer"])])] = bool(parse_verdict(text_of(r)))
+        extra = {(r["item_id"], r["attempt_index"]): bool(parse_verdict(text_of(r))) for r in checkwrong[k]}
+        n_wrong = acc_wrong = n_repeat = repeat_agree = 0
+        lim = []
+        for it in items:
+            A = B = J = Jc = 0
+            for j, ((a, _), ok) in enumerate(zip(it.attempts, it.correct())):
+                cached = bool(it.verdicts[k].get(a, False)) if a is not None else False
+                if ok:
+                    v = cached
+                else:
+                    if (it.item_id, j) in extra:
+                        v = extra[(it.item_id, j)]
+                        n_repeat += 1
+                        repeat_agree += v == cached
+                    else:
+                        v = own.get((it.item_id, j), cached)
+                    n_wrong += 1
+                    acc_wrong += v
+                A += v and ok
+                B += v and not ok
+                J += not v
+                Jc += (not v) and ok
+            lim.append(A / (A + B) if A + B else (Jc / J if J else 0.0))
+        out[k] = {"wrong_attempts": n_wrong, "wrong_accepted": acc_wrong, "false_acceptance": acc_wrong / n_wrong,
+                  "repeated_wrong_attempts_rejudged": n_repeat, "rejudged_agree_with_cached": repeat_agree,
+                  "limit_fallback": float(np.mean(lim))}
+    return out
+
+
+def analyse_set(items, ns, rng, boot):
+    """Compact analysis of an item set with the same protocols (used for the robustness set)."""
+    N = len(items)
+    phat = np.array([it.p_hat() for it in items])
+    pic = {p: np.array([item_curve(it, p, ns) for it in items]) for p in PROTOCOLS}
+    pil = {p: np.array([item_limit(it, p) for it in items]) for p in PROTOCOLS}
+    curves = {p: pic[p].mean(axis=0) for p in PROTOCOLS}
+    res = {"n_items": N, "mean_p": float(phat.mean()), "icc": est.icc_anova(phat, ATTEMPTS),
+           "items_by_correct_count": {str(k): int(np.sum(np.round(phat * ATTEMPTS) == k)) for k in range(ATTEMPTS + 1)},
+           "n_never": int(np.sum(phat == 0)), "n_always": int(np.sum(phat == 1)),
+           "n_wrong_attempts": int(round(sum((1 - phat) * ATTEMPTS)))}
+    res["share_wrong_on_never"] = (res["n_never"] * ATTEMPTS) / res["n_wrong_attempts"] if res["n_wrong_attempts"] else None
+    checks = {}
+    for c in ("confidence", "agreement", "self", "strong"):
+        s_, f_ = sens_far(items, c)
+        a_pi = [accept_rate_and_precision(it, c) for it in items]
+        checks[c] = {"sensitivity": s_, "false_acceptance": f_, "likelihood_ratio": (s_ / f_) if f_ else None,
+                     "pooled_precision": pooled_precision(items, c),
+                     "ceiling_abstain": float(np.mean([x[1] for x in a_pi]))}
+    prot = {}
+    for p in PROTOCOLS:
+        prot[p] = {"limit": float(pil[p].mean()), "reliability_6": float(curves[p][int(np.where(ns == 6)[0][0])]),
+                   "n_star": {f"{rho:.2f}": n_star_from_curve(curves[p], ns, rho) for rho in TARGETS}}
+    bs = {"mean_p": [], "icc": []}
+    bl = {p: [] for p in PROTOCOLS}
+    bc = {c: {"s": [], "f": []} for c in ("self", "strong")}
+    for _ in range(boot):
+        idx = rng.integers(0, N, N)
+        sub = [items[i] for i in idx]
+        bs["mean_p"].append(phat[idx].mean())
+        bs["icc"].append(est.icc_anova(phat[idx], ATTEMPTS) if phat[idx].std() > 0 else float("nan"))
+        for p in PROTOCOLS:
+            bl[p].append(pil[p][idx].mean())
+        for c in bc:
+            s_, f_ = sens_far(sub, c)
+            bc[c]["s"].append(s_)
+            bc[c]["f"].append(f_)
+
+    def ci(x):
+        x = np.asarray(x, float)
+        x = x[~np.isnan(x)]
+        return [float(np.quantile(x, 0.025)), float(np.quantile(x, 0.975))]
+
+    res["mean_p_ci95"] = ci(bs["mean_p"])
+    res["icc_ci95"] = ci(bs["icc"])
+    for p in PROTOCOLS:
+        prot[p]["limit_ci95"] = ci(bl[p])
+    for c in bc:
+        checks[c]["sensitivity_ci95"] = ci(bc[c]["s"])
+        checks[c]["false_acceptance_ci95"] = ci(bc[c]["f"])
+    paired = {}
+    for a_, b_ in (("oracle", "self"), ("oracle", "strong"), ("self", "first"), ("strong", "self"), ("oracle", "first"),
+                   ("oracle", "vote")):
+        d = pil[a_] - pil[b_]
+        paired[f"{a_}_minus_{b_}"] = {"diff": float(d.mean()), "ci95": ci([d[rng.integers(0, N, N)].mean() for _ in range(boot)]),
+                                      "items_differing": int(np.sum(np.abs(d) > 1e-12))}
+    res["checks"] = checks
+    res["protocols"] = prot
+    res["paired_limit_differences"] = paired
+    res["share_of_oracle_gain_recovered"] = {p: ((prot[p]["limit"] - prot["first"]["limit"]) / (prot["oracle"]["limit"] - prot["first"]["limit"])
+                                                 if prot["oracle"]["limit"] > prot["first"]["limit"] else None) for p in PROTOCOLS}
+    # never-solved items on which the stronger check accepted some model answer (key or checker in question)
+    res["never_items_with_strong_acceptance"] = int(sum(1 for it in items if it.p_hat() == 0 and any(it.verdicts["strong"].values())))
+    res["never_items_with_self_acceptance"] = int(sum(1 for it in items if it.p_hat() == 0 and any(it.verdicts["self"].values())))
+    res["n_candidates"] = int(sum(len(it.verdicts["self"]) for it in items))
+    return res, curves
 
 
 def main() -> None:
@@ -417,6 +624,46 @@ def main() -> None:
         s, f = checks[c]["sensitivity"], checks[c]["false_acceptance"]
         checks[c]["beta_model_ceiling_at_measured_icc"] = th.beta_population_ceiling(pbar, icc_hat, s, f) if f > 0 else 1.0
 
+    # ----------------------------------------------------------- revision round 1
+    gens_main = read_jsonl(DATA / "llm" / f"{GEN_TAG}.jsonl")
+    checks_main = {k: read_jsonl(DATA / "llm" / f"{v}.jsonl") for k, v in CHECKS.items()}
+    checkwrong = {k: read_jsonl(DATA / "llm" / f"{v}.jsonl") for k, v in CHECKWRONG.items()}
+    per_attempt = per_attempt_check(items, gens_main, checks_main, checkwrong)
+    cues = cue_summary(gens_main, checks_main, items)
+    cues["checkwrong_with_cue"] = {k: sum(has_cue(text_of(r)) for r in v) for k, v in checkwrong.items()}
+    items_r, meta_r, gens_r, checks_r, usage_r = load_set("items_robust.json", N_ROBUST, ROBUST_GEN, ROBUST_CHECKS)
+    robust, curves_r = analyse_set(items_r, ns, np.random.default_rng(SEED + 1), BOOT)
+    robust["items_meta"] = meta_r
+    robust["recall_cues"] = cue_summary(gens_r, checks_r, items_r)
+    robust["compute"] = {k: {"calls": len(v), "mean_output_tokens": float(np.mean([x["output_tokens"] for x in v])),
+                             "mean_cost_usd": float(np.mean([x["cost_usd"] for x in v]))} for k, v in usage_r.items()}
+    labels = json.loads((HERE / "recall_labels.json").read_text())["labels"]
+    recall_labels = {"main": recall_label_summary("main", checks_main, items, labels),
+                     "robust": recall_label_summary("robust", checks_r, items_r, labels),
+                     "n_labels": len(labels)}
+    below = 0
+    for it in items_r:
+        A_, B_, J_, Jc_ = est.check_counts(it, "self", TAU)
+        if A_ + B_ > 0 and A_ / (A_ + B_) < it.p_hat():
+            below += 1
+    robust["items_self_precision_below_p"] = below
+    robust["sources"] = dict(Counter(json.loads((DATA / "items_robust.json").read_text())["items"][i]["source"] for i in range(N_ROBUST)))
+    revision_calls = {"checkwrong": sum(len(v) for v in checkwrong.values()),
+                      "robust": sum(len(v) for v in usage_r.values())}
+    compute["revision_calls"] = revision_calls
+    compute["total_calls_all_rounds"] = compute["total_calls_including_pilot_and_probes"] + sum(revision_calls.values())
+    compute["agreement_generations_note"] = "agreement curves are indexed by generations: n generations allow floor(n/2) pairs"
+    # F1: two task mixtures with the same mean show the ceiling is not a function of the ICC alone
+    s_c, f_c = 0.9, 0.2
+    mixA = [(0.0, 0.2), (0.625, 0.8)]
+    mixB = [(0.2, 0.5), (0.8, 0.5)]
+
+    def mix_stats(mix):
+        m = sum(pp * w for pp, w in mix)
+        var = sum(w * (pp - m) ** 2 for pp, w in mix)
+        return {"mean": m, "icc": var / (m * (1 - m)), "ceiling": sum(w * th.ceiling(pp, s_c, f_c) for pp, w in mix)}
+    theory_icc_counter = {"s": s_c, "f": f_c, "mixture_a": mix_stats(mixA), "mixture_b": mix_stats(mixB)}
+
     results = {"schema": "post-competence-results-1", "config": {
         "n_items": N_ITEMS, "attempts": ATTEMPTS, "tau": TAU, "targets": TARGETS, "n_max": N_MAX,
         "bootstrap": BOOT, "seed": SEED, "generator_tag": GEN_TAG, "check_tags": CHECKS},
@@ -427,6 +674,8 @@ def main() -> None:
         "population": pop, "checks": checks, "candidates": cand, "paired_wrong_candidates": paired,
         "confidence_score": {"auroc": auroc, "roc": roc},
         "pilot": {"runs": pilot, "math500_total": pilot_math500},
+        "per_attempt_wrong_verdicts": per_attempt, "recall_cues": cues, "recall_labels": recall_labels, "robust": robust,
+        "theory_icc_counterexample": theory_icc_counter,
         "never_solved_items": never_detail,
         "protocols": protocols, "limit_gap_to_oracle": gap_oracle_minus, "paired_limit_differences": paired_limits,
         "share_of_oracle_gain_recovered": recovered, "original_key": original_key, "compute": compute, "theory": theory,
@@ -434,6 +683,7 @@ def main() -> None:
                     "platform": platform.platform()}}
     (OUT / "results.json").write_text(json.dumps(results, indent=1, default=float))
     make_figures(results, ns, curves, boot_curves, items, roc)
+    make_robust_figure(results["robust"], ns, curves_r)
     print(json.dumps({"mean_p": pop["mean_p"], "icc": icc, "limits": limits,
                       "checks": {c: [checks[c]["sensitivity"], checks[c]["false_acceptance"]] for c in checks}}, indent=1))
 
@@ -473,10 +723,10 @@ def make_figures(results, ns, curves, boot_curves, items, roc):
         a.plot(lr, odds / (1 + odds), color="k", ls=ls, lw=1.2, label=f"$p = {pp}$")
     a.axhline(0.9, color="#999999", lw=0.7)
     a.axhline(0.99, color="#999999", lw=0.7)
-    a.text(600, 0.855, "$\\rho = 0.9$", fontsize=7.5, color="#444444", ha="right")
-    a.text(600, 1.005, "$\\rho = 0.99$", fontsize=7.5, color="#444444", ha="right")
+    a.text(1.08, 0.915, "$\\rho = 0.9$", fontsize=7.5, color="#444444", ha="left", va="bottom")
+    a.text(1.08, 1.003, "$\\rho = 0.99$", fontsize=7.5, color="#444444", ha="left", va="bottom")
     a.set_xscale("log")
-    a.set(xlabel="Likelihood ratio of the check, $s/f$", ylabel="Ceiling $\\pi$", ylim=(0, 1.06), title="(b) Ceiling against check quality")
+    a.set(xlabel="Likelihood ratio of the check, $s/f$", ylabel="Ceiling $\\pi$", ylim=(0, 1.09), title="(b) Ceiling against check quality")
     a.legend(loc="lower right", frameon=False, handlelength=2.2)
     a = ax[1, 0]
     iccs = np.linspace(0, 1, 101)
@@ -484,10 +734,10 @@ def make_figures(results, ns, curves, boot_curves, items, roc):
     a.plot(iccs, [th.jensen_second_order(0.6, c * 0.24, 0.9, 0.2) for c in iccs], color=COLORS["self"], ls=":", lw=1.2, label="Second-order approximation")
     a.axhline(th.ceiling(0.6, 0.9, 0.2), color="k", lw=0.8, ls="--", label="Pooled formula $\\pi(\\bar p)$")
     a.axhline(0.6, color=COLORS["first"], lw=1, label="Single attempt $\\bar p$")
-    a.set(xlabel="Intraclass correlation of attempt outcomes", ylabel="Limit of reliability", ylim=(0.5, 0.92),
+    a.set(xlabel="Intraclass correlation of attempt outcomes", ylabel="Limit of reliability", ylim=(0.3, 0.92),
           title="(c) Heterogeneous items")
-    a.text(0.02, 0.515, "$\\bar p = 0.6$, $s = 0.9$, $f = 0.2$", fontsize=7.5, color="#444444")
-    a.legend(loc="lower left", frameon=False, bbox_to_anchor=(0.0, 0.06))
+    a.text(0.98, 0.315, "$\\bar p = 0.6$, $s = 0.9$, $f = 0.2$", fontsize=7.5, color="#444444", ha="right")
+    a.legend(loc="lower left", frameon=False, bbox_to_anchor=(0.0, 0.07))
     a = ax[1, 1]
     pi = th.ceiling(p, s, f)
     rhos = np.unique(np.concatenate([np.linspace(0.05, pi - 0.01, 300), pi - np.logspace(-2, -7, 120)]))
@@ -534,7 +784,7 @@ def make_figures(results, ns, curves, boot_curves, items, roc):
         a.plot(ns[ns >= ATTEMPTS], y[ns >= ATTEMPTS], color=COLORS[p], lw=1.1, ls="--")
     a.set_xscale("log")
     a.axvline(ATTEMPTS, color="#bbbbbb", lw=0.7)
-    a.set(xlabel="Attempt budget $n$", ylabel="Reliability", ylim=(0.80, 0.957), title="(c) Reliability against attempts")
+    a.set(xlabel="Generations $n$", ylabel="Reliability", ylim=(0.80, 0.957), title="(c) Reliability against generations")
     a.legend(loc="lower right", frameon=False, ncol=2, columnspacing=0.8, handlelength=1.4)
     a = ax[1, 1]
     order = ["confidence", "agreement", "self", "strong"]
@@ -543,17 +793,45 @@ def make_figures(results, ns, curves, boot_curves, items, roc):
     lim = np.array([results["protocols"][c]["limit"] for c in order])
     pci = np.array([results["checks"][c]["pooled_precision_ci95"] for c in order])
     lci = np.array([results["protocols"][c]["limit_ci95"] for c in order])
-    a.errorbar(x - 0.13, pooled, yerr=[pooled - pci[:, 0], pci[:, 1] - pooled], fmt="s", color="k", ms=4.5, capsize=2, lw=1, label="Pooled precision")
-    a.errorbar(x + 0.13, lim, yerr=[lim - lci[:, 0], lci[:, 1] - lim], fmt="o", color=COLORS["self"], ms=4.5, capsize=2, lw=1, label="Limit under resampling")
+    a.errorbar(x - 0.2, pooled, yerr=[pooled - pci[:, 0], pci[:, 1] - pooled], fmt="s", color="k", ms=4.5, capsize=2, lw=1, label="Pooled precision")
+    a.errorbar(x + 0.0, lim, yerr=[lim - lci[:, 0], lci[:, 1] - lim], fmt="o", color=COLORS["self"], ms=4.5, capsize=2, lw=1, label="Limit, fallback")
+    abst = np.array([results["checks"][c]["ceiling_abstain"] for c in order])
+    a.plot(x + 0.2, abst, "v", color="#555555", ms=5, label="Limit, abstaining")
     a.axhline(results["protocols"]["oracle"]["limit"], color=COLORS["oracle"], lw=0.8, ls="--", label="Oracle limit")
     a.axhline(results["population"]["mean_p"], color=COLORS["first"], lw=0.8, label="Single attempt")
     a.set_xticks(x)
     a.set_xticklabels(["Confidence", "Agreement", "Self-check", "Stronger\nmodel"])
-    a.set(ylabel="Reliability", ylim=(0.70, 1.01), title="(d) Validated precision against the limit")
-    a.legend(loc="lower center", frameon=False, ncol=2, columnspacing=0.8, bbox_to_anchor=(0.56, 0.0))
+    a.set(ylabel="Reliability", ylim=(0.40, 1.01), title="(d) Validated precision against the limit")
+    a.legend(loc="lower right", frameon=False, ncol=1, numpoints=1)
     fig.tight_layout(h_pad=1.2, w_pad=1.0)
     fig.savefig(FIG / "measurement.pdf")
     fig.savefig(OUT / "measurement.pdf")
+    plt.close(fig)
+
+
+def make_robust_figure(robust, ns, curves):
+    style()
+    fig, ax = plt.subplots(1, 2, figsize=(6.5, 2.9))
+    a = ax[0]
+    counts = robust["items_by_correct_count"]
+    ks = list(range(ATTEMPTS + 1))
+    a.bar(ks, [counts[str(k)] for k in ks], color="#555555", width=0.7)
+    for k in ks:
+        a.text(k, counts[str(k)] + 0.2, str(counts[str(k)]), ha="center", fontsize=7.5)
+    a.set(xlabel=f"Correct attempts out of {ATTEMPTS}", ylabel="Items", title=f"(a) Per-item success, {robust['n_items']} items")
+    a.set_xticks(ks)
+    a = ax[1]
+    for p in ("oracle", "strong", "vote", "agreement", "self", "confidence", "first"):
+        y = curves[p]
+        a.plot(ns[ns <= ATTEMPTS], y[ns <= ATTEMPTS], color=COLORS[p], lw=1.5, label=SHORT[p])
+        a.plot(ns[ns >= ATTEMPTS], y[ns >= ATTEMPTS], color=COLORS[p], lw=1.1, ls="--")
+    a.set_xscale("log")
+    a.axvline(ATTEMPTS, color="#bbbbbb", lw=0.7)
+    a.set(xlabel="Generations $n$", ylabel="Reliability", title="(b) Reliability against generations")
+    a.legend(loc="upper left", frameon=False, ncol=1, handlelength=1.4, bbox_to_anchor=(1.0, 1.0))
+    fig.tight_layout(w_pad=1.0)
+    fig.savefig(FIG / "robustness.pdf")
+    fig.savefig(OUT / "robustness.pdf")
     plt.close(fig)
 
 

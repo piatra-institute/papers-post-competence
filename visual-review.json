@@ -1,0 +1,56 @@
+{
+  "pdf_sha256": "47c222ee6abd8129c69a9855e7d154ac9fb37b870074afb68e971afb26716a0a",
+  "reviewed": "2026-11-21",
+  "reviewer": {
+    "tool": "agy",
+    "model": "gemini-4-hydrogen-xhigh",
+    "family": "google"
+  },
+  "authors": [
+    {
+      "tool": "claude-code",
+      "model": "claude-opus-5-5",
+      "family": "anthropic"
+    }
+  ],
+  "page_count": 21,
+  "pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "all_pages_inspected": true,
+  "notes": "Every page rendered at 110 dpi with pdftoppm and inspected by the independent reviewer; no layout problems reported.",
+  "reports": [
+    {
+      "path": "reviews/2026-11-closure-round1.json",
+      "sha256": "9c76f6a913a33d9a49d2ba73c15da48d56d4f89bf0b7b2b8ad9b784d3a3ec29e"
+    },
+    {
+      "path": "reviews/2026-11-closure-round2.json",
+      "sha256": "cbff6d622786201ff9689e74f88a3aadb2f4a299ac0461d541fb00a8b4bc5d17"
+    },
+    {
+      "path": "reviews/2026-11-closure-round3.json",
+      "sha256": "57ddf29d7d6b8aee83169505209a58e42669fba2e13f1fb486c3cf0f7c41f126"
+    }
+  ]
+}
