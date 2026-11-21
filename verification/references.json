@@ -1,0 +1,1861 @@
+{
+  "schema": 1,
+  "references_sha256": "c56f4164ceea96ff5c7aaf5de68405a82644bb709f4d8829fda0c0e34ba2d664",
+  "bibliography_inputs": {
+    "references.yaml": "c56f4164ceea96ff5c7aaf5de68405a82644bb709f4d8829fda0c0e34ba2d664"
+  },
+  "entries": [
+    {
+      "id": "stroebl2024",
+      "doi": "10.48550/arXiv.2411.17501",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "The Limits of Inference Scaling Through Resampling",
+          "registry": [
+            "The Limits of Inference Scaling Through Resampling"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "stroebl",
+          "registry": "stroebl",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:40.086203+00:00",
+      "record_sha256": "23cf8f14cb94cf8d26691e959ed0468917360f725fa653599db0db77734a6096",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "davis2024",
+      "doi": "10.48550/arXiv.2407.16831",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Networks of Networks: Complexity Class Principles Applied to Compound AI Systems Design",
+          "registry": [
+            "Networks of Networks: Complexity Class Principles Applied to Compound AI Systems Design"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "davis",
+          "registry": "davis",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:40.475389+00:00",
+      "record_sha256": "31c80fbd2dbb877f6d3d4b9a2bad736a278dbe6b5b44c02ee2b87e3b6c762712",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "brown2024",
+      "doi": "10.48550/arXiv.2407.21787",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Large Language Monkeys: Scaling Inference Compute with Repeated Sampling",
+          "registry": [
+            "Large Language Monkeys: Scaling Inference Compute with Repeated Sampling"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "brown",
+          "registry": "brown",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:40.920598+00:00",
+      "record_sha256": "fb139a583bccfc90a01b52db70526fe803cc62d95f6c7a98987616eeae54cff8",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "snell2024",
+      "doi": "10.48550/arXiv.2408.03314",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+          "registry": [
+            "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "snell",
+          "registry": "snell",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:41.368688+00:00",
+      "record_sha256": "a5d3b60349aec9a810275440355dbf312df54349266af207ea47eddeae38677e",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "cobbe2021",
+      "doi": "10.48550/arXiv.2110.14168",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Training Verifiers to Solve Math Word Problems",
+          "registry": [
+            "Training Verifiers to Solve Math Word Problems"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "cobbe",
+          "registry": "cobbe",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2021
+          ],
+          "registry": [
+            2021
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:41.766987+00:00",
+      "record_sha256": "22be457b3a106dc8b9d73e4c3649e40d2d8174687d86a2e872b052d3c286eb93",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "lightman2023",
+      "doi": "10.48550/arXiv.2305.20050",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Let's Verify Step by Step",
+          "registry": [
+            "Let's Verify Step by Step"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "lightman",
+          "registry": "lightman",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2023
+          ],
+          "registry": [
+            2023
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:42.140789+00:00",
+      "record_sha256": "11fb19045e7292f70ee06ec275e6f02fb3b1ae4dd29d887cb2c8e73e84d6f216",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "chen2024calls",
+      "doi": "10.48550/arXiv.2403.02419",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Are More LLM Calls All You Need? Towards Scaling Laws of Compound Inference Systems",
+          "registry": [
+            "Are More LLM Calls All You Need? Towards Scaling Laws of Compound Inference Systems"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "chen",
+          "registry": "chen",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:42.518251+00:00",
+      "record_sha256": "b929b808bd6e01be39b5d44592953dae0f1889e3877918726a39166c982af08e",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "schaeffer2025",
+      "doi": "10.48550/arXiv.2502.17578",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "How Do Large Language Monkeys Get Their Power (Laws)?",
+          "registry": [
+            "How Do Large Language Monkeys Get Their Power (Laws)?"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "schaeffer",
+          "registry": "schaeffer",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2025
+          ],
+          "registry": [
+            2025
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:42.960397+00:00",
+      "record_sha256": "5b097d535a41248abba7c26984ce3eb1dfde10f6a50f39f5fc480b6e5a013634",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "wang2022",
+      "doi": "10.48550/arXiv.2203.11171",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+          "registry": [
+            "Self-Consistency Improves Chain of Thought Reasoning in Language Models"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "wang",
+          "registry": "wang",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2022
+          ],
+          "registry": [
+            2022
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:43.338551+00:00",
+      "record_sha256": "753c5fea1756059fd672b897f92a20feb8277bda80b6e573d4fdd5063d4cc147",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "chen2021",
+      "doi": "10.48550/arXiv.2107.03374",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Evaluating Large Language Models Trained on Code",
+          "registry": [
+            "Evaluating Large Language Models Trained on Code"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "chen",
+          "registry": "chen",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2021
+          ],
+          "registry": [
+            2021
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:43.780404+00:00",
+      "record_sha256": "2568bbaecdb1c80cf99f28a9822b6529691b0f252341e3337e1c38f95c1fa48d",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "huang2023",
+      "doi": "10.48550/arXiv.2310.01798",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Large Language Models Cannot Self-Correct Reasoning Yet",
+          "registry": [
+            "Large Language Models Cannot Self-Correct Reasoning Yet"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "huang",
+          "registry": "huang",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2023
+          ],
+          "registry": [
+            2023
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:44.183676+00:00",
+      "record_sha256": "dd3738f7ae105690d1ced357ea2a4f13e918bc31ec0febe82b12977c3c70e7fa",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "stechly2024",
+      "doi": "10.48550/arXiv.2402.08115",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "On the Self-Verification Limitations of Large Language Models on Reasoning and Planning Tasks",
+          "registry": [
+            "On the Self-Verification Limitations of Large Language Models on Reasoning and Planning Tasks"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "stechly",
+          "registry": "stechly",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:44.680281+00:00",
+      "record_sha256": "8e1bad571957f5b5b18d9080f0911d625174c6e3338927f4a66be0b0f9572b7d",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "gao2024omni",
+      "doi": "10.48550/arXiv.2410.07985",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Omni-MATH: A Universal Olympiad Level Mathematic Benchmark For Large Language Models",
+          "registry": [
+            "Omni-MATH: A Universal Olympiad Level Mathematic Benchmark For Large Language Models"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "gao",
+          "registry": "gao",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:45.119564+00:00",
+      "record_sha256": "f0734b35617c9b480bb40411103606b2cac5b789a7d30419fad0788c52e5637b",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "becker2025",
+      "doi": "10.48550/arXiv.2507.09089",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity",
+          "registry": [
+            "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "becker",
+          "registry": "becker",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2025
+          ],
+          "registry": [
+            2025
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:45.521091+00:00",
+      "record_sha256": "6e4d493ed8f24c787834f6c1ffe0139a29619c0e3a78216b6bcad9c5e6014346",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "kwa2025",
+      "doi": "10.48550/arXiv.2503.14499",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Measuring AI Ability to Complete Long Software Tasks",
+          "registry": [
+            "Measuring AI Ability to Complete Long Software Tasks"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "kwa",
+          "registry": "kwa",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2025
+          ],
+          "registry": [
+            2025
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:45.958501+00:00",
+      "record_sha256": "d60419f0c9d4bbb7731d08e743e16e92fbceb0b681d377bd9512bdee10097ce0",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "sastry2024",
+      "doi": "10.48550/arXiv.2402.08797",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Computing Power and the Governance of Artificial Intelligence",
+          "registry": [
+            "Computing Power and the Governance of Artificial Intelligence"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "sastry",
+          "registry": "sastry",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:46.398092+00:00",
+      "record_sha256": "747ad5511dd308953ab66ea0cf46b59c216d1d088b6e76eaa41c7115152e4446",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "kadavath2022",
+      "doi": "10.48550/arXiv.2207.05221",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Language Models (Mostly) Know What They Know",
+          "registry": [
+            "Language Models (Mostly) Know What They Know"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "kadavath",
+          "registry": "kadavath",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2022
+          ],
+          "registry": [
+            2022
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:46.902535+00:00",
+      "record_sha256": "de1cbf7a335ab209080ed9d53e3cb56e03633605570fbae21d23b954fda6f72d",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "panickssery2024",
+      "doi": "10.48550/arXiv.2404.13076",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "LLM Evaluators Recognize and Favor Their Own Generations",
+          "registry": [
+            "LLM Evaluators Recognize and Favor Their Own Generations"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "panickssery",
+          "registry": "panickssery",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:47.311346+00:00",
+      "record_sha256": "b4481720348352d879e18e395e6b18e9355d64b0c99b939d1db28e3ee7f74d9b",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "gao2022overopt",
+      "doi": "10.48550/arXiv.2210.10760",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Scaling Laws for Reward Model Overoptimization",
+          "registry": [
+            "Scaling Laws for Reward Model Overoptimization"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "gao",
+          "registry": "gao",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2022
+          ],
+          "registry": [
+            2022
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:47.758943+00:00",
+      "record_sha256": "00eccfb7551fcba83ccb7e4a033915a6fba988aa2ac43e5c72ab473e70b337fa",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "hendrycks2021",
+      "doi": "10.48550/arXiv.2103.03874",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Measuring Mathematical Problem Solving With the MATH Dataset",
+          "registry": [
+            "Measuring Mathematical Problem Solving With the MATH Dataset"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "hendrycks",
+          "registry": "hendrycks",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2021
+          ],
+          "registry": [
+            2021
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "",
+          "match": true
+        }
+      },
+      "registry": "DataCite",
+      "fetched_at": "2026-11-21T04:50:48.145399+00:00",
+      "record_sha256": "26784fbc08f52f84bacc14ce092747a545dbb96f4a8d1f0b7d6080e354aa2de5",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "condorcet1785",
+      "doi": null,
+      "outcome": "unverified",
+      "compared_fields": {},
+      "registry": null,
+      "fetched_at": "2026-11-21T04:50:48.868241+00:00",
+      "record_sha256": null,
+      "suggestions": [
+        {
+          "DOI": "10.1017/cbo9781139923972",
+          "title": [
+            "Essai sur l'application de l'analyse à la probabilité des décisions rendues à la pluralité des voix"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1017/cbo9781139923972.002",
+          "title": [
+            "ESSAI SUR L'APPLICATION DE L'ANALYSE À LA PROBABILITÉ DES DÉCISIONS\n                    <i>Rendues à la pluralité des voix</i>"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1017/cbo9781139923972.005",
+          "title": [
+            "TROISIÈME PARTIE"
+          ],
+          "registry": "Crossref"
+        }
+      ],
+      "message": "no DOI; identity reviewed by the referee",
+      "unverified_reason": "no_doi"
+    },
+    {
+      "id": "ladha1992",
+      "doi": "10.2307/2111584",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "The Condorcet jury theorem, free speech, and correlated votes",
+          "registry": [
+            "The Condorcet Jury Theorem, Free Speech, and Correlated Votes"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "ladha",
+          "registry": "ladha",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            1992
+          ],
+          "registry": [
+            1992,
+            1992,
+            1992
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "American Journal of Political Science",
+          "registry": [
+            "American Journal of Political Science"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": "36",
+          "registry": "36",
+          "match": true
+        },
+        "issue": {
+          "reference": "3",
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": "617",
+          "match": false
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:49.416227+00:00",
+      "record_sha256": "31b57cfc1b9758811c49843e5582f69c992d8b50f369db51d37626a610641c72",
+      "suggestions": [],
+      "message": "different fields: page"
+    },
+    {
+      "id": "boland1989",
+      "doi": "10.2307/2348873",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Majority systems and the Condorcet jury theorem",
+          "registry": [
+            "Majority Systems and the Condorcet Jury Theorem"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "boland",
+          "registry": "boland",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            1989
+          ],
+          "registry": [
+            1989,
+            1989,
+            1989
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "The Statistician",
+          "registry": [
+            "The Statistician"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": "38",
+          "registry": "38",
+          "match": true
+        },
+        "issue": {
+          "reference": "3",
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": "181-189",
+          "registry": "181",
+          "match": false
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:50.048230+00:00",
+      "record_sha256": "7890a8cb93c20086fd3203ba0660fbc6ad0f7a56bf542b956a62a64dc732f16d",
+      "suggestions": [],
+      "message": "different fields: page"
+    },
+    {
+      "id": "list2001",
+      "doi": "10.1111/1467-9760.00128",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Epistemic democracy: Generalizing the Condorcet jury theorem",
+          "registry": [
+            "Epistemic Democracy: Generalizing the Condorcet Jury Theorem"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "list",
+          "registry": "list",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2001
+          ],
+          "registry": [
+            2001,
+            2001,
+            2001,
+            2002
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Journal of Political Philosophy",
+          "registry": [
+            "Journal of Political Philosophy"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": "9",
+          "registry": "9",
+          "match": true
+        },
+        "issue": {
+          "reference": "3",
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": "277-306",
+          "registry": "277-306",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:50.719264+00:00",
+      "record_sha256": "5aa292be311a5ccc18551adbfe7b18f8c741c2f3a78eef4198fd3faddf7a0432",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "vonneumann1956",
+      "doi": "10.1515/9781400882618-003",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Probabilistic logics and the synthesis of reliable organisms from unreliable components",
+          "registry": [
+            "Probabilistic Logics and the Synthesis of Reliable Organisms From Unreliable Components"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "neumann",
+          "registry": "neumann",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            1956
+          ],
+          "registry": [
+            1956,
+            1956,
+            1956
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Automata Studies",
+          "registry": [
+            "Automata Studies. (AM-34)"
+          ],
+          "match": false
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": "43-98",
+          "registry": "43-98",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:51.352455+00:00",
+      "record_sha256": "e5fffd4e6f28cc506f424f621e53a4559db43d13bff9979faf373f05e3bb85fc",
+      "suggestions": [],
+      "message": "different fields: container-title"
+    },
+    {
+      "id": "moore1956",
+      "doi": "10.1016/0016-0032(56)90559-2",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Reliable circuits using less reliable relays",
+          "registry": [
+            "Reliable circuits using less reliable relays"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "moore",
+          "registry": "moore",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            1956
+          ],
+          "registry": [
+            1956,
+            1956,
+            1956
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Journal of the Franklin Institute",
+          "registry": [
+            "Journal of the Franklin Institute"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": "262",
+          "registry": "262",
+          "match": true
+        },
+        "issue": {
+          "reference": "3",
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": "191-208",
+          "registry": "191-208",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:51.977110+00:00",
+      "record_sha256": "497cba331c919bc8d5206501d2aa888a9361cfef955d409ca5f262d62035c3ed",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "green1966",
+      "doi": null,
+      "outcome": "unverified",
+      "compared_fields": {},
+      "registry": null,
+      "fetched_at": "2026-11-21T04:50:52.474424+00:00",
+      "record_sha256": null,
+      "suggestions": [
+        {
+          "DOI": "10.1126/science.156.3775.632",
+          "title": [
+            "Toward a More Rigorous Psychophysics:\n            <i>Signal Detection Theory and Psychophysics</i>\n            . David M. Green and John A. Swets. Wiley, New York, 1966. 467 pp., illus. $12.95."
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.3758/bf03207824",
+          "title": [
+            "Influence of correlated visual cues on auditory signal detection"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.7551/mitpress/9780262019453.003.0008",
+          "title": [
+            "Sensitivity and Signal-Detection Theory"
+          ],
+          "registry": "Crossref"
+        }
+      ],
+      "message": "no DOI; identity reviewed by the referee",
+      "unverified_reason": "no_doi"
+    },
+    {
+      "id": "meehl1955",
+      "doi": "10.1037/h0048070",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Antecedent probability and the efficiency of psychometric signs, patterns, or cutting scores",
+          "registry": [
+            "Antecedent probability and the efficiency of psychometric signs, patterns, or cutting scores."
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "meehl",
+          "registry": "meehl",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            1955
+          ],
+          "registry": [
+            1955,
+            1955,
+            1955
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Psychological Bulletin",
+          "registry": [
+            "Psychological Bulletin"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": "52",
+          "registry": "52",
+          "match": true
+        },
+        "issue": {
+          "reference": "3",
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": "194-216",
+          "registry": "194-216",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:53.019974+00:00",
+      "record_sha256": "a2a18fb937978f5007cdf1c6673119fdc9764e96a5da6ba0fdb2a22e042e0d5d",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "ridout1999",
+      "doi": "10.1111/j.0006-341X.1999.00137.x",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Estimating intraclass correlation for binary data",
+          "registry": [
+            "Estimating Intraclass Correlation for Binary Data"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "ridout",
+          "registry": "ridout",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            1999
+          ],
+          "registry": [
+            1999,
+            1999,
+            1999,
+            2004
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Biometrics",
+          "registry": [
+            "Biometrics"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": "55",
+          "registry": "55",
+          "match": true
+        },
+        "issue": {
+          "reference": "1",
+          "registry": "1",
+          "match": true
+        },
+        "page": {
+          "reference": "137-148",
+          "registry": "137-148",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:53.567261+00:00",
+      "record_sha256": "8b2a26ee2de44fc7102bd7ee2c3a5cfd54a69008ca914a09a9bd3676ddcb04f7",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "sen1985",
+      "doi": null,
+      "outcome": "unverified",
+      "compared_fields": {},
+      "registry": null,
+      "fetched_at": "2026-11-21T04:50:54.038501+00:00",
+      "record_sha256": null,
+      "suggestions": [
+        {
+          "DOI": "10.2307/2232999",
+          "title": [
+            "Commodities and Capabilities."
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.2307/135247",
+          "title": [
+            "Commodities and Capabilities"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1007/bf00433957",
+          "title": [
+            "Achievements, capabilities and the concept of well-being"
+          ],
+          "registry": "Crossref"
+        }
+      ],
+      "message": "no DOI; identity reviewed by the referee",
+      "unverified_reason": "no_doi"
+    },
+    {
+      "id": "noy2023",
+      "doi": "10.1126/science.adh2586",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Experimental evidence on the productivity effects of generative artificial intelligence",
+          "registry": [
+            "Experimental evidence on the productivity effects of generative artificial intelligence"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "noy",
+          "registry": "noy",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2023
+          ],
+          "registry": [
+            2023,
+            2023,
+            2023
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Science",
+          "registry": [
+            "Science"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": "381",
+          "registry": "381",
+          "match": true
+        },
+        "issue": {
+          "reference": "6654",
+          "registry": "6654",
+          "match": true
+        },
+        "page": {
+          "reference": "187-192",
+          "registry": "187-192",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:54.602490+00:00",
+      "record_sha256": "9c34f93858af88705335d5d3bc1c660c27a84626c9733748a0322330d889f998",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "brynjolfsson2025",
+      "doi": "10.1093/qje/qjae044",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Generative AI at work",
+          "registry": [
+            "Generative AI at Work"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "brynjolfsson",
+          "registry": "brynjolfsson",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2025
+          ],
+          "registry": [
+            2025,
+            2025,
+            2025,
+            2025
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "The Quarterly Journal of Economics",
+          "registry": [
+            "The Quarterly Journal of Economics"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": "140",
+          "registry": "140",
+          "match": true
+        },
+        "issue": {
+          "reference": "2",
+          "registry": "2",
+          "match": true
+        },
+        "page": {
+          "reference": "889-942",
+          "registry": "889-942",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:55.294969+00:00",
+      "record_sha256": "4864a6f1cbc1284995124134d57a6d890e0301c2ed024169ddb5c9336921f033",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "dellacqua2023",
+      "doi": "10.2139/ssrn.4573321",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Navigating the jagged technological frontier: Field experimental evidence of the effects of artificial intelligence on knowledge worker productivity and quality",
+          "registry": [
+            "Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "dell acqua",
+          "registry": "dell acqua",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2023
+          ],
+          "registry": [
+            2023,
+            2023
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": null,
+          "registry": [],
+          "match": true
+        },
+        "volume": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:56.064140+00:00",
+      "record_sha256": "968ab89a68fc2ad35d611b88a62e5f3bfb11f89f6c1c363e02ca067a8bad310f",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "anderson2023",
+      "doi": "10.1515/eduling-2023-0009",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Reimagining educational linguistics: A post-competence perspective",
+          "registry": [
+            "Reimagining educational linguistics: a post-competence perspective"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "anderson",
+          "registry": "anderson",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2023
+          ],
+          "registry": [
+            2023,
+            2023,
+            2024,
+            2023
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Educational Linguistics",
+          "registry": [
+            "Educational Linguistics"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": "3",
+          "registry": "3",
+          "match": true
+        },
+        "issue": {
+          "reference": "2",
+          "registry": "2",
+          "match": true
+        },
+        "page": {
+          "reference": "258-285",
+          "registry": "258-285",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-21T04:50:56.751118+00:00",
+      "record_sha256": "5084135bc7c7d2fd3ea7d1c29a06dd8f8a398ab13a74c086fbf423eb0b59e78e",
+      "suggestions": [],
+      "message": "identity matches"
+    }
+  ]
+}

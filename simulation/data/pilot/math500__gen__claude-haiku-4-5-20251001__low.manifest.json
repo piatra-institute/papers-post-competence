@@ -1,0 +1,31 @@
+{
+ "kind": "gen",
+ "model": "claude-haiku-4-5-20251001",
+ "cli": "2.1.329 (Claude Code)",
+ "effort": "low",
+ "system_prompt": "You solve competition mathematics problems. Reason as needed, then end your reply with exactly two lines in this form:\nANSWER: <the final answer, written as an integer>\nCONFIDENCE: <an integer from 0 to 100: your probability, in percent, that the answer is correct>",
+ "flags": [
+  "--tools",
+  "",
+  "--output-format",
+  "json",
+  "--no-session-persistence",
+  "--setting-sources",
+  "",
+  "--strict-mcp-config",
+  "--effort",
+  "low"
+ ],
+ "n_prompts": 6,
+ "finished_utc": "2026-11-21T04:10:36.950349+00:00",
+ "prompt_sha256": {
+  "i00__a0": "3d79612ea5a491daa6b0d88af7597baece01d14fbf0dbe2132c856a6620fc474",
+  "i01__a0": "30087f9516ae729d4e8608b6396bc1715985664cf2b9c927f47046b71cd30ccf",
+  "i02__a0": "307e5eb92f6d38a48b855c8accda480dc2bd47fc695448bb43804952b6d5bed5",
+  "i03__a0": "59b49bd550e022b4312f39549ac2ba7e5833f99682801ef18fa1f3fde9adef40",
+  "i04__a0": "3434975a5a6d513ab374b21edd1b47db9c56429bb7798f6017110d3efc3440a5",
+  "i05__a0": "24732c349c36f363c8a6e43efa6ab1f9855c2d373c67a13709f288c6e9dbfb8a"
+ },
+ "attempts_per_item": 1,
+ "n_items": 74
+}

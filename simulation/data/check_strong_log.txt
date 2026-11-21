@@ -1,0 +1,7 @@
+10/56 h07__ans67.json rc=0 16s
+20/56 h15__ans17.json rc=0 22s
+30/56 h21__ans16.json rc=0 38s
+40/56 h27__ans81.json rc=0 61s
+50/56 h33__ans-2.json rc=0 61s
+56/56 h39__ans45360.json rc=0 69s
+wrote /Users/ly3xqhl8g9/Data/i/theings/piatra/content/piatra-papers/2026/11/post-competence/simulation/data/llm/check__claude-sonnet-5-5__low__on__gen__claude-haiku-5-5__low 56 checks

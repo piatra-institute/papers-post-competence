@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "id": "analysis",
+  "started": "2026-11-21T04:48:30.741295+00:00",
+  "finished": "2026-11-21T04:48:38.831175+00:00",
+  "command": [
+    "uv",
+    "run",
+    "python",
+    "run_all.py"
+  ],
+  "cwd": "simulation",
+  "runtime": {
+    "scope": "recorder",
+    "python": "3.14.3 (main, Mar 25 2026, 03:28:18) [Clang 22.1.1 ]",
+    "platform": "macOS-15.1-arm64-arm-64bit-Mach-O"
+  },
+  "execution_result": null,
+  "execution": {
+    "status": "PASS",
+    "exit_code": 0,
+    "detail": "command completed"
+  },
+  "input_scope": "execution-v1",
+  "additional_inputs": [
+    "simulation/data/items.json",
+    "simulation/data/omni_math_test.jsonl",
+    "simulation/data/llm/gen__claude-haiku-5-5__low.jsonl",
+    "simulation/data/llm/gen__claude-haiku-5-5__low.manifest.json",
+    "simulation/data/llm/check__claude-haiku-5-5__low__on__gen__claude-haiku-5-5__low.jsonl",
+    "simulation/data/llm/check__claude-haiku-5-5__low__on__gen__claude-haiku-5-5__low.manifest.json",
+    "simulation/data/llm/check__claude-sonnet-5-5__low__on__gen__claude-haiku-5-5__low.jsonl",
+    "simulation/data/llm/check__claude-sonnet-5-5__low__on__gen__claude-haiku-5-5__low.manifest.json",
+    "simulation/data/pilot/math500__gen__claude-haiku-4-5-20251001__low.jsonl",
+    "simulation/data/pilot/math500__gen__claude-haiku-4-5-20251001__low.manifest.json",
+    "simulation/data/pilot/math500__gen__claude-haiku-5-5__low.jsonl",
+    "simulation/data/pilot/math500__gen__claude-haiku-5-5__low.manifest.json",
+    "simulation/data/pilot/omni__gen__claude-haiku-5-5__low.jsonl",
+    "simulation/data/pilot/omni__gen__claude-haiku-5-5__low.manifest.json",
+    "simulation/data/pilot/math500_items.json",
+    "simulation/data/pilot/math500_test.jsonl"
+  ],
+  "inputs": {
+    "simulation/collect_llm.py": "37cf83fc39c531a4bb579dfffd7fb99e3f448d389f35d6626091e1b823be5bf2",
+    "simulation/data/items.json": "3ece5ffcbf1fa8ab9e30b1cb32d14c086388ad0339ee974a25df6da459015fbc",
+    "simulation/data/llm/check__claude-haiku-5-5__low__on__gen__claude-haiku-5-5__low.jsonl": "680955b280015f8d8418e86c962ba9ec1549be8f894cb2c983b81f0e35c43cf3",
+    "simulation/data/llm/check__claude-haiku-5-5__low__on__gen__claude-haiku-5-5__low.manifest.json": "127dfcbe1640fe0677e07c9aa738794f10ac5df586eeb2f6338b1024b282dfa0",
+    "simulation/data/llm/check__claude-sonnet-5-5__low__on__gen__claude-haiku-5-5__low.jsonl": "1642315708adedabd60091504a073de4e49577d81df3a8060858f976ac1662ea",
+    "simulation/data/llm/check__claude-sonnet-5-5__low__on__gen__claude-haiku-5-5__low.manifest.json": "28706feff4ab08be7edb54085a1e9fd01ce7525359cb459e37ae64b23def36cf",
+    "simulation/data/llm/gen__claude-haiku-5-5__low.jsonl": "d28dd74af525d3d1725d82a6c39ecf4f0d3432917433f1bd5cfed0f02d8aa6ea",
+    "simulation/data/llm/gen__claude-haiku-5-5__low.manifest.json": "2f521cd1d95bc8d38d3e964b9377615e0544d0ba662a95a1695218edacb136b4",
+    "simulation/data/omni_math_test.jsonl": "7c87be8ee41ac7c7a597ef5a5500e84bd2b639a85a06db3da7f69bf9a32ef168",
+    "simulation/data/pilot/math500__gen__claude-haiku-4-5-20251001__low.jsonl": "5c41870ff46fb3a4b91b8406c9352957f7ff3c475d1ab69067057bfdf1f7231d",
+    "simulation/data/pilot/math500__gen__claude-haiku-4-5-20251001__low.manifest.json": "6c969d90eccda3263d06be1f54d3355876959466db55e3c056c14fc197b59731",
+    "simulation/data/pilot/math500__gen__claude-haiku-5-5__low.jsonl": "277973a74498b1c917bfc9d8c47cdc630306f467595927c0ffbb2fcab9b7b315",
+    "simulation/data/pilot/math500__gen__claude-haiku-5-5__low.manifest.json": "13e92aec96510142fa4c74c30e939d64775043b9bca576933c742d730c2cc5af",
+    "simulation/data/pilot/math500_items.json": "8a7afa4ad6f76c08ac6f87f181ca2a375becc35a5f3ce0fb13a8b5754776eeeb",
+    "simulation/data/pilot/math500_test.jsonl": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132",
+    "simulation/data/pilot/omni__gen__claude-haiku-5-5__low.jsonl": "3dd7cca01d64ab6d21c240e83f1c7ea41f23a845377722a839f492622c3ed662",
+    "simulation/data/pilot/omni__gen__claude-haiku-5-5__low.manifest.json": "e175102771a120825f2eec59f91818265e568dc7fb5365f9de1d6fd8a5ceb64a",
+    "simulation/fetch_data.py": "9162b26659ecae4fc18d2fe715595c00251c9930a57ff15805ad2a07fe639431",
+    "simulation/freeze_llm.py": "7cd0df8d78e2ccdaedf426cdf7dd2be2119ff999ed76e3b2bf23d945ef4ff8cf",
+    "simulation/key_corrections.json": "1e352f6b4918f831fc4440f261bd6b3726ed1c24e0afa676c0adb8e01da6325f",
+    "simulation/pc/__init__.py": "d343e40875015e4bae0547766566926ff957f99facc10f41e1b25cf095918439",
+    "simulation/pc/estimators.py": "f2a51f970c35eae7a0fe90f85bbcc3af8f8363d2377afc127d68202b9e490156",
+    "simulation/pc/grading.py": "ca360c1a410f57a0380f6df4a104c80674b6ecdfb4a5c7426e5eae0904e5abd6",
+    "simulation/pc/theory.py": "4641f61553dc025a7655bd785928360b745709ed22b2a1b4c32d2fa20406e778",
+    "simulation/pyproject.toml": "eebffab9e7ef62b746642b315fcd6b9fe47a87f04cbe3dbd08bfc6fc82746fa1",
+    "simulation/run_all.py": "5a8baba2b44ea9e1fc2fcdf20224a43978dc229c5212ccd96d1f8c1fa65235af",
+    "simulation/tests/test_keys.py": "82f518b6c016bc6ba0138a4d3ef26c4d44b5814d8a29bd56c60608a8b1c7d541",
+    "simulation/tests/test_theory.py": "8d818fe7686785dd777aae5e734596bbd1416d44d0675636981772ec2321c698",
+    "simulation/uv.lock": "3bf60588ed90675a9272c1ff051d33cdde064daa276b96d0e4f0a19d6ca02a29"
+  },
+  "artifacts": {
+    "simulation/output/results.json": "52f1e699cdb053eb171ea4f54791e3aa258f2687069826336b5cf31088a43773",
+    "simulation/output/theory.pdf": "03198f612c71083b28f2641990bf55403fad44a79776cf2af7bd70e662c8c540",
+    "simulation/output/measurement.pdf": "8e79e8f5c8c5bb9616d1d633f23ec1143c4b51cdb8a2a71b61a2cb26f9e7863d"
+  }
+}

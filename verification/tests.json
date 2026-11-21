@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "id": "tests",
+  "started": "2026-11-21T04:48:38.910011+00:00",
+  "finished": "2026-11-21T04:48:39.805223+00:00",
+  "command": [
+    "uv",
+    "run",
+    "--group",
+    "dev",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests",
+    "--junitxml=output/tests.xml"
+  ],
+  "cwd": "simulation",
+  "runtime": {
+    "scope": "recorder",
+    "python": "3.14.3 (main, Mar 25 2026, 03:28:18) [Clang 22.1.1 ]",
+    "platform": "macOS-15.1-arm64-arm-64bit-Mach-O"
+  },
+  "execution_result": null,
+  "execution": {
+    "status": "PASS",
+    "exit_code": 0,
+    "detail": "command completed"
+  },
+  "input_scope": "execution-v1",
+  "additional_inputs": [],
+  "inputs": {
+    "simulation/collect_llm.py": "37cf83fc39c531a4bb579dfffd7fb99e3f448d389f35d6626091e1b823be5bf2",
+    "simulation/fetch_data.py": "9162b26659ecae4fc18d2fe715595c00251c9930a57ff15805ad2a07fe639431",
+    "simulation/freeze_llm.py": "7cd0df8d78e2ccdaedf426cdf7dd2be2119ff999ed76e3b2bf23d945ef4ff8cf",
+    "simulation/key_corrections.json": "1e352f6b4918f831fc4440f261bd6b3726ed1c24e0afa676c0adb8e01da6325f",
+    "simulation/pc/__init__.py": "d343e40875015e4bae0547766566926ff957f99facc10f41e1b25cf095918439",
+    "simulation/pc/estimators.py": "f2a51f970c35eae7a0fe90f85bbcc3af8f8363d2377afc127d68202b9e490156",
+    "simulation/pc/grading.py": "ca360c1a410f57a0380f6df4a104c80674b6ecdfb4a5c7426e5eae0904e5abd6",
+    "simulation/pc/theory.py": "4641f61553dc025a7655bd785928360b745709ed22b2a1b4c32d2fa20406e778",
+    "simulation/pyproject.toml": "eebffab9e7ef62b746642b315fcd6b9fe47a87f04cbe3dbd08bfc6fc82746fa1",
+    "simulation/run_all.py": "5a8baba2b44ea9e1fc2fcdf20224a43978dc229c5212ccd96d1f8c1fa65235af",
+    "simulation/tests/test_keys.py": "82f518b6c016bc6ba0138a4d3ef26c4d44b5814d8a29bd56c60608a8b1c7d541",
+    "simulation/tests/test_theory.py": "8d818fe7686785dd777aae5e734596bbd1416d44d0675636981772ec2321c698",
+    "simulation/uv.lock": "3bf60588ed90675a9272c1ff051d33cdde064daa276b96d0e4f0a19d6ca02a29"
+  },
+  "artifacts": {
+    "simulation/output/tests.xml": "0705c7a4725b1492cb1026de61fdb505fe275db1ce4efa5e2ffaeb9a2d30c7d9"
+  }
+}

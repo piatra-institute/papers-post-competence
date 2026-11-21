@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: If you use this work, please cite it as below.
+title: 'Post-Competence: Verification Precision Caps the Reliability Compute Buys'
+authors:
+- name: PIATRA Institute
+date-released: '2026-11-01'
+url: https://piatra.institute/papers/post-competence.pdf
+repository-code: https://github.com/piatra-institute/papers-post-competence
+abstract: A person who cannot do a task can still invoke a machine system many times, and the claim that power therefore equals compute holds only if they can tell good outputs from bad. This paper models an invoker who resamples a system with per-attempt success probability $p$ and accepts outputs with a check of sensitivity $s$ and false-acceptance rate $f$. Accepting the first output that passes converges to the check's precision, $sp/[sp+f(1-p)]$, a limit already known for verifier-based selection. The paper shows that a target reliability is reachable with finite compute exactly when $s/f$ exceeds the target's odds divided by the generator's odds, and gives the attempts required. Across tasks, resampling falls short of a check's pooled precision by the covariance between per-task acceptance and precision, divided by mean acceptance. With a common check, the population ceiling lies between single-attempt accuracy and the pooled formula and falls as attempt outcomes correlate within tasks. Re-checking a candidate helps only if verdicts are independent. On 40 olympiad problems with 6 attempts each, a small current model was right on 88% of attempts. Its own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%. A stronger model as checker reached 94%, and a perfect check 95%, limited by 2 items the model never solved. Pooled precision overstated what resampling reached by up to 5 points. With 40 items the differences between checks are not resolved from zero, and only one generator in one domain was measured.
+preferred-citation:
+  type: article
+  title: 'Post-Competence: Verification Precision Caps the Reliability Compute Buys'
+  authors:
+  - name: PIATRA Institute
+  date-published: '2026-11-01'
+  url: https://piatra.institute/papers/post-competence.pdf
+  repository-code: https://github.com/piatra-institute/papers-post-competence

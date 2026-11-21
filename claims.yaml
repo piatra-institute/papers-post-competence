@@ -1,0 +1,2636 @@
+schema: 1
+coverage: pending
+reviewed_manuscript_sha256: null
+claims:
+- id: abs-items
+  kind: computation
+  passage: On 40 olympiad problems with 6 attempts each, a small current model was right on 88% of attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/n_items
+    reported: '40'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: abs-attempts
+  kind: computation
+  passage: On 40 olympiad problems with 6 attempts each, a small current model was right on 88% of attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts per item
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: abs-p
+  kind: computation
+  passage: On 40 olympiad problems with 6 attempts each, a small current model was right on 88% of attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/mean_p
+    reported: 88%
+    scale: 100
+    units: percent of attempts correct
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: abs-self-f
+  kind: computation
+  passage: Its own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/false_acceptance
+    reported: 41%
+    scale: 100
+    units: percent of wrong attempts accepted by the self-check
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: abs-self-lim
+  kind: computation
+  passage: Its own verdicts accepted 41% of wrong attempts, mostly its repeated errors, and capped resampling at 92%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/self/limit
+    reported: 92%
+    scale: 100
+    units: percent reliability at the limit
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: abs-strong-lim
+  kind: computation
+  passage: A stronger model as checker reached 94%, and a perfect check 95%, limited by 2 items the model never solved.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/strong/limit
+    reported: 94%
+    scale: 100
+    units: percent reliability at the limit
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: abs-oracle-lim
+  kind: computation
+  passage: A stronger model as checker reached 94%, and a perfect check 95%, limited by 2 items the model never solved.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/limit
+    reported: 95%
+    scale: 100
+    units: percent reliability at the limit
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: abs-never
+  kind: computation
+  passage: A stronger model as checker reached 94%, and a perfect check 95%, limited by 2 items the model never solved.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/n_never
+    reported: '2'
+    scale: 1
+    units: items never solved in 6 attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: abs-pooled-gap
+  kind: computation
+  passage: Pooled precision overstated what resampling reached by up to 5 points.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/pooled_minus_ceiling_abstain
+    reported: '5'
+    scale: 100
+    units: percentage points (largest gap, stronger-model check)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: abs-n-limit
+  kind: computation
+  passage: With 40 items the differences between checks are not resolved from zero, and only one generator in one domain was measured.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/n_items
+    reported: '40'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: abs-ceiling-known
+  kind: interpretation
+  passage: Accepting the first output that passes converges to the check's precision, $sp/[sp+f(1-p)]$, a limit already known for verifier-based selection.
+  rationale: 'Credits prior work: the limit is Davis et al. (2024), Theorem 1 as K goes to infinity (read in full).'
+- id: intro-items
+  kind: computation
+  passage: In the measurement reported below, a small current model answered 40 olympiad-level problems correctly on 88% of attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/n_items
+    reported: '40'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: intro-p
+  kind: computation
+  passage: In the measurement reported below, a small current model answered 40 olympiad-level problems correctly on 88% of attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/mean_p
+    reported: 88%
+    scale: 100
+    units: percent of attempts correct
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: intro-oracle6
+  kind: computation
+  passage: With 6 attempts per problem and a perfect way of recognising a correct answer, reliability rose to 95%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/reliability/6
+    reported: 95%
+    scale: 100
+    units: percent reliability, oracle check, 6 attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: intro-oracle6-n
+  kind: computation
+  passage: With 6 attempts per problem and a perfect way of recognising a correct answer, reliability rose to 95%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: intro-self6
+  kind: computation
+  passage: When the model judged its own answers, 6 attempts reached 92%, and no larger budget improved on that.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/self/reliability/6
+    reported: 92%
+    scale: 100
+    units: percent reliability, self-check, 6 attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: intro-self6-n
+  kind: computation
+  passage: When the model judged its own answers, 6 attempts reached 92%, and no larger budget improved on that.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: intro-thesis
+  kind: interpretation
+  passage: The claim that externalised intelligence makes everyone such a ruler, so that what a person can bring about depends on the computation they command more than on the skills they possess, can be summarised as "power equals compute".
+  rationale: States the thesis under test in neutral form; the paper tests a narrow, checkable version of it and does not advocate it.
+- id: intro-anderson
+  kind: source
+  passage: The term has been used in educational linguistics for a different idea, an orientation of language education beyond the competence model [@anderson2023].
+  evidence:
+    citation_id: anderson2023
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Crossref record and abstract read: the article proposes looking beyond Bernstein''s ''competence model'' in educational linguistics. Only the prior use of the term is claimed.'
+- id: intro-ceiling-def
+  kind: definition
+  passage: Accepting the first output that passes the check converges, as attempts grow, to $sp/[sp + f(1-p)]$, the check's precision at the generator's base rate; call it the precision ceiling.
+  rationale: Names the limit of Proposition 1; the formula is proved in Section 4.1.
+- id: intro-davis
+  kind: source
+  passage: Davis and colleagues derive it for a "verifier-based judge" and show that resampling gains over one attempt exactly when the check accepts correct outputs more often than incorrect ones [@davis2024].
+  evidence:
+    citation_id: davis2024
+    locator: Section 2.2, Theorems 1 and 2
+    depth: fulltext
+    verified: false
+    verification_note: 'Read the arXiv v1 PDF, Section 2.2. Theorem 1 gives P(J(q)=a*) = rc(1-(1-beta)^K)/beta + (1-beta)^K/|A|; Theorem 2: gain positive iff r not in {0,1} and c > 1 - s.'
+    quote: 'When the number of generators K goes to infinity, the gain of a verifier-based judge is positive if and only if: r ≠ 0, 1 and c = P(J(a, π) = 1 | a = a∗) > P(J(a, π) = 1 | a ≠ a∗) = 1 − s.'
+- id: intro-stroebl
+  kind: source
+  passage: Stroebl, Kapoor and Narayanan show that unit-test verifiers with false positives cap the accuracy of resampling on code benchmarks, so that a weaker model cannot reach a stronger model's single-attempt accuracy this way [@stroebl2024].
+  evidence:
+    citation_id: stroebl2024
+    locator: abstract and Section 3
+    depth: fulltext
+    verified: false
+    verification_note: 'Read v3 (26 March 2026) abstract and Section 3: imperfect verifiers with non-zero false-positive probability impose an upper bound on resampling accuracy; weaker models cannot match a sufficiently strong model''s single-sample accuracy (HumanEval+ and MBPP+).'
+    quote: Then the weaker model cannot match the performance of a single invocation of the stronger model, no matter how big the compute budget for the weaker model.
+- id: intro-brown
+  kind: source
+  passage: Related work measures how the share of problems solved by some sample grows with the number of samples [@brown2024; @schaeffer2025], how majority voting can degrade as calls are added [@chen2024calls], and how to allocate test-time compute across prompts [@snell2024].
+  evidence:
+    citation_id: brown2024
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: coverage scales with samples over four orders of magnitude; majority voting and reward models plateau beyond several hundred samples. Schaeffer et al. (abstract) relate aggregate scaling to the distribution of per-problem success; Chen et al. 2024 (abstract) report non-monotone vote scaling; Snell et al. (abstract) study compute-optimal allocation.'
+- id: intro-cobbe
+  kind: source
+  passage: Verifiers trained to rank sampled solutions go back at least to work on grade-school mathematics [@cobbe2021; @lightman2023].
+  evidence:
+    citation_id: cobbe2021
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: GSM8K; train verifiers to judge completions; at test time generate many candidates and select the highest-ranked. Lightman et al. (abstract): process supervision on MATH.'
+- id: intro-contrib
+  kind: interpretation
+  passage: Beyond these results, the paper does the following.
+  rationale: Statement of contribution relative to Davis et al. (2024) and Stroebl et al. (2024); each item is proved in Section 4 or measured in Section 5.
+- id: def-attainable
+  kind: definition
+  passage: The attainable set at budget $c$ and reliability $\rho$ is $$\mathcal A_i(c,\rho)=\{x\in\mathcal X:\ \exists\,\pi\in\Pi_i,\ C(\pi)\le c,\ p_x(\pi)\ge\rho\}.$$ It plays the role of Sen's capability set, the set of functionings a person is able to achieve [@sen1985], restricted to outcomes with stated standards, budgets and reliability.
+  rationale: Definition used throughout; compute threshold c*_x(rho) follows.
+- id: def-sen
+  kind: interpretation
+  passage: The attainable set at budget $c$ and reliability $\rho$ is $$\mathcal A_i(c,\rho)=\{x\in\mathcal X:\ \exists\,\pi\in\Pi_i,\ C(\pi)\le c,\ p_x(\pi)\ge\rho\}.$$ It plays the role of Sen's capability set, the set of functionings a person is able to achieve [@sen1985], restricted to outcomes with stated standards, budgets and reliability.
+  rationale: Attribution of the analogy to the capability set (Sen 1985, identity checked via OpenLibrary; not re-read). No specific claim from the book is used.
+- id: def-sufficiency
+  kind: definition
+  passage: '*Novice sufficiency* means that a person without the relevant training reaches the standard $\rho$ on $x$ with assistance, so that $x$ enters their attainable set.'
+  rationale: Distinguishes the two empirical claims; novice sufficiency is membership in the attainable set at reliability rho.
+- id: src-noy
+  kind: source
+  passage: The evidence on improvement is substantial. In a preregistered experiment with 453 college-educated professionals, access to ChatGPT cut the time spent on writing tasks by 40% and raised assessed quality by 18%, and inequality between workers decreased [@noy2023].
+  evidence:
+    citation_id: noy2023
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Crossref abstract read: 453 college-educated professionals; time decreased by 40% and output quality rose by 18%; inequality between workers decreased.'
+    quote: The average time taken decreased by 40% and output quality rose by 18%. Inequality between workers decreased
+- id: src-brynjolfsson
+  kind: source
+  passage: Among 5,172 customer-support agents, a conversational assistant raised issues resolved per hour by 15% on average, with less experienced and lower-skilled workers improving in both speed and quality [@brynjolfsson2025].
+  evidence:
+    citation_id: brynjolfsson2025
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Crossref abstract of the published QJE article read: 5,172 agents; productivity up 15% on average; less experienced and lower-skilled workers improve both speed and quality.'
+    quote: Access to AI assistance increases worker productivity, as measured by issues resolved per hour, by 15% on average
+- id: src-becker-main
+  kind: source
+  passage: In a randomised trial in which 16 experienced open-source developers completed 246 tasks, allowing AI tools increased completion time by 19%, although the developers had forecast a 24% reduction and estimated a 20% reduction afterwards [@becker2025].
+  evidence:
+    citation_id: becker2025
+    locator: abstract
+    depth: fulltext
+    verified: false
+    verification_note: 'Read v2 full text: abstract states 16 developers, 246 tasks, forecast 24% reduction, post-hoc estimate 20% reduction, observed 19% increase in completion time.'
+    quote: Surprisingly, we find that allowing AI actually increases completion time by 19%—AI tooling slowed developers down.
+- id: src-becker-review
+  kind: source
+  passage: They accepted under 44% of AI generations and spent about 9% of their AI-assisted time reviewing and cleaning AI output [@becker2025, app. C.1.4].
+  evidence:
+    citation_id: becker2025
+    locator: Appendix C.1.4
+    depth: fulltext
+    verified: false
+    verification_note: 'Read Appendix C.1.4 (Low AI reliability): developers accept <44% of generations; on 44 issues with labelled screen recordings about 9% of time with AI is spent reviewing and cleaning AI outputs.'
+    quote: developers spend approximately 9% of their time reviewing and cleaning AI generated outputs when working with AI.
+- id: src-dellacqua
+  kind: source
+  passage: In a field experiment with 758 consultants, AI access improved work on tasks inside the frontier of the system's capability but made consultants less likely to reach a correct answer on a task selected to lie outside it [@dellacqua2023].
+  evidence:
+    citation_id: dellacqua2023
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Crossref abstract of the SSRN working paper read: 758 knowledge workers; inside the frontier AI users completed more tasks faster with higher quality; on a task selected to be outside the frontier, AI users were less likely to produce correct solutions. The effect size is not reported in the paper because its unit is ambiguous in the abstract.'
+    quote: for a complex managerial task selected to be outside the frontier, subjects using AI were 19% less likely to produce correct solutions compared with those without AI
+- id: interp-two-studies
+  kind: interpretation
+  passage: The first study shows verification consuming expert time; the second shows assisted people accepting wrong output.
+  rationale: Interpretive summary of the two preceding source claims.
+- id: src-kwa
+  kind: source
+  passage: 'Measured capability also depends on the reliability demanded: for frontier agents on software tasks, the task length completed with 80% success is 4 to 6 times shorter than the length completed with 50% success [@kwa2025, sec. 3.2.1].'
+  evidence:
+    citation_id: kwa2025
+    locator: Section 3.2.1
+    depth: fulltext
+    verified: false
+    verification_note: 'Read v4 Section 3.2.1: 80% time horizons are 4-6x shorter than 50% horizons; doubling times similar.'
+    quote: However, models’ 80% time horizons are 4-6x shorter, suggesting that even models that sometimes succeed on difficult and diverse tasks cannot reliably perform tasks of moderate length.
+- id: assume-iid
+  kind: assumption
+  passage: Given the task, attempts are independent and identically distributed, which holds exactly for independent samples from a fixed model and prompt.
+  rationale: Exact for independent samples from a fixed model and prompt (fresh sessions in the measurement); all propositions condition on it. Dependence across tasks is treated in Proposition 3.
+- id: assume-verdicts
+  kind: assumption
+  passage: Given the attempts, verdicts are independent, with sensitivity $s=\Pr(V=1\mid\text{correct})$ and false-acceptance rate $f=\Pr(V=1\mid\text{incorrect})$.
+  rationale: Conditional independence of verdicts across attempts; Proposition 4 treats repeated verdicts on the same candidate.
+- id: src-green
+  kind: interpretation
+  passage: In the vocabulary of signal detection, $s$ is a hit rate and $f$ a false-alarm rate [@green1966].
+  rationale: 'Attribution only: Green and Swets (1966), identity checked via OpenLibrary, not re-read; the sentence uses only the standard hit-rate and false-alarm-rate vocabulary.'
+- id: prop1
+  kind: interpretation
+  passage: '*Proof.* Because attempts are independent and identically distributed, the first accepted attempt is correct with probability $sp/a=\pi$ whatever its position, and some attempt among the first $n$ is accepted with probability $1-(1-a)^n$.'
+  rationale: Proposition 1 proved in the text; checked numerically against simulation and exact enumeration in simulation/tests/test_theory.py (recorded run 'tests').
+- id: prop1-davis
+  kind: source
+  passage: Davis and colleagues obtain the same limit for a judge that returns a random answer when every candidate is rejected [@davis2024, thm. 1–2].
+  evidence:
+    citation_id: davis2024
+    locator: Section 2.2, Theorems 1 and 2
+    depth: fulltext
+    verified: false
+    verification_note: Read Theorems 1-2 and proofs. Their judge returns a random answer when all candidates are rejected; the K-to-infinity limit rc/beta equals the ceiling.
+- id: prop1-meehl
+  kind: source
+  passage: 'Its dependence on the base rate is the point Meehl and Rosen made about psychometric signs [@meehl1955]: a check that separates well can still pass many errors when correct outputs are rare.'
+  evidence:
+    citation_id: meehl1955
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'OpenAlex abstract read: a psychometric device must yield more correct decisions than base rates alone; efficiency depends on base rates.'
+- id: prop2
+  kind: interpretation
+  passage: '*Proof.* Rearrange $(\pi-p)(1-a)^{n-1}\le\pi-\rho$, dividing by $\ln(1-a)<0$.'
+  rationale: Proposition 2 proved in the text; n* checked for minimality in tests/test_theory.py.
+- id: ex-ceiling
+  kind: computation
+  passage: The ceiling is 0.8, the check's likelihood ratio is 6, and a reliability of 0.75 takes 5 attempts while 0.79 takes 8; 0.8 is never reached.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/ceiling
+    reported: '0.8'
+    scale: 1
+    units: reliability
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 1
+- id: ex-lr
+  kind: computation
+  passage: The ceiling is 0.8, the check's likelihood ratio is 6, and a reliability of 0.75 takes 5 attempts while 0.79 takes 8; 0.8 is never reached.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/likelihood_ratio
+    reported: '6'
+    scale: 1
+    units: likelihood ratio s/f
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 0
+- id: ex-n75
+  kind: computation
+  passage: The ceiling is 0.8, the check's likelihood ratio is 6, and a reliability of 0.75 takes 5 attempts while 0.79 takes 8; 0.8 is never reached.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/n_star_0.75
+    reported: '5'
+    scale: 1
+    units: attempts to reach 0.75
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+- id: ex-n79
+  kind: computation
+  passage: The ceiling is 0.8, the check's likelihood ratio is 6, and a reliability of 0.75 takes 5 attempts while 0.79 takes 8; 0.8 is never reached.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/n_star_0.79
+    reported: '8'
+    scale: 1
+    units: attempts to reach 0.79
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+- id: ex-targets
+  kind: definition
+  passage: The ceiling is 0.8, the check's likelihood ratio is 6, and a reliability of 0.75 takes 5 attempts while 0.79 takes 8; 0.8 is never reached.
+  rationale: Example targets 0.75, 0.79 and the statement that 0.8 is never reached follow from Proposition 2 with p=0.4, s=0.9, f=0.15 (parameters in results.json /theory/example).
+- id: ex-oracle
+  kind: computation
+  passage: An oracle check reaches 0.99 in 10 attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/oracle_n_star_0.99
+    reported: '10'
+    scale: 1
+    units: attempts
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+- id: ex-oracle-target
+  kind: definition
+  passage: An oracle check reaches 0.99 in 10 attempts.
+  rationale: Target 0.99 is an illustrative choice.
+- id: ex-lr09
+  kind: computation
+  passage: At this $p$, a check needs a likelihood ratio above 13.5 to make 0.9 attainable and above 148.5 to make 0.99 attainable (Figure 1b).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/required_lr_0.9
+    reported: '13.5'
+    scale: 1
+    units: likelihood ratio
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 1
+- id: ex-lr099
+  kind: computation
+  passage: At this $p$, a check needs a likelihood ratio above 13.5 to make 0.9 attainable and above 148.5 to make 0.99 attainable (Figure 1b).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/example/required_lr_0.99
+    reported: '148.5'
+    scale: 1
+    units: likelihood ratio
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 1
+- id: ex-lr-targets
+  kind: definition
+  passage: At this $p$, a check needs a likelihood ratio above 13.5 to make 0.9 attainable and above 148.5 to make 0.99 attainable (Figure 1b).
+  rationale: Targets 0.9 and 0.99 are illustrative; values from Proposition 2 at p=0.4.
+- id: interp-threshold
+  kind: interpretation
+  passage: 'Proposition 2 is the compute threshold of Section 2 for a single strategy: the task enters the attainable set at finite cost only if the check is good enough, and otherwise extra compute moves reliability towards the ceiling but never to the target.'
+  rationale: Connects Proposition 2 to the definition of c*_x(rho).
+- id: vote-condorcet
+  kind: interpretation
+  passage: By Condorcet's jury theorem and its generalisation to plurality choice among several options, the vote of independent attempts converges to the correct answer when it is the most probable answer, and to a wrong answer when some wrong answer is more probable [@condorcet1785; @list2001].
+  rationale: 'Attribution of classical results: Condorcet (1785) and List and Goodin (2001) were identity-checked but not re-read. The binary theorem is as stated in Boland''s (1989) abstract; the plurality limit for independent attempts is a standard law-of-large-numbers consequence and is checked numerically in tests/test_theory.py.'
+- id: vote-ladha
+  kind: source
+  passage: Correlation among voters weakens the classical guarantee [@boland1989; @ladha1992], and when tasks differ in difficulty, vote accuracy can fall as calls are added [@chen2024calls]; self-consistency decoding applies the same vote to sampled reasoning paths [@wang2022].
+  evidence:
+    citation_id: ladha1992
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'OpenAlex abstract/opening read: the jury theorem assumes independent votes; the article relaxes this for correlated votes. Chen et al. 2024 abstract: non-monotone vote scaling from mixed query difficulty; Wang et al. abstract: self-consistency.'
+- id: vote-redundancy
+  kind: interpretation
+  passage: Building reliable systems from unreliable parts by redundancy and majority goes back to von Neumann and to Moore and Shannon [@vonneumann1956; @moore1956], and it requires the independence that systematic errors violate.
+  rationale: Attribution to von Neumann (1956) and Moore and Shannon (1956), identity checked via Crossref; not re-read.
+- id: fig1
+  kind: definition
+  passage: '![Theory. (a) Reliability against attempts for one task with $p=0.4$: oracle check, a check with $s=0.9$ and $f=0.15$ (dotted line at its ceiling), plurality vote when the right answer is the most probable one and when a wrong answer is, and accepting the first output. (b) The ceiling as a function of the check''s likelihood ratio for $p\in\{0.1,0.3,0.5,0.7\}$; grey lines mark targets. (c) The population ceiling for tasks with Beta-distributed success probabilities of mean 0.6, a common check, and varying intraclass correlation, with the bounds of Proposition 3 and its second-order approximation. (d) Attempts needed for a target reliability with the check of panel (a) and with an oracle check.](figures/theory.pdf){width=100%}'
+  rationale: Figure 1 is drawn by the recorded run from the closed forms (example parameters fixed in run_all.py; Beta population with mean 0.6).
+- id: prop3
+  kind: interpretation
+  passage: '*Proof.* (a) $\mathbb E[a\pi]/\mathbb E[a]-\mathbb E[\pi]=(\mathbb E[a\pi]-\mathbb E[a]\mathbb E[\pi])/\mathbb E[a]$.'
+  rationale: Proposition 3 proved in the text; the covariance identity and the ICC bounds are checked numerically in tests/test_theory.py.
+- id: icc0
+  kind: computation
+  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/icc_example/ceiling_icc0
+    reported: '0.871'
+    scale: 1
+    units: reliability
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 3
+- id: icc3
+  kind: computation
+  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/icc_example/ceiling_icc0.3
+    reported: '0.817'
+    scale: 1
+    units: reliability
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 3
+- id: icc7
+  kind: computation
+  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/icc_example/ceiling_icc0.7
+    reported: '0.703'
+    scale: 1
+    units: reliability
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 3
+- id: icc1
+  kind: computation
+  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /theory/icc_example/ceiling_icc1
+    reported: '0.6'
+    scale: 1
+    units: reliability
+    conditions: closed-form theory values computed in the recorded run (simulation/pc/theory.py)
+    decimals: 1
+- id: icc-params
+  kind: definition
+  passage: With $\bar p=0.6$, $s=0.9$ and $f=0.2$, the population ceiling falls from 0.871 at an intraclass correlation of 0 to 0.817 at 0.3, 0.703 at 0.7 and 0.6 at 1 (Figure 1c).
+  rationale: Intraclass correlations 0, 0.3, 0.7 and 1 are illustrative parameter values (Beta-distributed task success with mean 0.6).
+- id: prop3-stroebl
+  kind: source
+  passage: Stroebl and colleagues capture the same mechanism with a mixture of easy and hard tasks and Bayesian updating after rejections [@stroebl2024, app. C], and Schaeffer and colleagues trace the aggregate scaling of the share of solved problems to the distribution of per-task success [@schaeffer2025].
+  evidence:
+    citation_id: stroebl2024
+    locator: Appendix C.1
+    depth: fulltext
+    verified: false
+    verification_note: 'Read Appendix C.1: tasks are easy or hard with priors p1, p2; verifier completeness and soundness; posterior over task type updated after each rejection.'
+- id: prop3-schaeffer
+  kind: source
+  passage: Stroebl and colleagues capture the same mechanism with a mixture of easy and hard tasks and Bayesian updating after rejections [@stroebl2024, app. C], and Schaeffer and colleagues trace the aggregate scaling of the share of solved problems to the distribution of per-task success [@schaeffer2025].
+  evidence:
+    citation_id: schaeffer2025
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: per-problem exponential scaling yields aggregate power laws when single-attempt success probabilities are heavy-tailed.'
+- id: prop4
+  kind: interpretation
+  passage: '*Proof.* A candidate passes all $k$ verdicts with probability $\alpha(y)^k$; apply Proposition 1 with candidate-level acceptance.'
+  rationale: Proposition 4 proved in the text; checked in tests/test_theory.py (test_repeated_checks_converge_to_most_accepted).
+- id: prop4-gao
+  kind: source
+  passage: This is a discrete analogue of over-optimising a proxy reward by best-of-$n$ selection [@gao2022overopt].
+  evidence:
+    citation_id: gao2022overopt
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: optimizing a proxy reward model with best-of-n or RL eventually hinders gold reward.'
+- id: interp-power
+  kind: interpretation
+  passage: The invoker's verification competence sets the rate at which compute converts into reliability and caps the conversion.
+  rationale: Reading of Propositions 1-3; conditional on the model's assumptions.
+- id: d-rows
+  kind: computation
+  passage: The items come from Omni-MATH, a benchmark of 4,428 olympiad-level problems with reference answers, released by its authors under the Apache-2.0 licence [@gao2024omni].
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /data/items_meta/n_rows
+    reported: 4,428
+    scale: 1
+    units: problems in the benchmark file
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-omni
+  kind: source
+  passage: The items come from Omni-MATH, a benchmark of 4,428 olympiad-level problems with reference answers, released by its authors under the Apache-2.0 licence [@gao2024omni].
+  evidence:
+    citation_id: gao2024omni
+    locator: abstract and dataset card
+    depth: abstract
+    verified: false
+    verification_note: Abstract read (4428 competition-level problems); dataset card at the pinned revision declares licence apache-2.0. Row count re-verified from the file in the recorded run.
+- id: d-eligible
+  kind: computation
+  passage: Eligible items were the HMMT February problems with Omni-MATH difficulty of at least 5.5, an integer reference answer and no reference to a figure; there were 69.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /data/items_meta/n_eligible
+    reported: '69'
+    scale: 1
+    units: eligible items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-difficulty
+  kind: definition
+  passage: Eligible items were the HMMT February problems with Omni-MATH difficulty of at least 5.5, an integer reference answer and no reference to a figure; there were 69.
+  rationale: Selection rule fixed in fetch_data.py and recorded in results.json /data/items_meta/selection.
+- id: d-n
+  kind: computation
+  passage: The study used the first 40 in a seeded random order.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/n_items
+    reported: '40'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-conf-scale
+  kind: definition
+  passage: The generator was Claude Haiku 5.5 (`claude-haiku-5-5`), called through the `claude` command-line interface with low reasoning effort, no tools, a fresh session for every call and a fixed system prompt asking for a final answer and a stated confidence from 0 to 100.
+  rationale: System prompt in collect_llm.py (SOLVER_SYSTEM).
+- id: d-attempts
+  kind: computation
+  passage: Each item received 6 independent attempts, 240 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts per item
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-gencalls
+  kind: computation
+  passage: Each item received 6 independent attempts, 240 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/gen/calls
+    reported: '240'
+    scale: 1
+    units: generation calls
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-tau
+  kind: computation
+  passage: '*Stated confidence* accepts an attempt whose own stated confidence is at least 90, a threshold fixed before the analysis.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/tau
+    reported: '90'
+    scale: 1
+    units: stated confidence threshold
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-cands
+  kind: computation
+  passage: The model checks were run once for each distinct pair of item and answer, using the first attempt that produced that answer; there were 56 such candidates.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/n_candidates
+    reported: '56'
+    scale: 1
+    units: distinct (item, answer) candidates
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-calls
+  kind: computation
+  passage: The analysis uses 352 calls.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/analysed_calls
+    reported: '352'
+    scale: 1
+    units: calls
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-pilot
+  kind: computation
+  passage: A pilot added 18 calls, and 2 one-word calls confirmed that a model identifier was available, for 372 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/pilot_calls
+    reported: '18'
+    scale: 1
+    units: calls
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-probes
+  kind: computation
+  passage: A pilot added 18 calls, and 2 one-word calls confirmed that a model identifier was available, for 372 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/availability_probes
+    reported: '2'
+    scale: 1
+    units: calls
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-total
+  kind: computation
+  passage: A pilot added 18 calls, and 2 one-word calls confirmed that a model identifier was available, for 372 calls in all.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/total_calls_including_pilot_and_probes
+    reported: '372'
+    scale: 1
+    units: calls
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-pilot-math
+  kind: computation
+  passage: In the pilot, 10 attempts at Level-5 problems from the MATH-500 subset [@hendrycks2021; @lightman2023] were all correct, which led to the harder items; 8 pilot attempts at study items are excluded from the analysis.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /pilot/math500_total/correct
+    reported: '10'
+    scale: 1
+    units: correct pilot attempts (of 10)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-pilot-omni
+  kind: computation
+  passage: In the pilot, 10 attempts at Level-5 problems from the MATH-500 subset [@hendrycks2021; @lightman2023] were all correct, which led to the harder items; 8 pilot attempts at study items are excluded from the analysis.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /pilot/runs/omni__gen__claude-haiku-5-5__low/attempts
+    reported: '8'
+    scale: 1
+    units: pilot attempts at study items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: d-math500
+  kind: source
+  passage: In the pilot, 10 attempts at Level-5 problems from the MATH-500 subset [@hendrycks2021; @lightman2023] were all correct, which led to the harder items; 8 pilot attempts at study items are excluded from the analysis.
+  evidence:
+    citation_id: lightman2023
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: the model is evaluated on a representative subset of the MATH test set; PRM800K released (the openai/prm800k repository holds the 500-problem split used in the pilot). Hendrycks et al. cited for the MATH dataset (identity only).'
+- id: d-key
+  kind: interpretation
+  passage: The reference solution unwinds the recursion as $(-1)^n\,2009\binom{2008}{n}$, but the recursion gives $x_1=-2009^2$ and hence $(-1)^n\,2009\binom{2009}{n}$, so the sum is $2009(1-2)^{2009}=-2009$, the model's answer on every attempt.
+  rationale: Derivation in the text; exact integer computation in simulation/tests/test_keys.py confirms the sum is -2009; the correction is listed in simulation/key_corrections.json.
+- id: e-n6
+  kind: computation
+  passage: For budgets of up to 6 attempts, each protocol's reliability on an item is estimated by averaging its outcome over all orderings or subsets of the 6 observed attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: e-chen
+  kind: source
+  passage: This is the without-replacement construction of the unbiased estimator of the share of problems solved within $k$ samples [@chen2021], and it is unbiased for $n$ independent attempts given the realised verdicts.
+  evidence:
+    citation_id: chen2021
+    locator: Section 2.1 and Figure 3
+    depth: fulltext
+    verified: false
+    verification_note: 'Read Section 2.1 and Figure 3: unbiased pass@k from n >= k samples, 1 - C(n-c,k)/C(n,k); the plug-in 1-(1-p)^k is biased.'
+    quote: we generate n ≥ k samples per task (in this paper, we use n = 200 and k ≤ 100), count the number of correct samples c ≤ n which pass unit tests, and calculate the unbiased estimator
+- id: e-beyond
+  kind: computation
+  passage: Beyond 6 attempts the curves are plug-in values from each item's observed answer frequencies, with the vote computed by seeded simulation.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: e-never6
+  kind: computation
+  passage: These extrapolations treat an item never solved in 6 attempts as unsolvable, so the oracle values beyond 6 are lower bounds.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: e-boot
+  kind: computation
+  passage: Intervals are 95% percentile intervals from 2,000 bootstrap resamples of items; they treat the 40 items as a random sample from the eligible pool and attempts as independent within items.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/bootstrap
+    reported: 2,000
+    scale: 1
+    units: bootstrap resamples
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: e-95
+  kind: definition
+  passage: Intervals are 95% percentile intervals from 2,000 bootstrap resamples of items; they treat the 40 items as a random sample from the eligible pool and attempts as independent within items.
+  rationale: Interval level fixed in run_all.py (2.5% and 97.5% quantiles).
+- id: e-n40
+  kind: computation
+  passage: Intervals are 95% percentile intervals from 2,000 bootstrap resamples of items; they treat the 40 items as a random sample from the eligible pool and attempts as independent within items.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/n_items
+    reported: '40'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: e-ridout
+  kind: source
+  passage: The intraclass correlation uses the one-way analysis-of-variance estimator for binary outcomes [@ridout1999].
+  evidence:
+    citation_id: ridout1999
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: review and simulation comparison of ICC estimators for binary data. The ANOVA estimator is the standard one; no numerical finding of the article is used.'
+- id: g-p
+  kind: computation
+  passage: Single-attempt accuracy was 0.879 (95% interval 0.800 to 0.954).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/mean_p
+    reported: '0.879'
+    scale: 1
+    units: proportion of attempts correct
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: g-p-lo
+  kind: computation
+  passage: Single-attempt accuracy was 0.879 (95% interval 0.800 to 0.954).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/mean_p_ci95/0
+    reported: '0.800'
+    scale: 1
+    units: proportion
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: g-p-hi
+  kind: computation
+  passage: Single-attempt accuracy was 0.879 (95% interval 0.800 to 0.954).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/mean_p_ci95/1
+    reported: '0.954'
+    scale: 1
+    units: proportion
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: g-95
+  kind: definition
+  passage: Single-attempt accuracy was 0.879 (95% interval 0.800 to 0.954).
+  rationale: 95% bootstrap percentile interval over items.
+- id: g-n
+  kind: computation
+  passage: Of the 40 items, 28 were solved on all 6 attempts, 2 were never solved and 10 were solved on some attempts (Figure 2a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/n_items
+    reported: '40'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-always
+  kind: computation
+  passage: Of the 40 items, 28 were solved on all 6 attempts, 2 were never solved and 10 were solved on some attempts (Figure 2a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/n_always
+    reported: '28'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-att
+  kind: computation
+  passage: Of the 40 items, 28 were solved on all 6 attempts, 2 were never solved and 10 were solved on some attempts (Figure 2a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-never
+  kind: computation
+  passage: Of the 40 items, 28 were solved on all 6 attempts, 2 were never solved and 10 were solved on some attempts (Figure 2a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/n_never
+    reported: '2'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-mixed
+  kind: computation
+  passage: Of the 40 items, 28 were solved on all 6 attempts, 2 were never solved and 10 were solved on some attempts (Figure 2a).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/n_mixed
+    reported: '10'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-icc
+  kind: computation
+  passage: The intraclass correlation of attempt outcomes was 0.51 (0.09 to 0.75).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/icc
+    reported: '0.51'
+    scale: 1
+    units: intraclass correlation
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: g-icc-lo
+  kind: computation
+  passage: The intraclass correlation of attempt outcomes was 0.51 (0.09 to 0.75).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/icc_ci95/0
+    reported: '0.09'
+    scale: 1
+    units: intraclass correlation
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: g-icc-hi
+  kind: computation
+  passage: The intraclass correlation of attempt outcomes was 0.51 (0.09 to 0.75).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/icc_ci95/1
+    reported: '0.75'
+    scale: 1
+    units: intraclass correlation
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: g-never2
+  kind: computation
+  passage: The 2 never-solved items account for 41% of the 29 wrong attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/n_never
+    reported: '2'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-share
+  kind: computation
+  passage: The 2 never-solved items account for 41% of the 29 wrong attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/error_share_on_never_items
+    reported: 41%
+    scale: 100
+    units: percent of wrong attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: g-wrong
+  kind: computation
+  passage: The 2 never-solved items account for 41% of the 29 wrong attempts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/n_wrong_attempts
+    reported: '29'
+    scale: 1
+    units: wrong attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-h07-min
+  kind: computation
+  passage: On one of them every attempt gave the same wrong answer with stated confidence between 85 and 90; on the other, stated confidence ranged from 5 to 15 and the attempts gave 3 different answers.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /never_solved_items/0/min_confidence
+    reported: '85'
+    scale: 1
+    units: stated confidence
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-h07-max
+  kind: computation
+  passage: On one of them every attempt gave the same wrong answer with stated confidence between 85 and 90; on the other, stated confidence ranged from 5 to 15 and the attempts gave 3 different answers.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /never_solved_items/0/max_confidence
+    reported: '90'
+    scale: 1
+    units: stated confidence
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-h22-min
+  kind: computation
+  passage: On one of them every attempt gave the same wrong answer with stated confidence between 85 and 90; on the other, stated confidence ranged from 5 to 15 and the attempts gave 3 different answers.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /never_solved_items/1/min_confidence
+    reported: '5'
+    scale: 1
+    units: stated confidence
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-h22-max
+  kind: computation
+  passage: On one of them every attempt gave the same wrong answer with stated confidence between 85 and 90; on the other, stated confidence ranged from 5 to 15 and the attempts gave 3 different answers.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /never_solved_items/1/max_confidence
+    reported: '15'
+    scale: 1
+    units: stated confidence
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-h22-distinct
+  kind: computation
+  passage: On one of them every attempt gave the same wrong answer with stated confidence between 85 and 90; on the other, stated confidence ranged from 5 to 15 and the attempts gave 3 different answers.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /never_solved_items/1/distinct_answers
+    reported: '3'
+    scale: 1
+    units: distinct answers
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: g-oracle
+  kind: computation
+  passage: No check can recover these items, so the oracle limit is 0.950.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/limit
+    reported: '0.950'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-targets-90
+  kind: computation
+  passage: '| Protocol | $s$ | $f$ | $s/f$ | Pooled precision | Limit | $n^*$ at 0.90 | $n^*$ at 0.95 |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/targets/1
+    reported: '0.90'
+    scale: 1
+    units: target reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-targets-95
+  kind: computation
+  passage: '| Protocol | $s$ | $f$ | $s/f$ | Pooled precision | Limit | $n^*$ at 0.90 | $n^*$ at 0.95 |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/targets/2
+    reported: '0.95'
+    scale: 1
+    units: target reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-first
+  kind: computation
+  passage: '| Accept first output | | | | | 0.879 | none | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/first/limit
+    reported: '0.879'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-conf-tau
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.57 | 0.24 | 2.4 | 0.945 | 0.892 | none | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/tau
+    reported: '90'
+    scale: 1
+    units: threshold
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: t-conf-s
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.57 | 0.24 | 2.4 | 0.945 | 0.892 | none | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/confidence/sensitivity
+    reported: '0.57'
+    scale: 1
+    units: sensitivity
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-conf-f
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.57 | 0.24 | 2.4 | 0.945 | 0.892 | none | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/confidence/false_acceptance
+    reported: '0.24'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-conf-lr
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.57 | 0.24 | 2.4 | 0.945 | 0.892 | none | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/confidence/likelihood_ratio
+    reported: '2.4'
+    scale: 1
+    units: s/f
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 1
+- id: t-conf-pool
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.57 | 0.24 | 2.4 | 0.945 | 0.892 | none | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/confidence/pooled_precision
+    reported: '0.945'
+    scale: 1
+    units: pooled precision
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-conf-lim
+  kind: computation
+  passage: '| Confidence of 90 or more | 0.57 | 0.24 | 2.4 | 0.945 | 0.892 | none | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/confidence/limit
+    reported: '0.892'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-agr-s
+  kind: computation
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/agreement/sensitivity
+    reported: '0.94'
+    scale: 1
+    units: sensitivity
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-agr-f
+  kind: computation
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/agreement/false_acceptance
+    reported: '0.34'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-agr-lr
+  kind: computation
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/agreement/likelihood_ratio
+    reported: '2.7'
+    scale: 1
+    units: s/f
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 1
+- id: t-agr-pool
+  kind: computation
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/agreement/pooled_precision
+    reported: '0.952'
+    scale: 1
+    units: pooled precision
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-agr-lim
+  kind: computation
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/agreement/limit
+    reported: '0.925'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-agr-n
+  kind: computation
+  passage: '| Agreement | 0.94 | 0.34 | 2.7 | 0.952 | 0.925 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/agreement/n_star/0.90
+    reported: '2'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: t-self-s
+  kind: computation
+  passage: '| Self-check | 1.00 | 0.41 | 2.4 | 0.946 | 0.920 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/sensitivity
+    reported: '1.00'
+    scale: 1
+    units: sensitivity
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-self-f
+  kind: computation
+  passage: '| Self-check | 1.00 | 0.41 | 2.4 | 0.946 | 0.920 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/false_acceptance
+    reported: '0.41'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-self-lr
+  kind: computation
+  passage: '| Self-check | 1.00 | 0.41 | 2.4 | 0.946 | 0.920 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/likelihood_ratio
+    reported: '2.4'
+    scale: 1
+    units: s/f
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 1
+- id: t-self-pool
+  kind: computation
+  passage: '| Self-check | 1.00 | 0.41 | 2.4 | 0.946 | 0.920 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/pooled_precision
+    reported: '0.946'
+    scale: 1
+    units: pooled precision
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-self-lim
+  kind: computation
+  passage: '| Self-check | 1.00 | 0.41 | 2.4 | 0.946 | 0.920 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/self/limit
+    reported: '0.920'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-self-n
+  kind: computation
+  passage: '| Self-check | 1.00 | 0.41 | 2.4 | 0.946 | 0.920 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/self/n_star/0.90
+    reported: '2'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: t-str-s
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.07 | 14.5 | 0.991 | 0.938 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/sensitivity
+    reported: '1.00'
+    scale: 1
+    units: sensitivity
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-str-f
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.07 | 14.5 | 0.991 | 0.938 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/false_acceptance
+    reported: '0.07'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: t-str-lr
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.07 | 14.5 | 0.991 | 0.938 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/likelihood_ratio
+    reported: '14.5'
+    scale: 1
+    units: s/f
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 1
+- id: t-str-pool
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.07 | 14.5 | 0.991 | 0.938 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/pooled_precision
+    reported: '0.991'
+    scale: 1
+    units: pooled precision
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-str-lim
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.07 | 14.5 | 0.991 | 0.938 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/strong/limit
+    reported: '0.938'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-str-n
+  kind: computation
+  passage: '| Stronger model | 1.00 | 0.07 | 14.5 | 0.991 | 0.938 | 2 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/strong/n_star/0.90
+    reported: '2'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: t-vote-lim
+  kind: computation
+  passage: '| Plurality vote | | | | | 0.925 | 3 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/vote/limit
+    reported: '0.925'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-vote-n
+  kind: computation
+  passage: '| Plurality vote | | | | | 0.925 | 3 | none |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/vote/n_star/0.90
+    reported: '3'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: t-or-lim
+  kind: computation
+  passage: '| Oracle check | | | | | 0.950 | 2 | 5 |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/limit
+    reported: '0.950'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: t-or-n90
+  kind: computation
+  passage: '| Oracle check | | | | | 0.950 | 2 | 5 |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/n_star/0.90
+    reported: '2'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: t-or-n95
+  kind: computation
+  passage: '| Oracle check | | | | | 0.950 | 2 | 5 |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/n_star/0.95
+    reported: '5'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: t-none
+  kind: interpretation
+  passage: '| Accept first output | | | | | 0.879 | none | none |'
+  rationale: '''none'' entries: /protocols/*/n_star is null because the limit lies below the target.'
+- id: t-caption
+  kind: computation
+  passage: 'Table: Checks and protocols on 40 items.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/n_items
+    reported: '40'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-lr-lo
+  kind: computation
+  passage: The novice checks had likelihood ratios between 2.4 and 2.7 (Table 1; Figure 2b).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/likelihood_ratio
+    reported: '2.4'
+    scale: 1
+    units: s/f (self-check; stated confidence also rounds to 2.4)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 1
+- id: c-lr-hi
+  kind: computation
+  passage: The novice checks had likelihood ratios between 2.4 and 2.7 (Table 1; Figure 2b).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/agreement/likelihood_ratio
+    reported: '2.7'
+    scale: 1
+    units: s/f
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 1
+- id: c-conf-s
+  kind: computation
+  passage: 'Stated confidence was the weakest discriminator: it fell short of the threshold on many correct attempts, with sensitivity 0.57 (0.43 to 0.71), and the area under its curve of sensitivity against false acceptance across all thresholds was 0.76.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/confidence/sensitivity
+    reported: '0.57'
+    scale: 1
+    units: sensitivity
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-conf-s-lo
+  kind: computation
+  passage: 'Stated confidence was the weakest discriminator: it fell short of the threshold on many correct attempts, with sensitivity 0.57 (0.43 to 0.71), and the area under its curve of sensitivity against false acceptance across all thresholds was 0.76.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/confidence/sensitivity_ci95/0
+    reported: '0.43'
+    scale: 1
+    units: sensitivity
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-conf-s-hi
+  kind: computation
+  passage: 'Stated confidence was the weakest discriminator: it fell short of the threshold on many correct attempts, with sensitivity 0.57 (0.43 to 0.71), and the area under its curve of sensitivity against false acceptance across all thresholds was 0.76.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/confidence/sensitivity_ci95/1
+    reported: '0.71'
+    scale: 1
+    units: sensitivity
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-auroc
+  kind: computation
+  passage: 'Stated confidence was the weakest discriminator: it fell short of the threshold on many correct attempts, with sensitivity 0.57 (0.43 to 0.71), and the area under its curve of sensitivity against false acceptance across all thresholds was 0.76.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /confidence_score/auroc
+    reported: '0.76'
+    scale: 1
+    units: area under the curve
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-agr-s
+  kind: computation
+  passage: Agreement had sensitivity 0.94 and false-acceptance rate 0.34.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/agreement/sensitivity
+    reported: '0.94'
+    scale: 1
+    units: sensitivity
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-agr-f
+  kind: computation
+  passage: Agreement had sensitivity 0.94 and false-acceptance rate 0.34.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/agreement/false_acceptance
+    reported: '0.34'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-self-right
+  kind: computation
+  passage: The self-check accepted every correct candidate, 38 of 38, and 4 of the 18 distinct wrong candidates.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/correct_candidates_accepted
+    reported: '38'
+    scale: 1
+    units: correct candidates accepted
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-self-right-n
+  kind: computation
+  passage: The self-check accepted every correct candidate, 38 of 38, and 4 of the 18 distinct wrong candidates.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/n_correct_candidates
+    reported: '38'
+    scale: 1
+    units: correct candidates
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-self-wrong-acc
+  kind: computation
+  passage: The self-check accepted every correct candidate, 38 of 38, and 4 of the 18 distinct wrong candidates.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/wrong_candidates_accepted
+    reported: '4'
+    scale: 1
+    units: wrong candidates accepted
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-self-wrong-n
+  kind: computation
+  passage: The self-check accepted every correct candidate, 38 of 38, and 4 of the 18 distinct wrong candidates.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/n_wrong_candidates
+    reported: '18'
+    scale: 1
+    units: distinct wrong candidates
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-self-f
+  kind: computation
+  passage: Because the wrong answers it accepted were mostly the frequent ones, its false-acceptance rate over attempts was 0.41 (0.05 to 0.73), against 0.22 over distinct wrong candidates.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/false_acceptance
+    reported: '0.41'
+    scale: 1
+    units: false-acceptance rate over attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-self-f-lo
+  kind: computation
+  passage: Because the wrong answers it accepted were mostly the frequent ones, its false-acceptance rate over attempts was 0.41 (0.05 to 0.73), against 0.22 over distinct wrong candidates.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/false_acceptance_ci95/0
+    reported: '0.05'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-self-f-hi
+  kind: computation
+  passage: Because the wrong answers it accepted were mostly the frequent ones, its false-acceptance rate over attempts was 0.41 (0.05 to 0.73), against 0.22 over distinct wrong candidates.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/false_acceptance_ci95/1
+    reported: '0.73'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-self-fcand
+  kind: computation
+  passage: Because the wrong answers it accepted were mostly the frequent ones, its false-acceptance rate over attempts was 0.41 (0.05 to 0.73), against 0.22 over distinct wrong candidates.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/candidate_level_false_acceptance
+    reported: '0.22'
+    scale: 1
+    units: false-acceptance rate over distinct wrong candidates
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-modal-acc
+  kind: computation
+  passage: It accepted 3 of the 4 wrong candidates that were the most frequent wrong answer on their item and occurred more than once, and 1 of the other 14 (one-sided Fisher exact $p=0.019$).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/repeated_modal_wrong_accepted
+    reported: '3'
+    scale: 1
+    units: candidates
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-modal-n
+  kind: computation
+  passage: It accepted 3 of the 4 wrong candidates that were the most frequent wrong answer on their item and occurred more than once, and 1 of the other 14 (one-sided Fisher exact $p=0.019$).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/repeated_modal_wrong_candidates
+    reported: '4'
+    scale: 1
+    units: candidates
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-other-acc
+  kind: computation
+  passage: It accepted 3 of the 4 wrong candidates that were the most frequent wrong answer on their item and occurred more than once, and 1 of the other 14 (one-sided Fisher exact $p=0.019$).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/other_wrong_accepted
+    reported: '1'
+    scale: 1
+    units: candidates
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-other-n
+  kind: computation
+  passage: It accepted 3 of the 4 wrong candidates that were the most frequent wrong answer on their item and occurred more than once, and 1 of the other 14 (one-sided Fisher exact $p=0.019$).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/other_wrong_candidates
+    reported: '14'
+    scale: 1
+    units: candidates
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-fisher
+  kind: computation
+  passage: It accepted 3 of the 4 wrong candidates that were the most frequent wrong answer on their item and occurred more than once, and 1 of the other 14 (one-sided Fisher exact $p=0.019$).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/self/fisher_one_sided_p_modal_more_accepted
+    reported: '0.019'
+    scale: 1
+    units: one-sided Fisher exact p
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: c-shared
+  kind: interpretation
+  passage: It shared the generator's systematic errors and caught most of its occasional ones.
+  rationale: Summary of the preceding counts (3 of 4 repeated versus 1 of 14 other wrong candidates); small sample.
+- id: selfeval-kadavath
+  kind: source
+  passage: Earlier studies found that larger models evaluate the correctness of their own sampled answers with useful calibration on many tasks [@kadavath2022], that without external feedback they struggle to correct their own reasoning and sometimes make it worse [@huang2023], that self-critique fails on reasoning and planning tasks where a sound external verifier helps [@stechly2024], and that model evaluators recognise and favour their own generations [@panickssery2024].
+  evidence:
+    citation_id: kadavath2022
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: larger models are well calibrated on multiple-choice and true/false questions; self-evaluation P(True) of proposed answers shows encouraging performance and calibration. Huang et al. (abstract): LLMs struggle to self-correct reasoning without external feedback and performance can degrade. Stechly et al. (abstract): GPT-4 self-critique shows performance collapse on Game of 24, graph colouring and STRIPS planning, with gains from sound external verification. Panickssery et al. (abstract): LLM evaluators recognise and favour their own generations.'
+    quote: We find encouraging performance, calibration, and scaling for P(True) on a diverse array of tasks.
+- id: selfeval-huang
+  kind: source
+  passage: Earlier studies found that larger models evaluate the correctness of their own sampled answers with useful calibration on many tasks [@kadavath2022], that without external feedback they struggle to correct their own reasoning and sometimes make it worse [@huang2023], that self-critique fails on reasoning and planning tasks where a sound external verifier helps [@stechly2024], and that model evaluators recognise and favour their own generations [@panickssery2024].
+  evidence:
+    citation_id: huang2023
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: LLMs struggle to self-correct their responses without external feedback, and at times performance degrades after self-correction.'
+    quote: our research indicates that LLMs struggle to self-correct their responses without external feedback, and at times, their performance even degrades after self-correction.
+- id: selfeval-stechly
+  kind: source
+  passage: Earlier studies found that larger models evaluate the correctness of their own sampled answers with useful calibration on many tasks [@kadavath2022], that without external feedback they struggle to correct their own reasoning and sometimes make it worse [@huang2023], that self-critique fails on reasoning and planning tasks where a sound external verifier helps [@stechly2024], and that model evaluators recognise and favour their own generations [@panickssery2024].
+  evidence:
+    citation_id: stechly2024
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: significant performance collapse with self-critique and significant gains with sound external verification, in Game of 24, Graph Coloring and STRIPS planning.'
+    quote: We observe significant performance collapse with self-critique and significant performance gains with sound external verification.
+- id: selfeval-panickssery
+  kind: source
+  passage: Earlier studies found that larger models evaluate the correctness of their own sampled answers with useful calibration on many tasks [@kadavath2022], that without external feedback they struggle to correct their own reasoning and sometimes make it worse [@huang2023], that self-critique fails on reasoning and planning tasks where a sound external verifier helps [@stechly2024], and that model evaluators recognise and favour their own generations [@panickssery2024].
+  evidence:
+    citation_id: panickssery2024
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: self-preference bias; LLM evaluators score their own outputs higher; self-recognition correlates with self-preference.'
+- id: selfeval-pattern
+  kind: interpretation
+  passage: 'The pattern here is narrower: the self-check rejected most one-off errors and accepted most repeated ones, which are the errors that resampling keeps producing.'
+  rationale: Restates the measured counts (3 of 4 repeated versus 1 of 14 other wrong candidates accepted).
+- id: c-str-acc
+  kind: computation
+  passage: The stronger model accepted 1 of the 18 wrong candidates, for a false-acceptance rate over attempts of 0.07 (0.00 to 0.22) and a likelihood ratio of 14.5.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/strong/wrong_candidates_accepted
+    reported: '1'
+    scale: 1
+    units: wrong candidates accepted
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-str-n
+  kind: computation
+  passage: The stronger model accepted 1 of the 18 wrong candidates, for a false-acceptance rate over attempts of 0.07 (0.00 to 0.22) and a likelihood ratio of 14.5.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /candidates/strong/n_wrong_candidates
+    reported: '18'
+    scale: 1
+    units: distinct wrong candidates
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: c-str-f
+  kind: computation
+  passage: The stronger model accepted 1 of the 18 wrong candidates, for a false-acceptance rate over attempts of 0.07 (0.00 to 0.22) and a likelihood ratio of 14.5.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/false_acceptance
+    reported: '0.07'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-str-f-lo
+  kind: computation
+  passage: The stronger model accepted 1 of the 18 wrong candidates, for a false-acceptance rate over attempts of 0.07 (0.00 to 0.22) and a likelihood ratio of 14.5.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/false_acceptance_ci95/0
+    reported: '0.00'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-str-f-hi
+  kind: computation
+  passage: The stronger model accepted 1 of the 18 wrong candidates, for a false-acceptance rate over attempts of 0.07 (0.00 to 0.22) and a likelihood ratio of 14.5.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/false_acceptance_ci95/1
+    reported: '0.22'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: c-str-lr
+  kind: computation
+  passage: The stronger model accepted 1 of the 18 wrong candidates, for a false-acceptance rate over attempts of 0.07 (0.00 to 0.22) and a likelihood ratio of 14.5.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/likelihood_ratio
+    reported: '14.5'
+    scale: 1
+    units: s/f
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 1
+- id: fig2
+  kind: definition
+  passage: '![Measurement on 40 Omni-MATH items with 6 attempts each. (a) Number of items by correct attempts. (b) Sensitivity and false-acceptance rate of each check against the key, with 95% bootstrap intervals; the curve traces stated confidence across all thresholds. (c) Population reliability against the attempt budget; solid lines are unbiased estimates from the observed attempts (the agreement curve is a plug-in throughout), dashed lines plug-in extrapolations beyond 6. (d) Pooled precision of each check, as a validation on these outputs would report it, against the limit that resampling with the check reaches; horizontal lines mark the oracle limit and single-attempt accuracy.](figures/measurement.pdf){width=100%}'
+  rationale: Figure 2 is drawn by the recorded run from results.json; 40 items, 6 attempts, 95% bootstrap intervals.
+- id: r-start
+  kind: computation
+  passage: Every protocol starts at 0.879 (Figure 2c).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/first/reliability/1
+    reported: '0.879'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-self2
+  kind: computation
+  passage: The self-check reached 0.918 with 2 attempts and 0.920 with 3, after which further attempts changed nothing.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/self/reliability/2
+    reported: '0.918'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-self3
+  kind: computation
+  passage: The self-check reached 0.918 with 2 attempts and 0.920 with 3, after which further attempts changed nothing.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/self/reliability/3
+    reported: '0.920'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-self-n
+  kind: definition
+  passage: The self-check reached 0.918 with 2 attempts and 0.920 with 3, after which further attempts changed nothing.
+  rationale: Budgets 2 and 3 are the evaluation points reported in results.json /protocols/self/reliability.
+- id: r-str2
+  kind: computation
+  passage: The stronger-model check reached 0.928 with 2 attempts and a limit of 0.938, and the oracle check reached 0.932 with 2, 0.944 with 3 and 0.950 with 6.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/strong/reliability/2
+    reported: '0.928'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-strlim
+  kind: computation
+  passage: The stronger-model check reached 0.928 with 2 attempts and a limit of 0.938, and the oracle check reached 0.932 with 2, 0.944 with 3 and 0.950 with 6.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/strong/limit
+    reported: '0.938'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-or2
+  kind: computation
+  passage: The stronger-model check reached 0.928 with 2 attempts and a limit of 0.938, and the oracle check reached 0.932 with 2, 0.944 with 3 and 0.950 with 6.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/reliability/2
+    reported: '0.932'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-or3
+  kind: computation
+  passage: The stronger-model check reached 0.928 with 2 attempts and a limit of 0.938, and the oracle check reached 0.932 with 2, 0.944 with 3 and 0.950 with 6.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/reliability/3
+    reported: '0.944'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-or6
+  kind: computation
+  passage: The stronger-model check reached 0.928 with 2 attempts and a limit of 0.938, and the oracle check reached 0.932 with 2, 0.944 with 3 and 0.950 with 6.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/reliability/6
+    reported: '0.950'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-budgets
+  kind: definition
+  passage: The stronger-model check reached 0.928 with 2 attempts and a limit of 0.938, and the oracle check reached 0.932 with 2, 0.944 with 3 and 0.950 with 6.
+  rationale: Budgets 2, 3 and 6 are evaluation points in results.json.
+- id: r-vote
+  kind: computation
+  passage: Plurality voting and agreement both had limit 0.925, and stated confidence 0.892.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/vote/limit
+    reported: '0.925'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-conf
+  kind: computation
+  passage: Plurality voting and agreement both had limit 0.925, and stated confidence 0.892.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/confidence/limit
+    reported: '0.892'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: r-rec-conf
+  kind: computation
+  passage: Measured as a share of the gain an oracle check makes over a single attempt, stated confidence recovered 18%, the self-check 58%, voting and agreement 65% each, and the stronger model 82%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /share_of_oracle_gain_recovered/confidence
+    reported: 18%
+    scale: 100
+    units: percent of oracle gain
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: r-rec-self
+  kind: computation
+  passage: Measured as a share of the gain an oracle check makes over a single attempt, stated confidence recovered 18%, the self-check 58%, voting and agreement 65% each, and the stronger model 82%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /share_of_oracle_gain_recovered/self
+    reported: 58%
+    scale: 100
+    units: percent of oracle gain
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: r-rec-vote
+  kind: computation
+  passage: Measured as a share of the gain an oracle check makes over a single attempt, stated confidence recovered 18%, the self-check 58%, voting and agreement 65% each, and the stronger model 82%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /share_of_oracle_gain_recovered/vote
+    reported: 65%
+    scale: 100
+    units: percent of oracle gain (vote and agreement equal)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: r-rec-str
+  kind: computation
+  passage: Measured as a share of the gain an oracle check makes over a single attempt, stated confidence recovered 18%, the self-check 58%, voting and agreement 65% each, and the stronger model 82%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /share_of_oracle_gain_recovered/strong
+    reported: 82%
+    scale: 100
+    units: percent of oracle gain
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: b-90
+  kind: computation
+  passage: At a target of 0.90, the self-check, the stronger-model check, agreement and the oracle check all reach it with 2 attempts and the vote with 3; stated confidence and accepting the first output never do.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/targets/1
+    reported: '0.90'
+    scale: 1
+    units: target
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: b-90-n
+  kind: computation
+  passage: At a target of 0.90, the self-check, the stronger-model check, agreement and the oracle check all reach it with 2 attempts and the vote with 3; stated confidence and accepting the first output never do.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/self/n_star/0.90
+    reported: '2'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: b-90-vote
+  kind: computation
+  passage: At a target of 0.90, the self-check, the stronger-model check, agreement and the oracle check all reach it with 2 attempts and the vote with 3; stated confidence and accepting the first output never do.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/vote/n_star/0.90
+    reported: '3'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: b-95
+  kind: computation
+  passage: At 0.95 only the oracle check reaches the target, with 5 attempts, because every other limit lies below it.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/targets/2
+    reported: '0.95'
+    scale: 1
+    units: target
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: b-95-n
+  kind: computation
+  passage: At 0.95 only the oracle check reaches the target, with 5 attempts, because every other limit lies below it.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/n_star/0.95
+    reported: '5'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: i-target
+  kind: computation
+  passage: Counted item by item, the number of items whose own limit reaches 0.90 is 28 for accepting the first output, 31 for stated confidence, 35 for the self-check, 36 for the vote and for agreement, 37 for the stronger model and 38 for the oracle check.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/targets/1
+    reported: '0.90'
+    scale: 1
+    units: target
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: i-first
+  kind: computation
+  passage: Counted item by item, the number of items whose own limit reaches 0.90 is 28 for accepting the first output, 31 for stated confidence, 35 for the self-check, 36 for the vote and for agreement, 37 for the stronger model and 38 for the oracle check.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/first/items_limit_at_least/0.90
+    reported: '28'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: i-conf
+  kind: computation
+  passage: Counted item by item, the number of items whose own limit reaches 0.90 is 28 for accepting the first output, 31 for stated confidence, 35 for the self-check, 36 for the vote and for agreement, 37 for the stronger model and 38 for the oracle check.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/confidence/items_limit_at_least/0.90
+    reported: '31'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: i-self
+  kind: computation
+  passage: Counted item by item, the number of items whose own limit reaches 0.90 is 28 for accepting the first output, 31 for stated confidence, 35 for the self-check, 36 for the vote and for agreement, 37 for the stronger model and 38 for the oracle check.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/self/items_limit_at_least/0.90
+    reported: '35'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: i-vote
+  kind: computation
+  passage: Counted item by item, the number of items whose own limit reaches 0.90 is 28 for accepting the first output, 31 for stated confidence, 35 for the self-check, 36 for the vote and for agreement, 37 for the stronger model and 38 for the oracle check.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/vote/items_limit_at_least/0.90
+    reported: '36'
+    scale: 1
+    units: items (vote and agreement equal)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: i-str
+  kind: computation
+  passage: Counted item by item, the number of items whose own limit reaches 0.90 is 28 for accepting the first output, 31 for stated confidence, 35 for the self-check, 36 for the vote and for agreement, 37 for the stronger model and 38 for the oracle check.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/strong/items_limit_at_least/0.90
+    reported: '37'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: i-or
+  kind: computation
+  passage: Counted item by item, the number of items whose own limit reaches 0.90 is 28 for accepting the first output, 31 for stated confidence, 35 for the self-check, 36 for the vote and for agreement, 37 for the stronger model and 38 for the oracle check.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/oracle/items_limit_at_least/0.90
+    reported: '38'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: i-att
+  kind: computation
+  passage: These are the sizes of the attainable set of Section 2 at unlimited budget, estimated from 6 attempts per item.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/attempts
+    reported: '6'
+    scale: 1
+    units: attempts
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: u-os
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.030 (0.000 to 0.073), a difference carried by 3 items, and exceeds the stronger-model limit by 0.0125 (0.000 to 0.038), carried by 1.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_self/diff
+    reported: '0.030'
+    scale: 1
+    units: difference in reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-os-lo
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.030 (0.000 to 0.073), a difference carried by 3 items, and exceeds the stronger-model limit by 0.0125 (0.000 to 0.038), carried by 1.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_self/ci95/0
+    reported: '0.000'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-os-hi
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.030 (0.000 to 0.073), a difference carried by 3 items, and exceeds the stronger-model limit by 0.0125 (0.000 to 0.038), carried by 1.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_self/ci95/1
+    reported: '0.073'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-os-items
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.030 (0.000 to 0.073), a difference carried by 3 items, and exceeds the stronger-model limit by 0.0125 (0.000 to 0.038), carried by 1.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_self/items_differing
+    reported: '3'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: u-ost
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.030 (0.000 to 0.073), a difference carried by 3 items, and exceeds the stronger-model limit by 0.0125 (0.000 to 0.038), carried by 1.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_strong/diff
+    reported: '0.0125'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 4
+- id: u-ost-lo
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.030 (0.000 to 0.073), a difference carried by 3 items, and exceeds the stronger-model limit by 0.0125 (0.000 to 0.038), carried by 1.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_strong/ci95/0
+    reported: '0.000'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-ost-hi
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.030 (0.000 to 0.073), a difference carried by 3 items, and exceeds the stronger-model limit by 0.0125 (0.000 to 0.038), carried by 1.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_strong/ci95/1
+    reported: '0.038'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-ost-items
+  kind: computation
+  passage: The oracle limit exceeds the self-check limit by 0.030 (0.000 to 0.073), a difference carried by 3 items, and exceeds the stronger-model limit by 0.0125 (0.000 to 0.038), carried by 1.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_strong/items_differing
+    reported: '1'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: u-sf
+  kind: computation
+  passage: The self-check limit exceeds single-attempt accuracy by 0.041 (0.017 to 0.066), and the oracle limit exceeds it by 0.071 (0.029 to 0.117).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/self_minus_first/diff
+    reported: '0.041'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-sf-lo
+  kind: computation
+  passage: The self-check limit exceeds single-attempt accuracy by 0.041 (0.017 to 0.066), and the oracle limit exceeds it by 0.071 (0.029 to 0.117).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/self_minus_first/ci95/0
+    reported: '0.017'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-sf-hi
+  kind: computation
+  passage: The self-check limit exceeds single-attempt accuracy by 0.041 (0.017 to 0.066), and the oracle limit exceeds it by 0.071 (0.029 to 0.117).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/self_minus_first/ci95/1
+    reported: '0.066'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-of
+  kind: computation
+  passage: The self-check limit exceeds single-attempt accuracy by 0.041 (0.017 to 0.066), and the oracle limit exceeds it by 0.071 (0.029 to 0.117).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_first/diff
+    reported: '0.071'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-of-lo
+  kind: computation
+  passage: The self-check limit exceeds single-attempt accuracy by 0.041 (0.017 to 0.066), and the oracle limit exceeds it by 0.071 (0.029 to 0.117).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_first/ci95/0
+    reported: '0.029'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-of-hi
+  kind: computation
+  passage: The self-check limit exceeds single-attempt accuracy by 0.041 (0.017 to 0.066), and the oracle limit exceeds it by 0.071 (0.029 to 0.117).
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_first/ci95/1
+    reported: '0.117'
+    scale: 1
+    units: difference
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: u-95
+  kind: computation
+  passage: The measurement establishes that the self-check buys reliability over a single attempt and that, on these items, it and every other protocol except the oracle fall short of 0.95.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/targets/2
+    reported: '0.95'
+    scale: 1
+    units: target
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: u-n40
+  kind: computation
+  passage: It does not separate the self-check's shortfall against the oracle check from zero; with 40 items, that shortfall could be anywhere from nothing to about 7 points.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/n_items
+    reported: '40'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: u-7
+  kind: computation
+  passage: It does not separate the self-check's shortfall against the oracle check from zero; with 40 items, that shortfall could be anywhere from nothing to about 7 points.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /paired_limit_differences/oracle_minus_self/ci95/1
+    reported: '7'
+    scale: 100
+    units: percentage points (upper end of interval)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: pp-self
+  kind: computation
+  passage: Validated on these outputs, the self-check has pooled precision 0.946, but resampling with it reaches 0.920.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/pooled_precision
+    reported: '0.946'
+    scale: 1
+    units: pooled precision
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: pp-self-lim
+  kind: computation
+  passage: Validated on these outputs, the self-check has pooled precision 0.946, but resampling with it reaches 0.920.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/self/limit
+    reported: '0.920'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: pp-str
+  kind: computation
+  passage: The stronger-model check has pooled precision 0.991 and reaches 0.938.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/pooled_precision
+    reported: '0.991'
+    scale: 1
+    units: pooled precision
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: pp-str-lim
+  kind: computation
+  passage: The stronger-model check has pooled precision 0.991 and reaches 0.938.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /protocols/strong/limit
+    reported: '0.938'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: pp-identity
+  kind: interpretation
+  passage: The covariance term reproduces both gaps, as an identity must.
+  rationale: results.json /checks/*/covariance_identity_value equals /checks/*/pooled_minus_ceiling_abstain for every check.
+- id: pp-never
+  kind: computation
+  passage: 'Most of the stronger check''s gap comes from the 2 never-solved items: the check rejects their answers, so they never enter its pooled precision, yet they cost resampling 5 points.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/n_never
+    reported: '2'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: pp-5
+  kind: computation
+  passage: 'Most of the stronger check''s gap comes from the 2 never-solved items: the check rejects their answers, so they never enter its pooled precision, yet they cost resampling 5 points.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /population/share_never
+    reported: '5'
+    scale: 100
+    units: percentage points of reliability (2 of 40 items)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: beta-self
+  kind: computation
+  passage: A Beta model of item heterogeneity at the measured intraclass correlation predicts the self-check's limit closely, at 0.920, but overstates the stronger check's, at 0.971, because the observed per-item success has an atom at zero that a Beta distribution with that correlation does not reproduce.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/self/beta_model_ceiling_at_measured_icc
+    reported: '0.920'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: beta-str
+  kind: computation
+  passage: A Beta model of item heterogeneity at the measured intraclass correlation predicts the self-check's limit closely, at 0.920, but overstates the stronger check's, at 0.971, because the observed per-item success has an atom at zero that a Beta distribution with that correlation does not reproduce.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /checks/strong/beta_model_ceiling_at_measured_icc
+    reported: '0.971'
+    scale: 1
+    units: reliability
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: ok-p
+  kind: computation
+  passage: Under the original key, single-attempt accuracy is 0.854 with 3 never-solved items, and every limit is lower by 0.025.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /original_key/mean_p
+    reported: '0.854'
+    scale: 1
+    units: proportion
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: ok-never
+  kind: computation
+  passage: Under the original key, single-attempt accuracy is 0.854 with 3 never-solved items, and every limit is lower by 0.025.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /original_key/n_never
+    reported: '3'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: ok-drop
+  kind: computation
+  passage: Under the original key, single-attempt accuracy is 0.854 with 3 never-solved items, and every limit is lower by 0.025.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /original_key/limit_drop/self
+    reported: '0.025'
+    scale: 1
+    units: reliability (same for every protocol)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 3
+- id: ok-self-f
+  kind: computation
+  passage: The measured false-acceptance rates rise to 0.51 for the self-check and 0.23 for the stronger model, because both accepted the correct answer that the key marked wrong.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /original_key/checks/self/false_acceptance
+    reported: '0.51'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: ok-str-f
+  kind: computation
+  passage: The measured false-acceptance rates rise to 0.51 for the self-check and 0.23 for the stronger model, because both accepted the correct answer that the key marked wrong.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /original_key/checks/strong/false_acceptance
+    reported: '0.23'
+    scale: 1
+    units: false-acceptance rate
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: cost-tok
+  kind: computation
+  passage: An attempt used 3,820 output tokens on average, 3,203 of them for reasoning, and cost $0.0019. A self-check verdict cost $0.0014 and a stronger-model verdict $0.0131, 6.7 times the price of an attempt. All 352 analysed calls cost $1.28.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/gen/mean_output_tokens
+    reported: 3,820
+    scale: 1
+    units: output tokens per attempt
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: cost-think
+  kind: computation
+  passage: An attempt used 3,820 output tokens on average, 3,203 of them for reasoning, and cost $0.0019. A self-check verdict cost $0.0014 and a stronger-model verdict $0.0131, 6.7 times the price of an attempt. All 352 analysed calls cost $1.28.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/gen/mean_thinking_tokens
+    reported: 3,203
+    scale: 1
+    units: thinking tokens per attempt
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 0
+- id: cost-gen
+  kind: computation
+  passage: An attempt used 3,820 output tokens on average, 3,203 of them for reasoning, and cost $0.0019. A self-check verdict cost $0.0014 and a stronger-model verdict $0.0131, 6.7 times the price of an attempt. All 352 analysed calls cost $1.28.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/gen/mean_cost_usd
+    reported: '0.0019'
+    scale: 1
+    units: US dollars per attempt (CLI-reported)
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 4
+- id: cost-self
+  kind: computation
+  passage: An attempt used 3,820 output tokens on average, 3,203 of them for reasoning, and cost $0.0019. A self-check verdict cost $0.0014 and a stronger-model verdict $0.0131, 6.7 times the price of an attempt. All 352 analysed calls cost $1.28.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/self/mean_cost_usd
+    reported: '0.0014'
+    scale: 1
+    units: US dollars per verdict
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 4
+- id: cost-str
+  kind: computation
+  passage: An attempt used 3,820 output tokens on average, 3,203 of them for reasoning, and cost $0.0019. A self-check verdict cost $0.0014 and a stronger-model verdict $0.0131, 6.7 times the price of an attempt. All 352 analysed calls cost $1.28.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/strong/mean_cost_usd
+    reported: '0.0131'
+    scale: 1
+    units: US dollars per verdict
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 4
+- id: cost-ratio
+  kind: computation
+  passage: An attempt used 3,820 output tokens on average, 3,203 of them for reasoning, and cost $0.0019. A self-check verdict cost $0.0014 and a stronger-model verdict $0.0131, 6.7 times the price of an attempt. All 352 analysed calls cost $1.28.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/strong_check_to_attempt_cost_ratio
+    reported: '6.7'
+    scale: 1
+    units: ratio
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 1
+- id: cost-n
+  kind: computation
+  passage: An attempt used 3,820 output tokens on average, 3,203 of them for reasoning, and cost $0.0019. A self-check verdict cost $0.0014 and a stronger-model verdict $0.0131, 6.7 times the price of an attempt. All 352 analysed calls cost $1.28.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/analysed_calls
+    reported: '352'
+    scale: 1
+    units: calls
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: cost-total
+  kind: computation
+  passage: An attempt used 3,820 output tokens on average, 3,203 of them for reasoning, and cost $0.0019. A self-check verdict cost $0.0014 and a stronger-model verdict $0.0131, 6.7 times the price of an attempt. All 352 analysed calls cost $1.28.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /compute/total_cost_usd_analysed
+    reported: '1.28'
+    scale: 1
+    units: US dollars
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+    decimals: 2
+- id: lim-n40
+  kind: computation
+  passage: It uses 40 items, so population intervals are wide.
+  evidence:
+    file: simulation/output/results.json
+    run_id: analysis
+    pointer: /config/n_items
+    reported: '40'
+    scale: 1
+    units: items
+    conditions: 40 Omni-MATH HMMT February items (difficulty >= 5.5, integer answers), 6 independent attempts each by claude-haiku-5-5 at low effort; self-check claude-haiku-5-5 and stronger check claude-sonnet-5-5, one verdict per distinct candidate; corrected key for item h09; recorded run 'analysis'
+- id: lim-family
+  kind: assumption
+  passage: The stronger model comes from the same family as the generator, which may make shared errors more likely than for a check from another source.
+  rationale: Both checks and the generator are Anthropic models; shared errors across families were not measured.
+- id: sastry
+  kind: source
+  passage: Compute is detectable, excludable and quantifiable, and it is produced by an extremely concentrated supply chain [@sastry2024].
+  evidence:
+    citation_id: sastry2024
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: AI-relevant compute is detectable, excludable and quantifiable and is produced via an extremely concentrated supply chain.'
+    quote: it is detectable, excludable, and quantifiable, and is produced via an extremely concentrated supply chain
+- id: final-reading
+  kind: normative
+  passage: The conditional version of "power equals compute" that survives says that compute converts into reliable outcomes at a rate set by verification and only up to the verification's precision, and that verification can be bought only as compute under someone else's control, whose errors can coincide with the generator's.
+  rationale: Interpretive conclusion conditional on Propositions 1-4 and on the measurement's scope; not a measured fact.
+- id: final-dellacqua
+  kind: source
+  passage: The measurement leaves open how the ceilings behave in domains without exact answers, where the key itself is a fallible check; how repeatable model verdicts are, which decides whether re-verification can raise a ceiling; and what sensitivity and false-acceptance rates human novices achieve when they judge model outputs, which no study here could measure and which the consulting experiment suggests is well above zero for tasks outside a system's capability.
+  evidence:
+    citation_id: dellacqua2023
+    locator: abstract
+    depth: abstract
+    verified: false
+    verification_note: 'Abstract read: assisted consultants were less likely to produce correct solutions on a task outside the frontier, which implies acceptance of incorrect AI output; no rate is claimed.'
+runs:
+- id: analysis
+  required: true
+  record: verification/analysis.json
+- id: tests
+  required: true
+  record: verification/tests.json

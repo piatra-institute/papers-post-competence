@@ -1,0 +1,1756 @@
+# CSL references with stable IDs; cite with Pandoc [@id] syntax.
+# Each entry was checked against its registry (Crossref, DataCite, OpenLibrary or archive.org); see sources.md.
+references:
+  [
+    {
+      "id": "stroebl2024",
+      "type": "article",
+      "title": "The Limits of Inference Scaling Through Resampling",
+      "author": [
+        {
+          "family": "Stroebl",
+          "given": "Benedikt"
+        },
+        {
+          "family": "Kapoor",
+          "given": "Sayash"
+        },
+        {
+          "family": "Narayanan",
+          "given": "Arvind"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2411.17501",
+      "DOI": "10.48550/arXiv.2411.17501",
+      "issued": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "davis2024",
+      "type": "article",
+      "title": "Networks of Networks: Complexity Class Principles Applied to Compound AI Systems Design",
+      "author": [
+        {
+          "family": "Davis",
+          "given": "Jared Quincy"
+        },
+        {
+          "family": "Hanin",
+          "given": "Boris"
+        },
+        {
+          "family": "Chen",
+          "given": "Lingjiao"
+        },
+        {
+          "family": "Bailis",
+          "given": "Peter"
+        },
+        {
+          "family": "Stoica",
+          "given": "Ion"
+        },
+        {
+          "family": "Zaharia",
+          "given": "Matei"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2407.16831",
+      "DOI": "10.48550/arXiv.2407.16831",
+      "issued": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "brown2024",
+      "type": "article",
+      "title": "Large Language Monkeys: Scaling Inference Compute with Repeated Sampling",
+      "author": [
+        {
+          "family": "Brown",
+          "given": "Bradley"
+        },
+        {
+          "family": "Juravsky",
+          "given": "Jordan"
+        },
+        {
+          "family": "Ehrlich",
+          "given": "Ryan"
+        },
+        {
+          "family": "Clark",
+          "given": "Ronald"
+        },
+        {
+          "family": "Le",
+          "given": "Quoc V."
+        },
+        {
+          "family": "Ré",
+          "given": "Christopher"
+        },
+        {
+          "family": "Mirhoseini",
+          "given": "Azalia"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2407.21787",
+      "DOI": "10.48550/arXiv.2407.21787",
+      "issued": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "snell2024",
+      "type": "article",
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "author": [
+        {
+          "family": "Snell",
+          "given": "Charlie"
+        },
+        {
+          "family": "Lee",
+          "given": "Jaehoon"
+        },
+        {
+          "family": "Xu",
+          "given": "Kelvin"
+        },
+        {
+          "family": "Kumar",
+          "given": "Aviral"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2408.03314",
+      "DOI": "10.48550/arXiv.2408.03314",
+      "issued": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cobbe2021",
+      "type": "article",
+      "title": "Training Verifiers to Solve Math Word Problems",
+      "author": [
+        {
+          "family": "Cobbe",
+          "given": "Karl"
+        },
+        {
+          "family": "Kosaraju",
+          "given": "Vineet"
+        },
+        {
+          "family": "Bavarian",
+          "given": "Mohammad"
+        },
+        {
+          "family": "Chen",
+          "given": "Mark"
+        },
+        {
+          "family": "Jun",
+          "given": "Heewoo"
+        },
+        {
+          "family": "Kaiser",
+          "given": "Lukasz"
+        },
+        {
+          "family": "Plappert",
+          "given": "Matthias"
+        },
+        {
+          "family": "Tworek",
+          "given": "Jerry"
+        },
+        {
+          "family": "Hilton",
+          "given": "Jacob"
+        },
+        {
+          "family": "Nakano",
+          "given": "Reiichiro"
+        },
+        {
+          "family": "Hesse",
+          "given": "Christopher"
+        },
+        {
+          "family": "Schulman",
+          "given": "John"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2110.14168",
+      "DOI": "10.48550/arXiv.2110.14168",
+      "issued": {
+        "date-parts": [
+          [
+            2021
+          ]
+        ]
+      }
+    },
+    {
+      "id": "lightman2023",
+      "type": "article",
+      "title": "Let's Verify Step by Step",
+      "author": [
+        {
+          "family": "Lightman",
+          "given": "Hunter"
+        },
+        {
+          "family": "Kosaraju",
+          "given": "Vineet"
+        },
+        {
+          "family": "Burda",
+          "given": "Yura"
+        },
+        {
+          "family": "Edwards",
+          "given": "Harri"
+        },
+        {
+          "family": "Baker",
+          "given": "Bowen"
+        },
+        {
+          "family": "Lee",
+          "given": "Teddy"
+        },
+        {
+          "family": "Leike",
+          "given": "Jan"
+        },
+        {
+          "family": "Schulman",
+          "given": "John"
+        },
+        {
+          "family": "Sutskever",
+          "given": "Ilya"
+        },
+        {
+          "family": "Cobbe",
+          "given": "Karl"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2305.20050",
+      "DOI": "10.48550/arXiv.2305.20050",
+      "issued": {
+        "date-parts": [
+          [
+            2023
+          ]
+        ]
+      }
+    },
+    {
+      "id": "chen2024calls",
+      "type": "article",
+      "title": "Are More LLM Calls All You Need? Towards Scaling Laws of Compound Inference Systems",
+      "author": [
+        {
+          "family": "Chen",
+          "given": "Lingjiao"
+        },
+        {
+          "family": "Davis",
+          "given": "Jared Quincy"
+        },
+        {
+          "family": "Hanin",
+          "given": "Boris"
+        },
+        {
+          "family": "Bailis",
+          "given": "Peter"
+        },
+        {
+          "family": "Stoica",
+          "given": "Ion"
+        },
+        {
+          "family": "Zaharia",
+          "given": "Matei"
+        },
+        {
+          "family": "Zou",
+          "given": "James"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2403.02419",
+      "DOI": "10.48550/arXiv.2403.02419",
+      "issued": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "schaeffer2025",
+      "type": "article",
+      "title": "How Do Large Language Monkeys Get Their Power (Laws)?",
+      "author": [
+        {
+          "family": "Schaeffer",
+          "given": "Rylan"
+        },
+        {
+          "family": "Kazdan",
+          "given": "Joshua"
+        },
+        {
+          "family": "Hughes",
+          "given": "John"
+        },
+        {
+          "family": "Juravsky",
+          "given": "Jordan"
+        },
+        {
+          "family": "Price",
+          "given": "Sara"
+        },
+        {
+          "family": "Lynch",
+          "given": "Aengus"
+        },
+        {
+          "family": "Jones",
+          "given": "Erik"
+        },
+        {
+          "family": "Kirk",
+          "given": "Robert"
+        },
+        {
+          "family": "Mirhoseini",
+          "given": "Azalia"
+        },
+        {
+          "family": "Koyejo",
+          "given": "Sanmi"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2502.17578",
+      "DOI": "10.48550/arXiv.2502.17578",
+      "issued": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wang2022",
+      "type": "article",
+      "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+      "author": [
+        {
+          "family": "Wang",
+          "given": "Xuezhi"
+        },
+        {
+          "family": "Wei",
+          "given": "Jason"
+        },
+        {
+          "family": "Schuurmans",
+          "given": "Dale"
+        },
+        {
+          "family": "Le",
+          "given": "Quoc"
+        },
+        {
+          "family": "Chi",
+          "given": "Ed"
+        },
+        {
+          "family": "Narang",
+          "given": "Sharan"
+        },
+        {
+          "family": "Chowdhery",
+          "given": "Aakanksha"
+        },
+        {
+          "family": "Zhou",
+          "given": "Denny"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2203.11171",
+      "DOI": "10.48550/arXiv.2203.11171",
+      "issued": {
+        "date-parts": [
+          [
+            2022
+          ]
+        ]
+      }
+    },
+    {
+      "id": "chen2021",
+      "type": "article",
+      "title": "Evaluating Large Language Models Trained on Code",
+      "author": [
+        {
+          "family": "Chen",
+          "given": "Mark"
+        },
+        {
+          "family": "Tworek",
+          "given": "Jerry"
+        },
+        {
+          "family": "Jun",
+          "given": "Heewoo"
+        },
+        {
+          "family": "Yuan",
+          "given": "Qiming"
+        },
+        {
+          "family": "Pinto",
+          "given": "Henrique Ponde de Oliveira"
+        },
+        {
+          "family": "Kaplan",
+          "given": "Jared"
+        },
+        {
+          "family": "Edwards",
+          "given": "Harri"
+        },
+        {
+          "family": "Burda",
+          "given": "Yuri"
+        },
+        {
+          "family": "Joseph",
+          "given": "Nicholas"
+        },
+        {
+          "family": "Brockman",
+          "given": "Greg"
+        },
+        {
+          "family": "Ray",
+          "given": "Alex"
+        },
+        {
+          "family": "Puri",
+          "given": "Raul"
+        },
+        {
+          "family": "Krueger",
+          "given": "Gretchen"
+        },
+        {
+          "family": "Petrov",
+          "given": "Michael"
+        },
+        {
+          "family": "Khlaaf",
+          "given": "Heidy"
+        },
+        {
+          "family": "Sastry",
+          "given": "Girish"
+        },
+        {
+          "family": "Mishkin",
+          "given": "Pamela"
+        },
+        {
+          "family": "Chan",
+          "given": "Brooke"
+        },
+        {
+          "family": "Gray",
+          "given": "Scott"
+        },
+        {
+          "family": "Ryder",
+          "given": "Nick"
+        },
+        {
+          "family": "Pavlov",
+          "given": "Mikhail"
+        },
+        {
+          "family": "Power",
+          "given": "Alethea"
+        },
+        {
+          "family": "Kaiser",
+          "given": "Lukasz"
+        },
+        {
+          "family": "Bavarian",
+          "given": "Mohammad"
+        },
+        {
+          "family": "Winter",
+          "given": "Clemens"
+        },
+        {
+          "family": "Tillet",
+          "given": "Philippe"
+        },
+        {
+          "family": "Such",
+          "given": "Felipe Petroski"
+        },
+        {
+          "family": "Cummings",
+          "given": "Dave"
+        },
+        {
+          "family": "Plappert",
+          "given": "Matthias"
+        },
+        {
+          "family": "Chantzis",
+          "given": "Fotios"
+        },
+        {
+          "family": "Barnes",
+          "given": "Elizabeth"
+        },
+        {
+          "family": "Herbert-Voss",
+          "given": "Ariel"
+        },
+        {
+          "family": "Guss",
+          "given": "William Hebgen"
+        },
+        {
+          "family": "Nichol",
+          "given": "Alex"
+        },
+        {
+          "family": "Paino",
+          "given": "Alex"
+        },
+        {
+          "family": "Tezak",
+          "given": "Nikolas"
+        },
+        {
+          "family": "Tang",
+          "given": "Jie"
+        },
+        {
+          "family": "Babuschkin",
+          "given": "Igor"
+        },
+        {
+          "family": "Balaji",
+          "given": "Suchir"
+        },
+        {
+          "family": "Jain",
+          "given": "Shantanu"
+        },
+        {
+          "family": "Saunders",
+          "given": "William"
+        },
+        {
+          "family": "Hesse",
+          "given": "Christopher"
+        },
+        {
+          "family": "Carr",
+          "given": "Andrew N."
+        },
+        {
+          "family": "Leike",
+          "given": "Jan"
+        },
+        {
+          "family": "Achiam",
+          "given": "Josh"
+        },
+        {
+          "family": "Misra",
+          "given": "Vedant"
+        },
+        {
+          "family": "Morikawa",
+          "given": "Evan"
+        },
+        {
+          "family": "Radford",
+          "given": "Alec"
+        },
+        {
+          "family": "Knight",
+          "given": "Matthew"
+        },
+        {
+          "family": "Brundage",
+          "given": "Miles"
+        },
+        {
+          "family": "Murati",
+          "given": "Mira"
+        },
+        {
+          "family": "Mayer",
+          "given": "Katie"
+        },
+        {
+          "family": "Welinder",
+          "given": "Peter"
+        },
+        {
+          "family": "McGrew",
+          "given": "Bob"
+        },
+        {
+          "family": "Amodei",
+          "given": "Dario"
+        },
+        {
+          "family": "McCandlish",
+          "given": "Sam"
+        },
+        {
+          "family": "Sutskever",
+          "given": "Ilya"
+        },
+        {
+          "family": "Zaremba",
+          "given": "Wojciech"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2107.03374",
+      "DOI": "10.48550/arXiv.2107.03374",
+      "issued": {
+        "date-parts": [
+          [
+            2021
+          ]
+        ]
+      }
+    },
+    {
+      "id": "huang2023",
+      "type": "article",
+      "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+      "author": [
+        {
+          "family": "Huang",
+          "given": "Jie"
+        },
+        {
+          "family": "Chen",
+          "given": "Xinyun"
+        },
+        {
+          "family": "Mishra",
+          "given": "Swaroop"
+        },
+        {
+          "family": "Zheng",
+          "given": "Huaixiu Steven"
+        },
+        {
+          "family": "Yu",
+          "given": "Adams Wei"
+        },
+        {
+          "family": "Song",
+          "given": "Xinying"
+        },
+        {
+          "family": "Zhou",
+          "given": "Denny"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2310.01798",
+      "DOI": "10.48550/arXiv.2310.01798",
+      "issued": {
+        "date-parts": [
+          [
+            2023
+          ]
+        ]
+      }
+    },
+    {
+      "id": "stechly2024",
+      "type": "article",
+      "title": "On the Self-Verification Limitations of Large Language Models on Reasoning and Planning Tasks",
+      "author": [
+        {
+          "family": "Stechly",
+          "given": "Kaya"
+        },
+        {
+          "family": "Valmeekam",
+          "given": "Karthik"
+        },
+        {
+          "family": "Kambhampati",
+          "given": "Subbarao"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2402.08115",
+      "DOI": "10.48550/arXiv.2402.08115",
+      "issued": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "gao2024omni",
+      "type": "article",
+      "title": "Omni-MATH: A Universal Olympiad Level Mathematic Benchmark For Large Language Models",
+      "author": [
+        {
+          "family": "Gao",
+          "given": "Bofei"
+        },
+        {
+          "family": "Song",
+          "given": "Feifan"
+        },
+        {
+          "family": "Yang",
+          "given": "Zhe"
+        },
+        {
+          "family": "Cai",
+          "given": "Zefan"
+        },
+        {
+          "family": "Miao",
+          "given": "Yibo"
+        },
+        {
+          "family": "Dong",
+          "given": "Qingxiu"
+        },
+        {
+          "family": "Li",
+          "given": "Lei"
+        },
+        {
+          "family": "Ma",
+          "given": "Chenghao"
+        },
+        {
+          "family": "Chen",
+          "given": "Liang"
+        },
+        {
+          "family": "Xu",
+          "given": "Runxin"
+        },
+        {
+          "family": "Tang",
+          "given": "Zhengyang"
+        },
+        {
+          "family": "Wang",
+          "given": "Benyou"
+        },
+        {
+          "family": "Zan",
+          "given": "Daoguang"
+        },
+        {
+          "family": "Quan",
+          "given": "Shanghaoran"
+        },
+        {
+          "family": "Zhang",
+          "given": "Ge"
+        },
+        {
+          "family": "Sha",
+          "given": "Lei"
+        },
+        {
+          "family": "Zhang",
+          "given": "Yichang"
+        },
+        {
+          "family": "Ren",
+          "given": "Xuancheng"
+        },
+        {
+          "family": "Liu",
+          "given": "Tianyu"
+        },
+        {
+          "family": "Chang",
+          "given": "Baobao"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2410.07985",
+      "DOI": "10.48550/arXiv.2410.07985",
+      "issued": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "becker2025",
+      "type": "article",
+      "title": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity",
+      "author": [
+        {
+          "family": "Becker",
+          "given": "Joel"
+        },
+        {
+          "family": "Rush",
+          "given": "Nate"
+        },
+        {
+          "family": "Barnes",
+          "given": "Elizabeth"
+        },
+        {
+          "family": "Rein",
+          "given": "David"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2507.09089",
+      "DOI": "10.48550/arXiv.2507.09089",
+      "issued": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kwa2025",
+      "type": "article",
+      "title": "Measuring AI Ability to Complete Long Software Tasks",
+      "author": [
+        {
+          "family": "Kwa",
+          "given": "Thomas"
+        },
+        {
+          "family": "West",
+          "given": "Ben"
+        },
+        {
+          "family": "Becker",
+          "given": "Joel"
+        },
+        {
+          "family": "Deng",
+          "given": "Amy"
+        },
+        {
+          "family": "Garcia",
+          "given": "Katharyn"
+        },
+        {
+          "family": "Hasin",
+          "given": "Max"
+        },
+        {
+          "family": "Jawhar",
+          "given": "Sami"
+        },
+        {
+          "family": "Kinniment",
+          "given": "Megan"
+        },
+        {
+          "family": "Rush",
+          "given": "Nate"
+        },
+        {
+          "family": "Von Arx",
+          "given": "Sydney"
+        },
+        {
+          "family": "Bloom",
+          "given": "Ryan"
+        },
+        {
+          "family": "Broadley",
+          "given": "Thomas"
+        },
+        {
+          "family": "Du",
+          "given": "Haoxing"
+        },
+        {
+          "family": "Goodrich",
+          "given": "Brian"
+        },
+        {
+          "family": "Jurkovic",
+          "given": "Nikola"
+        },
+        {
+          "family": "Miles",
+          "given": "Luke Harold"
+        },
+        {
+          "family": "Nix",
+          "given": "Seraphina"
+        },
+        {
+          "family": "Lin",
+          "given": "Tao"
+        },
+        {
+          "family": "Painter",
+          "given": "Chris"
+        },
+        {
+          "family": "Parikh",
+          "given": "Neev"
+        },
+        {
+          "family": "Rein",
+          "given": "David"
+        },
+        {
+          "family": "Sato",
+          "given": "Lucas Jun Koba"
+        },
+        {
+          "family": "Wijk",
+          "given": "Hjalmar"
+        },
+        {
+          "family": "Ziegler",
+          "given": "Daniel M."
+        },
+        {
+          "family": "Barnes",
+          "given": "Elizabeth"
+        },
+        {
+          "family": "Chan",
+          "given": "Lawrence"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2503.14499",
+      "DOI": "10.48550/arXiv.2503.14499",
+      "issued": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      }
+    },
+    {
+      "id": "sastry2024",
+      "type": "article",
+      "title": "Computing Power and the Governance of Artificial Intelligence",
+      "author": [
+        {
+          "family": "Sastry",
+          "given": "Girish"
+        },
+        {
+          "family": "Heim",
+          "given": "Lennart"
+        },
+        {
+          "family": "Belfield",
+          "given": "Haydn"
+        },
+        {
+          "family": "Anderljung",
+          "given": "Markus"
+        },
+        {
+          "family": "Brundage",
+          "given": "Miles"
+        },
+        {
+          "family": "Hazell",
+          "given": "Julian"
+        },
+        {
+          "family": "O'Keefe",
+          "given": "Cullen"
+        },
+        {
+          "family": "Hadfield",
+          "given": "Gillian K."
+        },
+        {
+          "family": "Ngo",
+          "given": "Richard"
+        },
+        {
+          "family": "Pilz",
+          "given": "Konstantin"
+        },
+        {
+          "family": "Gor",
+          "given": "George"
+        },
+        {
+          "family": "Bluemke",
+          "given": "Emma"
+        },
+        {
+          "family": "Shoker",
+          "given": "Sarah"
+        },
+        {
+          "family": "Egan",
+          "given": "Janet"
+        },
+        {
+          "family": "Trager",
+          "given": "Robert F."
+        },
+        {
+          "family": "Avin",
+          "given": "Shahar"
+        },
+        {
+          "family": "Weller",
+          "given": "Adrian"
+        },
+        {
+          "family": "Bengio",
+          "given": "Yoshua"
+        },
+        {
+          "family": "Coyle",
+          "given": "Diane"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2402.08797",
+      "DOI": "10.48550/arXiv.2402.08797",
+      "issued": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "kadavath2022",
+      "type": "article",
+      "title": "Language Models (Mostly) Know What They Know",
+      "author": [
+        {
+          "family": "Kadavath",
+          "given": "Saurav"
+        },
+        {
+          "family": "Conerly",
+          "given": "Tom"
+        },
+        {
+          "family": "Askell",
+          "given": "Amanda"
+        },
+        {
+          "family": "Henighan",
+          "given": "Tom"
+        },
+        {
+          "family": "Drain",
+          "given": "Dawn"
+        },
+        {
+          "family": "Perez",
+          "given": "Ethan"
+        },
+        {
+          "family": "Schiefer",
+          "given": "Nicholas"
+        },
+        {
+          "family": "Hatfield-Dodds",
+          "given": "Zac"
+        },
+        {
+          "family": "DasSarma",
+          "given": "Nova"
+        },
+        {
+          "family": "Tran-Johnson",
+          "given": "Eli"
+        },
+        {
+          "family": "Johnston",
+          "given": "Scott"
+        },
+        {
+          "family": "El-Showk",
+          "given": "Sheer"
+        },
+        {
+          "family": "Jones",
+          "given": "Andy"
+        },
+        {
+          "family": "Elhage",
+          "given": "Nelson"
+        },
+        {
+          "family": "Hume",
+          "given": "Tristan"
+        },
+        {
+          "family": "Chen",
+          "given": "Anna"
+        },
+        {
+          "family": "Bai",
+          "given": "Yuntao"
+        },
+        {
+          "family": "Bowman",
+          "given": "Sam"
+        },
+        {
+          "family": "Fort",
+          "given": "Stanislav"
+        },
+        {
+          "family": "Ganguli",
+          "given": "Deep"
+        },
+        {
+          "family": "Hernandez",
+          "given": "Danny"
+        },
+        {
+          "family": "Jacobson",
+          "given": "Josh"
+        },
+        {
+          "family": "Kernion",
+          "given": "Jackson"
+        },
+        {
+          "family": "Kravec",
+          "given": "Shauna"
+        },
+        {
+          "family": "Lovitt",
+          "given": "Liane"
+        },
+        {
+          "family": "Ndousse",
+          "given": "Kamal"
+        },
+        {
+          "family": "Olsson",
+          "given": "Catherine"
+        },
+        {
+          "family": "Ringer",
+          "given": "Sam"
+        },
+        {
+          "family": "Amodei",
+          "given": "Dario"
+        },
+        {
+          "family": "Brown",
+          "given": "Tom"
+        },
+        {
+          "family": "Clark",
+          "given": "Jack"
+        },
+        {
+          "family": "Joseph",
+          "given": "Nicholas"
+        },
+        {
+          "family": "Mann",
+          "given": "Ben"
+        },
+        {
+          "family": "McCandlish",
+          "given": "Sam"
+        },
+        {
+          "family": "Olah",
+          "given": "Chris"
+        },
+        {
+          "family": "Kaplan",
+          "given": "Jared"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2207.05221",
+      "DOI": "10.48550/arXiv.2207.05221",
+      "issued": {
+        "date-parts": [
+          [
+            2022
+          ]
+        ]
+      }
+    },
+    {
+      "id": "panickssery2024",
+      "type": "article",
+      "title": "LLM Evaluators Recognize and Favor Their Own Generations",
+      "author": [
+        {
+          "family": "Panickssery",
+          "given": "Arjun"
+        },
+        {
+          "family": "Bowman",
+          "given": "Samuel R."
+        },
+        {
+          "family": "Feng",
+          "given": "Shi"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2404.13076",
+      "DOI": "10.48550/arXiv.2404.13076",
+      "issued": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      }
+    },
+    {
+      "id": "gao2022overopt",
+      "type": "article",
+      "title": "Scaling Laws for Reward Model Overoptimization",
+      "author": [
+        {
+          "family": "Gao",
+          "given": "Leo"
+        },
+        {
+          "family": "Schulman",
+          "given": "John"
+        },
+        {
+          "family": "Hilton",
+          "given": "Jacob"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2210.10760",
+      "DOI": "10.48550/arXiv.2210.10760",
+      "issued": {
+        "date-parts": [
+          [
+            2022
+          ]
+        ]
+      }
+    },
+    {
+      "id": "hendrycks2021",
+      "type": "article",
+      "title": "Measuring Mathematical Problem Solving With the MATH Dataset",
+      "author": [
+        {
+          "family": "Hendrycks",
+          "given": "Dan"
+        },
+        {
+          "family": "Burns",
+          "given": "Collin"
+        },
+        {
+          "family": "Kadavath",
+          "given": "Saurav"
+        },
+        {
+          "family": "Arora",
+          "given": "Akul"
+        },
+        {
+          "family": "Basart",
+          "given": "Steven"
+        },
+        {
+          "family": "Tang",
+          "given": "Eric"
+        },
+        {
+          "family": "Song",
+          "given": "Dawn"
+        },
+        {
+          "family": "Steinhardt",
+          "given": "Jacob"
+        }
+      ],
+      "publisher": "arXiv",
+      "number": "2103.03874",
+      "DOI": "10.48550/arXiv.2103.03874",
+      "issued": {
+        "date-parts": [
+          [
+            2021
+          ]
+        ]
+      }
+    },
+    {
+      "id": "condorcet1785",
+      "type": "book",
+      "language": "fr",
+      "title": "Essai sur l'application de l'analyse à la probabilité des décisions rendues à la pluralité des voix",
+      "author": [
+        {
+          "family": "Condorcet",
+          "given": "Marie Jean Antoine Nicolas de Caritat, marquis de"
+        }
+      ],
+      "publisher": "Imprimerie Royale",
+      "publisher-place": "Paris",
+      "URL": "https://archive.org/details/essaisurlapplica00cond",
+      "issued": {
+        "date-parts": [
+          [
+            1785
+          ]
+        ]
+      }
+    },
+    {
+      "id": "ladha1992",
+      "type": "article-journal",
+      "title": "The Condorcet jury theorem, free speech, and correlated votes",
+      "author": [
+        {
+          "family": "Ladha",
+          "given": "Krishna K."
+        }
+      ],
+      "container-title": "American Journal of Political Science",
+      "volume": "36",
+      "issue": "3",
+      "DOI": "10.2307/2111584",
+      "issued": {
+        "date-parts": [
+          [
+            1992
+          ]
+        ]
+      }
+    },
+    {
+      "id": "boland1989",
+      "type": "article-journal",
+      "title": "Majority systems and the Condorcet jury theorem",
+      "author": [
+        {
+          "family": "Boland",
+          "given": "Philip J."
+        }
+      ],
+      "container-title": "The Statistician",
+      "volume": "38",
+      "issue": "3",
+      "page": "181-189",
+      "DOI": "10.2307/2348873",
+      "issued": {
+        "date-parts": [
+          [
+            1989
+          ]
+        ]
+      }
+    },
+    {
+      "id": "list2001",
+      "type": "article-journal",
+      "title": "Epistemic democracy: Generalizing the Condorcet jury theorem",
+      "author": [
+        {
+          "family": "List",
+          "given": "Christian"
+        },
+        {
+          "family": "Goodin",
+          "given": "Robert E."
+        }
+      ],
+      "container-title": "Journal of Political Philosophy",
+      "volume": "9",
+      "issue": "3",
+      "page": "277-306",
+      "DOI": "10.1111/1467-9760.00128",
+      "issued": {
+        "date-parts": [
+          [
+            2001
+          ]
+        ]
+      }
+    },
+    {
+      "id": "vonneumann1956",
+      "type": "chapter",
+      "title": "Probabilistic logics and the synthesis of reliable organisms from unreliable components",
+      "author": [
+        {
+          "family": "Neumann",
+          "given": "John",
+          "non-dropping-particle": "von"
+        }
+      ],
+      "container-title": "Automata Studies",
+      "collection-title": "Annals of Mathematics Studies",
+      "collection-number": "34",
+      "editor": [
+        {
+          "family": "Shannon",
+          "given": "Claude E."
+        },
+        {
+          "family": "McCarthy",
+          "given": "John"
+        }
+      ],
+      "publisher": "Princeton University Press",
+      "publisher-place": "Princeton",
+      "page": "43-98",
+      "DOI": "10.1515/9781400882618-003",
+      "issued": {
+        "date-parts": [
+          [
+            1956
+          ]
+        ]
+      }
+    },
+    {
+      "id": "moore1956",
+      "type": "article-journal",
+      "title": "Reliable circuits using less reliable relays",
+      "author": [
+        {
+          "family": "Moore",
+          "given": "Edward F."
+        },
+        {
+          "family": "Shannon",
+          "given": "Claude E."
+        }
+      ],
+      "container-title": "Journal of the Franklin Institute",
+      "volume": "262",
+      "issue": "3",
+      "page": "191-208",
+      "DOI": "10.1016/0016-0032(56)90559-2",
+      "issued": {
+        "date-parts": [
+          [
+            1956
+          ]
+        ]
+      }
+    },
+    {
+      "id": "green1966",
+      "type": "book",
+      "title": "Signal Detection Theory and Psychophysics",
+      "author": [
+        {
+          "family": "Green",
+          "given": "David M."
+        },
+        {
+          "family": "Swets",
+          "given": "John A."
+        }
+      ],
+      "publisher": "Wiley",
+      "publisher-place": "New York",
+      "issued": {
+        "date-parts": [
+          [
+            1966
+          ]
+        ]
+      }
+    },
+    {
+      "id": "meehl1955",
+      "type": "article-journal",
+      "title": "Antecedent probability and the efficiency of psychometric signs, patterns, or cutting scores",
+      "author": [
+        {
+          "family": "Meehl",
+          "given": "Paul E."
+        },
+        {
+          "family": "Rosen",
+          "given": "Albert"
+        }
+      ],
+      "container-title": "Psychological Bulletin",
+      "volume": "52",
+      "issue": "3",
+      "page": "194-216",
+      "DOI": "10.1037/h0048070",
+      "issued": {
+        "date-parts": [
+          [
+            1955
+          ]
+        ]
+      }
+    },
+    {
+      "id": "ridout1999",
+      "type": "article-journal",
+      "title": "Estimating intraclass correlation for binary data",
+      "author": [
+        {
+          "family": "Ridout",
+          "given": "Martin S."
+        },
+        {
+          "family": "Demétrio",
+          "given": "Clarice G. B."
+        },
+        {
+          "family": "Firth",
+          "given": "David"
+        }
+      ],
+      "container-title": "Biometrics",
+      "volume": "55",
+      "issue": "1",
+      "page": "137-148",
+      "DOI": "10.1111/j.0006-341X.1999.00137.x",
+      "issued": {
+        "date-parts": [
+          [
+            1999
+          ]
+        ]
+      }
+    },
+    {
+      "id": "sen1985",
+      "type": "book",
+      "title": "Commodities and Capabilities",
+      "author": [
+        {
+          "family": "Sen",
+          "given": "Amartya"
+        }
+      ],
+      "publisher": "North-Holland",
+      "publisher-place": "Amsterdam",
+      "ISBN": "0444877304",
+      "issued": {
+        "date-parts": [
+          [
+            1985
+          ]
+        ]
+      }
+    },
+    {
+      "id": "noy2023",
+      "type": "article-journal",
+      "title": "Experimental evidence on the productivity effects of generative artificial intelligence",
+      "author": [
+        {
+          "family": "Noy",
+          "given": "Shakked"
+        },
+        {
+          "family": "Zhang",
+          "given": "Whitney"
+        }
+      ],
+      "container-title": "Science",
+      "volume": "381",
+      "issue": "6654",
+      "page": "187-192",
+      "DOI": "10.1126/science.adh2586",
+      "issued": {
+        "date-parts": [
+          [
+            2023
+          ]
+        ]
+      }
+    },
+    {
+      "id": "brynjolfsson2025",
+      "type": "article-journal",
+      "title": "Generative AI at work",
+      "author": [
+        {
+          "family": "Brynjolfsson",
+          "given": "Erik"
+        },
+        {
+          "family": "Li",
+          "given": "Danielle"
+        },
+        {
+          "family": "Raymond",
+          "given": "Lindsey"
+        }
+      ],
+      "container-title": "The Quarterly Journal of Economics",
+      "volume": "140",
+      "issue": "2",
+      "page": "889-942",
+      "DOI": "10.1093/qje/qjae044",
+      "issued": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      }
+    },
+    {
+      "id": "dellacqua2023",
+      "type": "report",
+      "title": "Navigating the jagged technological frontier: Field experimental evidence of the effects of artificial intelligence on knowledge worker productivity and quality",
+      "author": [
+        {
+          "family": "Dell'Acqua",
+          "given": "Fabrizio"
+        },
+        {
+          "family": "McFowland",
+          "given": "Edward",
+          "suffix": "III"
+        },
+        {
+          "family": "Mollick",
+          "given": "Ethan R."
+        },
+        {
+          "family": "Lifshitz-Assaf",
+          "given": "Hila"
+        },
+        {
+          "family": "Kellogg",
+          "given": "Katherine"
+        },
+        {
+          "family": "Rajendran",
+          "given": "Saran"
+        },
+        {
+          "family": "Krayer",
+          "given": "Lisa"
+        },
+        {
+          "family": "Candelon",
+          "given": "François"
+        },
+        {
+          "family": "Lakhani",
+          "given": "Karim R."
+        }
+      ],
+      "publisher": "SSRN",
+      "genre": "Working paper",
+      "DOI": "10.2139/ssrn.4573321",
+      "issued": {
+        "date-parts": [
+          [
+            2023
+          ]
+        ]
+      }
+    },
+    {
+      "id": "anderson2023",
+      "type": "article-journal",
+      "title": "Reimagining educational linguistics: A post-competence perspective",
+      "author": [
+        {
+          "family": "Anderson",
+          "given": "Jason"
+        }
+      ],
+      "container-title": "Educational Linguistics",
+      "volume": "3",
+      "issue": "2",
+      "page": "258-285",
+      "DOI": "10.1515/eduling-2023-0009",
+      "issued": {
+        "date-parts": [
+          [
+            2023
+          ]
+        ]
+      }
+    }
+  ]

@@ -1,0 +1,11 @@
+{
+ "note": "Reference answers corrected after inspection. Each correction is checked by exact computation in tests/test_keys.py. run_all.py analyses the corrected key and also reports the headline quantities under the original key.",
+ "corrections": [
+  {
+   "item_id": "h09",
+   "omni_math_row_answer": "2009",
+   "corrected_answer": -2009,
+   "reason": "The reference solution unwinds x_n = ((n - 2010)/n) x_{n-1} as (-1)^n 2009 C(2008, n); the recursion gives (-1)^n 2009 C(2009, n) (x_1 = -2009^2). The requested sum is then 2009 (1 - 2)^2009 = -2009."
+  }
+ ]
+}

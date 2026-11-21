@@ -1,0 +1,34 @@
+slug: post-competence
+web_slug: post-competence
+title: 'Post-Competence: Verification Precision Caps the Reliability Compute Buys'
+header: POST-COMPETENCE
+created: 2026-11
+date: November 2026
+paper_dir: paper
+has_simulation: true
+genre: formal result with proofs and a measurement on frozen language-model outputs
+claims_target: claims.yaml
+repo: git@github.com:piatra-institute/papers-post-competence.git
+github: https://github.com/piatra-institute/papers-post-competence
+status: built
+coined_terms:
+- post-competence
+- precision ceiling
+- novice sufficiency
+abstract: A person who cannot do a task can still invoke a machine system many times, and the claim that
+  power therefore equals compute holds only if they can tell good outputs from bad. This paper models
+  an invoker who resamples a system with per-attempt success probability $p$ and accepts outputs with
+  a check of sensitivity $s$ and false-acceptance rate $f$. Accepting the first output that passes converges
+  to the check's precision, $sp/[sp+f(1-p)]$, a limit already known for verifier-based selection. The
+  paper shows that a target reliability is reachable with finite compute exactly when $s/f$ exceeds the
+  target's odds divided by the generator's odds, and gives the attempts required. Across tasks, resampling
+  falls short of a check's pooled precision by the covariance between per-task acceptance and precision,
+  divided by mean acceptance. With a common check, the population ceiling lies between single-attempt
+  accuracy and the pooled formula and falls as attempt outcomes correlate within tasks. Re-checking a
+  candidate helps only if verdicts are independent. On 40 olympiad problems with 6 attempts each, a small
+  current model was right on 88% of attempts. Its own verdicts accepted 41% of wrong attempts, mostly
+  its repeated errors, and capped resampling at 92%. A stronger model as checker reached 94%, and a perfect
+  check 95%, limited by 2 items the model never solved. Pooled precision overstated what resampling reached
+  by up to 5 points. With 40 items the differences between checks are not resolved from zero, and only
+  one generator in one domain was measured.
+checks: 2026-11
